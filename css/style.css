@@ -1,0 +1,844 @@
+@charset "UTF-8";
+/* Radius & stíny */
+/*pozadí a H1*/
+/**/
+/**/
+/* hlavní text */
+/* tmavě zelená – spodní část boxu pro blog a odkazy na více z článku v blogu */
+/* žlutá - myšl. mapa a odkazy v blogu */
+/*mechově zelená – pro myšlenkovou mapu*/
+/*nadpis H3*/
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+p {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0 0 0.9rem;
+  color: #22282B;
+  font-size: clamp(1rem, 1.9vw, 1.05rem);
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #F3ECE2;
+  color: #22282B;
+  font-family: "Source Sans 3", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.base__margin {
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.page {
+  margin: 0 20px;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .page {
+    margin: 0 80px;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .page {
+    margin: 0 180px;
+  }
+}
+
+h1, h2, h3 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  color: #22282B;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+}
+
+main.page > section {
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.poetry__line {
+  font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.poetry {
+  background: transparent;
+  border-left: 3px solid #7A6247;
+  padding-left: 1.1rem;
+  margin-left: 0;
+}
+
+/* ===========================
+   Intro blok (hero)
+   =========================== */
+.intro-about {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: clamp(2rem, 3vw, 2.5rem);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  margin-top: clamp(2rem, 8vw, 5rem);
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.intro-about__text {
+  max-width: 42rem;
+}
+
+/* Nadpis */
+.intro-about__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: #4B3C29;
+  margin-bottom: 0.9rem;
+}
+
+/* Úvodní věta (lehce zvýrazněná) */
+.intro-about__lead {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  color: #4B3C29;
+  max-width: 40rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.05rem, 1.9vw, 1.1rem);
+}
+
+/* Delší vysvětlující odstavec */
+.intro-about__body {
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  max-width: 40rem;
+  font-size: clamp(1rem, 1.9vw, 1.05rem);
+  line-height: 1.7;
+}
+
+/* ===========================
+   Sekce: Témata (topics)
+   =========================== */
+.topics {
+  margin-top: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  background: rgb(245.9853658537, 240.7268292683, 233.2146341463);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  border-radius: 1.25rem;
+}
+
+.topics__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  color: #4B3C29;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid pro karty */
+.topics__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .topics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Jednotlivé karty témat */
+.topics__item {
+  background: #FFFFFF;
+  border-radius: 0.75rem;
+  padding: 1.4rem 1.5rem 1.3rem;
+  border: 1px solid #D9CDBE;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.topics__item-title {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.1vw, 1.25rem);
+  color: #4B3C29;
+  margin-bottom: 0.5rem;
+}
+
+.topics__item-text {
+  margin-bottom: 0.4rem;
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+/* Shrnutí pod gridem */
+.topics__question {
+  margin-top: 2rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
+  color: #4B3C29;
+  margin-bottom: 0.5rem;
+}
+
+.topics__summary {
+  margin-top: 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+  max-width: 42rem;
+}
+
+/* ===========================
+   Sekce: Ne je cesta... (tmavá varianta)
+   =========================== */
+.ne-path {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(4rem, 8.5vw, 6.5rem);
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+  background: rgb(58.5129310345, 46.8103448276, 31.9870689655);
+  border-radius: 1.25rem;
+  color: #F3ECE2;
+}
+
+/* Nadpis */
+.ne-path__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+  text-align: center;
+  margin: 0 0 1.8rem;
+  color: #F3ECE2;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Zlatá linka pod nadpisem */
+.ne-path__title::after {
+  content: "";
+  display: block;
+  width: 3.7rem;
+  height: 2px;
+  background: #E0B11F;
+  margin: 0.75rem auto 0;
+}
+
+/* Seznam */
+.ne-path__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ne-path__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    row-gap: 1.2rem;
+  }
+}
+/* Položka */
+.ne-path__item {
+  position: relative;
+  padding-left: 1.6rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1rem, 1.9vw, 1.1rem);
+  line-height: 1.7;
+  color: #F3ECE2;
+}
+
+/* Zlatá tečka jako bullet */
+.ne-path__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #E0B11F;
+}
+
+/* zvýrazněná část */
+.ne-path__item-strong {
+  font-weight: 600;
+  color: rgb(231.44, 195.72, 84.76);
+}
+
+/* závěrečná otázka */
+.ne-path__question {
+  margin-top: 2.2rem;
+  text-align: center;
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  color: #F3ECE2;
+  opacity: 0.9;
+}
+
+.cooperation {
+  margin-top: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  max-width: 60rem;
+  line-height: 1.65;
+}
+
+.cooperation__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: #4B3C29;
+  margin-bottom: 1.5rem;
+}
+
+.cooperation__intro {
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+/* Bloky uvnitř sekce */
+.cooperation__block {
+  background: #FFFFFF;
+  border: 1px solid #D9CDBE;
+  border-radius: 0.75rem;
+  padding: 1.4rem 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.cooperation__block-title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
+  font-weight: 600;
+  color: #7A6247;
+  margin: 0 0 0.7rem;
+}
+
+.cooperation__block-text {
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  margin: 0 0 0.6rem;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+.cooperation__link {
+  color: #4B3C29;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.cooperation__link:hover {
+  color: #E0B11F;
+}
+
+/* poslední blok – maličko míň mezery dolů, pokud chceš */
+.cooperation__block:last-of-type {
+  margin-bottom: 0;
+}
+
+/* CTA sekce */
+.cta {
+  background: #FFFFFF;
+  border-block: #D9CDBE;
+}
+
+.cta__content {
+  max-width: 42rem;
+}
+
+.cta__title {
+  color: #4B3C29;
+  font-size: clamp(1.6rem, 2.8vw, 2rem);
+}
+
+.cta__text {
+  color: #22282B;
+  margin-bottom: 1.25rem;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* CTA pod textem v intru */
+.intro-about__cta {
+  margin-top: 1.75rem;
+}
+
+.intro-about__cta-button {
+  border-color: #E0B11F;
+  color: #E0B11F;
+}
+.intro-about__cta-button:hover {
+  background: rgba(224, 177, 31, 0.08);
+}
+
+/* Tlačítka */
+.button, .button--ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+
+.button--ghost.intro-about__cta-button {
+  color: #E0B11F;
+  border-color: #E0B11F;
+}
+.button--ghost.intro-about__cta-button:hover {
+  background: rgba(224, 177, 31, 0.1);
+}
+
+.button--ghost {
+  background: transparent;
+  color: #4B3C29;
+  border: 1px solid #4B3C29;
+}
+
+.button--ghost:hover {
+  background: #F3ECE2;
+}
+
+/* PRIMÁRNÍ CTA */
+.button--primary {
+  background: #E0B11F;
+  color: #22282B;
+}
+
+.button--primary:hover {
+  background: #4B3C29;
+  color: #FFFFFF;
+}
+
+/* SEKUNDÁRNÍ CTA */
+.button--secondary {
+  background: transparent;
+  color: #4B3C29;
+  border-color: #4B3C29;
+}
+
+.button--secondary:hover {
+  background: #F3ECE2;
+}
+
+.button--secondary {
+  background: transparent;
+  color: #4B3C29;
+  border: 2px solid #4B3C29;
+  margin-left: 0;
+}
+@media (min-width: 480px) {
+  .button--secondary {
+    margin-left: 1rem;
+  }
+}
+.button--secondary:hover {
+  background: #4B3C29;
+  color: #fff;
+}
+
+/* ===========================
+   Kontaktní sekce (světlá)
+   =========================== */
+.contact {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.contact__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: #4B3C29;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.contact__info {
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+  line-height: 1.7;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.contact__name {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.contact__line {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.contact__link {
+  color: #7A6247;
+  text-decoration: none;
+}
+.contact__link:hover {
+  text-decoration: underline;
+}
+
+.contact__social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact__social-link {
+  color: #7A6247;
+  text-decoration: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.95rem;
+}
+.contact__social-link:hover {
+  text-decoration: underline;
+}
+
+.contact__note {
+  margin-top: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+  text-align: center;
+}
+
+:root {
+  --nav-h: 64px;
+}
+
+header {
+  margin: 0;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 3;
+}
+
+/* BLOK S TEXTEM */
+.hero__text {
+  position: absolute;
+  left: 8%;
+  bottom: 12%;
+  max-width: 30rem;
+  z-index: 5;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* menší „úvodní“ věta */
+.hero__kicker {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 3.2vw, 2.1rem);
+  margin: 0 0 0.75rem;
+  color: #E0B11F;
+}
+
+/* delší vysvětlující text */
+.hero__subtitle {
+  font-family: "Source Sans 3", sans-serif;
+  color: #F3ECE2;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.5); /* průhledné pozadí */
+  z-index: 3000;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+.menu__brand {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: #E0B11F;
+  letter-spacing: 0.5px;
+  margin-right: 20px;
+}
+@media screen and (min-width: 768px) {
+  .menu__brand {
+    margin-right: 80px;
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .menu__brand {
+    margin-right: 180px;
+    font-size: 3rem;
+  }
+}
+
+.menu.stuck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.menu__checkbox {
+  position: absolute;
+  left: -9999px;
+  margin: 0;
+}
+
+.menu__toggler {
+  cursor: pointer;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  margin-left: 20px;
+  color: #E0B11F;
+}
+@media screen and (min-width: 768px) {
+  .menu__toggler {
+    font-size: 23px;
+    margin-left: 80px;
+  }
+}
+
+.menu__list {
+  margin: 0 20px;
+  padding: 0;
+  list-style: none;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .menu__list {
+    margin: 0 80px;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .menu__list {
+    margin: 0 180px;
+  }
+}
+
+.menu__item {
+  border-bottom: 1px solid white;
+}
+
+.loga_site {
+  width: 23px;
+}
+
+#li-logo {
+  padding: 10px;
+}
+@media screen and (min-width: 1250px) {
+  #li-logo {
+    padding: 0;
+  }
+}
+
+.menu__link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #E0B11F;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+@media screen and (min-width: 768px) {
+  .menu__link {
+    font-weight: 500;
+    font-size: 23px;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .menu__link {
+    font-weight: 500;
+    font-size: 25px;
+    padding: 10px 30px;
+  }
+}
+
+.menu__link--active {
+  color: #B85C38;
+}
+
+.menu__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 0.5px;
+}
+
+.menu__checkbox:checked ~ .menu__list {
+  display: block;
+}
+
+@media screen and (min-width: 1250px) {
+  .menu__toggler {
+    display: none;
+  }
+  .menu__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .menu__item {
+    border-bottom: none;
+  }
+}
+/* ===========================
+   Úvodní hodina (formulář)
+   =========================== */
+.intro-session {
+  max-width: 42rem;
+  margin: 3rem auto;
+}
+
+.intro-session__header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.intro-session__title {
+  font-family: "Libre Baskerville", serif;
+  color: #4B3C29;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin-bottom: 1rem;
+}
+
+.intro-session__text {
+  font-family: "Source Sans 3", sans-serif;
+  color: #22282B;
+  font-size: clamp(1rem, 1.9vw, 1.1rem);
+  line-height: 1.7;
+}
+
+/* Form */
+.intro-session__form {
+  background: #FFFFFF;
+  padding: clamp(2rem, 4vw, 2.5rem);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form__group {
+  margin-bottom: 1.5rem;
+}
+
+.form__label {
+  display: block;
+  font-family: "Source Sans 3", sans-serif;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #4B3C29;
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #D9CDBE;
+  border-radius: 0.75rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1rem;
+  background: white;
+}
+
+.form__textarea {
+  resize: vertical;
+}
+
+/* GDPR */
+.form__group--gdpr {
+  margin-top: 2rem;
+}
+
+.form__gdpr {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.form__gdpr-note {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* ===========================
+   Footer (minimalistický)
+   =========================== */
+.footer {
+  padding-top: clamp(1rem, 3vw, 1.5rem);
+  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+  border-top: 1px solid #D9CDBE;
+  text-align: center;
+}
+
+.footer__copy {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.9rem;
+  color: #22282B;
+  opacity: 0.8;
+}/*# sourceMappingURL=style.css.map */

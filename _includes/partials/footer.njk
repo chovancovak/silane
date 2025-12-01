@@ -1,0 +1,48 @@
+ <footer class="footer base__margin">
+            <p class="footer__copy">© 2025 Síla ne</p>
+</footer>
+
+<script>
+        const nav  = document.getElementById('nav-menu');
+        const hero = document.querySelector('.hero');
+        const img  = hero ? hero.querySelector('img') : null;
+    
+    function setNavHeightVar() {
+        if (nav) {
+        document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        }
+    }
+    
+
+        function togglePastHero() {
+            if (!nav || !hero) return;
+            const heroRectDocTop = hero.getBoundingClientRect().top + window.pageYOffset;
+            const heroBottom = heroRectDocTop + hero.offsetHeight;
+            const y = window.pageYOffset || document.documentElement.scrollTop;
+            if (y >= heroBottom) {
+            nav.classList.add('past-hero');
+            } else {
+            nav.classList.remove('past-hero');
+            }
+        }
+
+        function onResizeOrLoad() {
+            setNavHeightVar();
+            togglePastHero();
+        }
+
+        // init
+        onResizeOrLoad();
+        window.addEventListener('resize', onResizeOrLoad);
+        window.addEventListener('scroll', togglePastHero, { passive: true });
+
+        if (img) {
+            if (img.complete) onResizeOrLoad();
+            else img.addEventListener('load', onResizeOrLoad);
+        }
+        window.addEventListener('load', onResizeOrLoad);
+</script>
+
+
+
+

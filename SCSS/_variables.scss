@@ -1,0 +1,98 @@
+//barvy
+
+// $color-primary:   #8D7A61; // přírodní hnědobéžová
+// $color-accent:    #D4A017; // zlatá / hořčicová (CTA)
+// $color-dark:      #242D30; // text
+// $color-accent-d:  #5C563E; // tmavší akcent
+// $color-bg-soft:   #F5F2ED; // jemná béžová
+// $color-bg:        #FFFFFF;   /* základní bílá */
+// $color-border-soft:#E3DED6;   /* jemná, decentní linka */
+
+$color-primary:   #7A6247; // výraznější hnědobéžová (může být header / důležité prvky)
+$color-accent:    #E0B11F; // světlejší, jasnější zlatá (CTA, odkazy)
+$color-dark:      #22282B; // o chlup kontrastnější text
+$color-accent-d:  #4B3C29; // tmavší akcent na nadpisy, tlačítka
+$color-bg-soft:   #F3ECE2; // o trochu teplejší pozadí stránky
+
+$color-bg:        #FFFFFF; // boxy, poezie
+$color-border-soft: #D9CDBE;
+$color-path-bg: #2C3537; // jemná, ne příliš tvrdá varianta $color-dark
+
+$color-topics-bg: lighten($color-bg-soft, 2%);
+//$color-topics-bg: darken($color-bg-soft, 2%);
+
+
+
+  /* Radius & stíny */
+$radius-md: 0.75rem;
+$radius-lg: 1.25rem;
+$shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
+
+
+$background-c: #F4EFE6; /*pozadí a H1*/
+$primary-c: #D4A017; /**/
+$secondary-c: #556B2F; /**/
+$tertiary-c: #2A2A2A ; /* hlavní text */
+$quaternary-c: #B85C38; /* tmavě zelená – spodní část boxu pro blog a odkazy na více z článku v blogu */
+
+
+$quinary-c: #ECEFA2; /* žlutá - myšl. mapa a odkazy v blogu */
+$senary-c: #849060; /*mechově zelená – pro myšlenkovou mapu*/
+$septenary-c: #4A4146; /*nadpis H3*/
+
+
+
+//pro responzivní web - velikosti pro tablet a PC
+$tablet-size: 768px;
+$PC-size: 1250px;
+
+
+//minimální a maximální šířka stránky
+$min-width:320px;
+$max-width:1700px;
+
+
+//odsazení podle velikosti zobrazení stránky (PC, tablet, mobil)
+$pad-PC: 180px;
+$pad-tablet: 80px;
+$pad-mobile: 20px;
+
+
+//písmo
+$patka: "Libre Baskerville", serif;
+$bezpatka: "Source Sans 3", sans-serif;
+
+
+
+//Použití písma
+// Libre Baskerville: CSS classes
+
+// .libre-baskerville-regular {
+//   font-family: "Libre Baskerville", serif;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// .libre-baskerville-bold {
+//   font-family: "Libre Baskerville", serif;
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+// .libre-baskerville-regular-italic {
+//   font-family: "Libre Baskerville", serif;
+//   font-weight: 400;
+//   font-style: italic;
+// }
+
+
+
+// <weight>: Use a value from 200 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+// .source-sans-3-<uniquifier> {
+//   font-family: "Source Sans 3", sans-serif;
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+// }

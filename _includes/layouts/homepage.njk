@@ -1,0 +1,14 @@
+{% include "partials/head.njk" %}
+
+<body>
+
+  {% include "partials/menu.njk" %}
+  {% include "partials/header.njk" %}
+
+  <main class="page">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

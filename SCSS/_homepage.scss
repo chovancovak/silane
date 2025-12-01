@@ -1,0 +1,497 @@
+main.page > section {
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.poetry__line{
+    font-style: italic;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-family: $bezpatka;
+}
+
+.poetry {
+  background: transparent;
+  border-left: 3px solid $color-primary;
+  padding-left: 1.1rem;
+  margin-left: 0;
+  
+}
+
+/* ===========================
+   Intro blok (hero)
+   =========================== */
+
+.intro-about {
+  background: $color-bg;          // bílá karta na béžovém pozadí
+  border-radius: $radius-lg;
+  padding: clamp(2rem, 3vw, 2.5rem);
+  box-shadow: $shadow-soft;
+  margin-top: clamp(2rem, 8vw, 5rem);    // odstup od headeru
+  margin-bottom: clamp(2rem, 6vw, 4rem); // odstup od další sekce
+}
+
+.intro-about__text {
+  max-width: 42rem;
+}
+
+/* Nadpis */
+.intro-about__title {
+  font-family: $patka;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: $color-accent-d;
+  margin-bottom: 0.9rem;
+}
+
+/* Úvodní věta (lehce zvýrazněná) */
+.intro-about__lead {
+  font-family: $bezpatka;
+  font-weight: 600;
+  color: $color-accent-d;
+  max-width: 40rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.05rem, 1.9vw, 1.1rem);
+}
+
+/* Delší vysvětlující odstavec */
+.intro-about__body {
+  font-family: $bezpatka;
+  color: $color-dark;
+  max-width: 40rem;
+  font-size: clamp(1rem, 1.9vw, 1.05rem);
+  line-height: 1.7;
+}
+
+
+
+
+/* ===========================
+   Sekce: Témata (topics)
+   =========================== */
+
+.topics {
+  margin-top: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  background: $color-topics-bg;
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+  border-radius: $radius-lg;
+}
+
+.topics__title {
+  font-family: $patka;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  color: $color-accent-d;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid pro karty */
+.topics__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: $tablet-size) {
+  .topics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Jednotlivé karty témat */
+.topics__item {
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: 1.4rem 1.5rem 1.3rem;
+  border: 1px solid $color-border-soft;
+  box-shadow: $shadow-soft;
+}
+
+.topics__item-title {
+  font-family: $patka;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.1vw, 1.25rem);
+  color: $color-accent-d;
+  margin-bottom: 0.5rem;
+}
+
+.topics__item-text {
+  margin-bottom: 0.4rem;
+  font-family: $bezpatka;
+  color: $color-dark;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+/* Shrnutí pod gridem */
+.topics__question {
+  margin-top: 2rem;
+  font-family: $patka;
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
+  color: $color-accent-d;
+  margin-bottom: 0.5rem;
+}
+
+.topics__summary {
+  margin-top: 0.5rem;
+  font-family: $bezpatka;
+  color: $color-dark;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+  max-width: 42rem;
+}
+
+/* ===========================
+   Sekce: Ne je cesta... (tmavá varianta)
+   =========================== */
+
+.ne-path {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(4rem, 8.5vw, 6.5rem);
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+
+  background: darken($color-accent-d, 5%); 
+  border-radius: $radius-lg;
+
+  color: $color-bg-soft; // světlý text
+}
+
+/* Nadpis */
+.ne-path__title {
+  font-family: $patka;
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+  text-align: center;
+  margin: 0 0 1.8rem;
+
+  color: $color-bg-soft;
+  letter-spacing: 0.5px;
+
+  position: relative;
+}
+
+/* Zlatá linka pod nadpisem */
+.ne-path__title::after {
+  content: "";
+  display: block;
+  width: 3.7rem;
+  height: 2px;
+  background: $color-accent;
+  margin: 0.75rem auto 0;
+}
+
+/* Seznam */
+.ne-path__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: $tablet-size) {
+  .ne-path__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 1.2rem;
+  }
+}
+
+/* Položka */
+.ne-path__item {
+  position: relative;
+  padding-left: 1.6rem;
+
+  font-family: $bezpatka;
+  font-size: clamp(1rem, 1.9vw, 1.1rem);
+  line-height: 1.7;
+  color: $color-bg-soft;
+}
+
+/* Zlatá tečka jako bullet */
+.ne-path__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: $color-accent;
+}
+
+/* zvýrazněná část */
+.ne-path__item-strong {
+  font-weight: 600;
+  color: lighten($color-accent, 12%); // jemnější zlatá
+}
+
+/* závěrečná otázka */
+.ne-path__question {
+  margin-top: 2.2rem;
+  text-align: center;
+
+  font-family: $patka;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+
+  color: $color-bg-soft;
+  opacity: 0.9;
+}
+
+
+
+
+//cooperation sekce
+
+.cooperation {
+  margin-top: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  max-width: 60rem;
+  line-height: 1.65;
+}
+
+.cooperation__title {
+  font-family: $patka;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: $color-accent-d;
+  margin-bottom: 1.5rem;
+}
+
+.cooperation__intro {
+  font-family: $bezpatka;
+  color: $color-dark;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+/* Bloky uvnitř sekce */
+.cooperation__block {
+  background: $color-bg;
+  border: 1px solid $color-border-soft;
+  border-radius: $radius-md;
+  padding: 1.4rem 1.5rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: $shadow-soft;
+}
+
+.cooperation__block-title {
+  font-family: $patka;
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
+  font-weight: 600;
+  color: $color-primary;
+  margin: 0 0 0.7rem;
+}
+
+.cooperation__block-text {
+  font-family: $bezpatka;
+  color: $color-dark;
+  margin: 0 0 0.6rem;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+}
+
+.cooperation__link {
+  color: $color-accent-d;
+  text-decoration: underline;
+  font-weight: 500;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+/* poslední blok – maličko míň mezery dolů, pokud chceš */
+.cooperation__block:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/* CTA sekce */
+.cta {
+  background: $color-bg;
+  border-block: $color-border-soft;
+}
+
+.cta__content {
+  max-width: 42rem;
+}
+
+.cta__title {
+  color: $color-accent-d;
+  font-size: clamp(1.6rem, 2.8vw, 2rem);
+}
+
+.cta__text {
+  color: $color-dark;
+  margin-bottom: 1.25rem;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* CTA pod textem v intru */
+.intro-about__cta {
+  margin-top: 1.75rem;
+}
+
+.intro-about__cta-button {
+  border-color: $color-accent;
+  color: $color-accent;
+
+  &:hover {
+    background: rgba($color-accent, 0.08);
+  }
+}
+
+/* Tlačítka */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+
+.button--ghost.intro-about__cta-button {
+  color: $color-accent;
+  border-color: $color-accent;
+
+  &:hover {
+    background: rgba($color-accent, 0.1);
+  }
+}
+
+.button--ghost {
+  @extend .button; // pokud používáš, jinak jen stejné vlastnosti jako .button
+  background: transparent;
+  color: $color-accent-d;
+  border: 1px solid $color-accent-d;
+}
+
+.button--ghost:hover {
+  background: $color-bg-soft;
+}
+
+/* PRIMÁRNÍ CTA */
+.button--primary {
+  background: $color-accent;
+  color: $color-dark;
+}
+
+.button--primary:hover {
+  background: $color-accent-d;
+  color: $color-bg;
+}
+
+/* SEKUNDÁRNÍ CTA */
+.button--secondary {
+  background: transparent;
+  color: $color-accent-d;
+  border-color: $color-accent-d;
+}
+
+.button--secondary:hover {
+  background: $color-bg-soft;
+}
+
+.button--secondary {
+  background: transparent;
+  color: $color-accent-d;
+  border: 2px solid $color-accent-d;
+  margin-left: 0;
+
+  @media (min-width: 480px) {
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    background: $color-accent-d;
+    color: #fff;
+  }
+}
+
+/* ===========================
+   Kontaktní sekce (světlá)
+   =========================== */
+
+.contact {
+  background: $color-bg;       // čistý, lehký panel
+  border-radius: $radius-lg;
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: $shadow-soft;
+
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.contact__title {
+  font-family: $patka;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: $color-accent-d;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.contact__info {
+  font-family: $bezpatka;
+  color: $color-dark;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+  line-height: 1.7;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.contact__name {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.contact__line {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.contact__link {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.contact__social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact__social-link {
+  color: $color-primary;
+  text-decoration: none;
+  font-family: $bezpatka;
+  font-size: 0.95rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+.contact__note {
+  margin-top: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+  text-align: center;
+}
