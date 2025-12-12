@@ -205,17 +205,18 @@ main.page > section {
   color: $color-bg-soft;
 }
 
-/* Zlatá tečka jako bullet */
+/* Zlatá šipka */
 .ne-path__item::before {
-  content: "";
+  content: "›";
   position: absolute;
   left: 0;
-  top: 0.6rem;
+  top: -0.15rem;
 
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 999px;
-  background: $color-accent;
+  font-family: $patka;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $color-accent;
+  line-height: 1;
 }
 
 /* zvýrazněná část */
@@ -235,6 +236,19 @@ main.page > section {
 
   color: $color-bg-soft;
   opacity: 0.9;
+}
+
+// cesta ne cta
+
+.ne-path__cta {
+  margin-top: 2rem;
+  text-align: center;
+
+  .button {
+    padding: 0.75rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 999px;
+  }
 }
 
 
@@ -298,6 +312,61 @@ main.page > section {
   }
 }
 
+.homepage-quote {
+  font-family: $bezpatka;
+
+  &__inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $color-primary;
+    margin: 0 0 0.75rem;
+  }
+
+  &__box {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 1.5rem;
+    padding: 1.75rem 1.75rem 1.5rem;
+    margin: 0;
+  }
+
+  &__text {
+    position: relative;
+    margin: 0 0 1rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+
+    &::before {
+      content: "„";
+      position: absolute;
+      left: -0.25rem;
+      top: -1.2rem;
+      font-family: $patka;
+      font-size: 2.5rem;
+      color: $color-primary;
+      opacity: 0.25;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__author {
+    font-family: $patka;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: $color-primary;
+  }
+}
+
+
+
 /* poslední blok – maličko míň mezery dolů, pokud chceš */
 .cooperation__block:last-of-type {
   margin-bottom: 0;
@@ -331,21 +400,15 @@ main.page > section {
 }
 
 /* CTA pod textem v intru */
-.intro-about__cta {
-  margin-top: 1.75rem;
-}
-
-.intro-about__cta-button {
-  border-color: $color-accent;
-  color: $color-accent;
-
-  &:hover {
-    background: rgba($color-accent, 0.08);
+  .intro-about__cta {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
-}
+
 
 /* Tlačítka */
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -360,49 +423,21 @@ main.page > section {
   transition: all 0.15s ease-out;
 }
 
-.button--ghost.intro-about__cta-button {
-  color: $color-accent;
-  border-color: $color-accent;
+/* PRIMÁRNÍ CTA */
+.button--primary {
+  @extend .button;
+  background: $color-accent;
+  color: $color-dark;
 
   &:hover {
-    background: rgba($color-accent, 0.1);
+    background: $color-accent-d;
+    color: $color-bg;
   }
 }
 
-.button--ghost {
-  @extend .button; // pokud používáš, jinak jen stejné vlastnosti jako .button
-  background: transparent;
-  color: $color-accent-d;
-  border: 1px solid $color-accent-d;
-}
-
-.button--ghost:hover {
-  background: $color-bg-soft;
-}
-
-/* PRIMÁRNÍ CTA */
-.button--primary {
-  background: $color-accent;
-  color: $color-dark;
-}
-
-.button--primary:hover {
-  background: $color-accent-d;
-  color: $color-bg;
-}
-
-/* SEKUNDÁRNÍ CTA */
+/* SEKUNDÁRNÍ CTA – outline varianta */
 .button--secondary {
-  background: transparent;
-  color: $color-accent-d;
-  border-color: $color-accent-d;
-}
-
-.button--secondary:hover {
-  background: $color-bg-soft;
-}
-
-.button--secondary {
+  @extend .button;
   background: transparent;
   color: $color-accent-d;
   border: 2px solid $color-accent-d;
@@ -418,12 +453,25 @@ main.page > section {
   }
 }
 
+/* GHOST varianta, pokud ji chceš používat jinde */
+.button--ghost {
+  @extend .button;
+  background: transparent;
+  color: $color-accent-d;
+  border: 1px solid $color-accent-d;
+
+  &:hover {
+    background: $color-bg-soft;
+  }
+}
+
+
 /* ===========================
    Kontaktní sekce (světlá)
    =========================== */
 
 .contact {
-  background: $color-bg;       // čistý, lehký panel
+  background:  $color-topics-bg;       // čistý, lehký panel
   border-radius: $radius-lg;
   padding: clamp(2rem, 4vw, 3rem);
   box-shadow: $shadow-soft;
@@ -494,4 +542,40 @@ main.page > section {
   font-style: italic;
   opacity: 0.9;
   text-align: center;
+}
+
+
+//CTA final
+.homepage-final-cta {
+  background: $color-bg-soft;
+  border-radius: $radius-lg;
+  padding: clamp(2rem, 4vw, 3rem);
+  
+  text-align: center;
+
+  &__inner {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $patka;
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    color: $color-accent-d;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    font-family: $bezpatka;
+    font-size: clamp(1rem, 1.8vw, 1.05rem);
+    color: $color-dark;
+    margin-bottom: 1.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
 }

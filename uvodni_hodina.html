@@ -13,48 +13,54 @@ layout: layouts/page.njk
   </section>
 
 
-  <form class="intro-session__form" action="/odeslano" method="post">
+  <form 
+  class="intro-session__form"
+  name="uvodni-hodina"
+  method="POST"
+  action="/odeslano"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
 
-    <div class="form__group">
-      <label for="name" class="form__label">Jméno *</label>
-      <input type="text" id="name" name="name" class="form__input" required>
-    </div>
+  <!-- Honeypot proti spamu -->
+  <input type="hidden" name="form-name" value="uvodni-hodina">
+  <p class="hidden">
+    <label>Nevyplňovat: <input name="bot-field" /></label>
+  </p>
 
-    <div class="form__group">
-      <label for="email" class="form__label">E-mail *</label>
-      <input type="email" id="email" name="email" class="form__input" required>
-    </div>
+  <div class="form__group">
+    <label for="name" class="form__label">Jméno *</label>
+    <input type="text" id="name" name="name" class="form__input" required>
+  </div>
 
-    <!-- <div class="form__group">
-      <label for="time" class="form__label">Kdy je pro Vás nejlepší čas, abych se ozvala?</label>
-      <select id="time" name="time" class="form__input">
-        <option value="">Vyberte…</option>
-        <option value="ráno">Ráno</option>
-        <option value="odpoledne">Odpoledne</option>
-        <option value="podvečer">Podvečer</option>
-      </select>
-    </div> -->
+  <div class="form__group">
+    <label for="phone" class="form__label">Telefon *</label>
+    <input 
+      type="tel" 
+      id="phone" 
+      name="phone" 
+      class="form__input" 
+      required
+      pattern="^[0-9 +()-]{9,}$"
+      placeholder="+420 123 456 789"
+    >
+  </div>
 
-    <div class="form__group">
-      <label for="message" class="form__label">S čím chcete aktuálně pracovat? (nepovinné)</label>
-      <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
-    </div>
+  <div class="form__group form__group--gdpr">
+    <label class="form__gdpr">
+      <input type="checkbox" required>
+      Souhlasím se zpracováním osobních údajů pro účely sjednání úvodní hodiny.
+    </label>
+    <p class="form__gdpr-note">
+      Vaše osobní údaje zpracovávám pouze já. Slouží výhradně k tomu, abych Vás mohla kontaktovat.
+      Nikomu je nepředávám a nevyužívám je k žádným dalším účelům.
+    </p>
+  </div>
 
-    <div class="form__group form__group--gdpr">
-      <label class="form__gdpr">
-        <input type="checkbox" required>
-        Souhlasím se zpracováním osobních údajů pro účely sjednání úvodní hodiny.
-      </label>
-      <p class="form__gdpr-note">
-        Vaše osobní údaje zpracovávám pouze já. Slouží výhradně k tomu, abych Vás mohla kontaktovat.
-        Nikomu je nepředávám a nevyužívám je k žádným dalším účelům.
-      </p>
-    </div>
+  <button type="submit" class="button button--primary">
+    Odeslat
+  </button>
 
-    <button type="submit" class="button button--primary">
-      Odeslat 
-    </button>
-
-  </form>
+</form>
 
 </div>

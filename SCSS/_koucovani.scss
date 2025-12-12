@@ -1,0 +1,304 @@
+.coaching {
+  padding: 4rem 0;
+  font-family: $bezpatka;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+
+  &__inner {
+    // Pokud máš globální .container, klidně ji použij místo toho
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  &__intro {
+    text-align: left;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+  }
+
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__title {
+    font-family: $patka;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.9rem;
+    }
+  }
+
+  &__lead {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__block {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.75rem 1.75rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+
+    h2 {
+      font-family: $patka;
+      font-size: 1.3rem;
+      margin-bottom: 1.1rem;
+    }
+
+    p {
+      margin-bottom: 0.9rem;
+    }
+
+    &--what {
+      border-top: 3px solid $color-primary;
+    }
+
+    &--not {
+      border-top: 3px solid rgba(0, 0, 0, 0.08);
+    }
+
+    &--with-me {
+      border-top: 3px solid rgba(0, 0, 0, 0.08);
+    }
+
+    &--process {
+      border-top: 3px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__list {
+    margin: 0 0 1rem 0;
+    padding-left: 1.2rem;
+    font-size: 0.98rem;
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    // &--bullets {
+    //   li::marker {
+    //     // volitelně můžeš nastavit barvu přes list-style-image, tady nechávám výchozí
+    //   }
+    // }
+  }
+
+  &__note {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  &__steps {
+    list-style: none;
+    counter-reset: step-counter;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 1.3rem;
+
+      &::before {
+        counter-increment: step-counter;
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0.1rem;
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 999px;
+        border: 1px solid $color-primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+    }
+  }
+
+
+  // recenze
+  &__recenze {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__recenze-heading {
+    font-family: $patka;
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    margin: 0 0 2rem;
+  }
+
+  &__recenze-list {
+    display: grid;
+    gap: 1rem;
+
+    // tablet: 2 sloupce
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    // větší desktop: 3 sloupce
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__recenze-item {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 1.5rem;
+    padding: 1.75rem 1.75rem 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__recenze-text {
+    position: relative;
+    margin: 0 0 1.5rem;
+    font-family: $bezpatka;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    &::before {
+      content: "„";
+      position: absolute;
+      left: -0.25rem;
+      top: -1.1rem;
+      font-family: $patka;
+      font-size: 2.5rem;
+      color: $color-primary;
+      opacity: 0.3;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__recenze-author {
+    font-family: $patka;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+    &__recenze-actions {
+    margin-top: 2.5rem;
+    text-align: center;
+
+    .btn {
+      padding: 0.75rem 1.6rem;
+      font-size: 0.95rem;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: #fff;
+
+      &:hover {
+        background: lighten($color-primary, 42%);
+        border-color: lighten($color-primary, 35%);
+      }
+    }
+  }
+
+
+//cta
+
+  &__cta {
+    padding: 2.5rem 0 0;
+
+    &-inner {
+      background: darken($color-bg, 4%);
+      border-radius: 1.25rem;
+      padding: 2.2rem 2rem;
+      text-align: center;
+
+      @media (max-width: 600px) {
+        padding: 1.75rem 1.4rem;
+      }
+
+      h2 {
+        font-family: $patka;
+        font-size: 1.5rem;
+        margin-bottom: 0.9rem;
+      }
+
+      p {
+        max-width: 620px;
+        margin: 0 auto 1.6rem auto;
+      }
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+  }
+}
+
+// Základní tlačítka – pokud už na webu máš vlastní .btn, klidně to slouč
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-family: $bezpatka;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background-color 0.12s ease-out;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: #fff;
+    border-color: $color-primary;
+  }
+
+  &--ghost {
+    background-color: #fff;
+    color: $color-primary;
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+}

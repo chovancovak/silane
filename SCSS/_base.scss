@@ -1,9 +1,26 @@
 *, :after, :before { box-sizing: border-box; }
  
- //O písmu dole
+
+.hidden {
+  display: none !important;
+}
+
+//O písmu dole
+
 
 .nowrap{
     white-space: nowrap;
+}
+
+//dvě následující třídy jsou tu pro to, aby se mi na podstránkách nedávalo menu nad obsah, jako je to tomu s hero picture
+.subpage header.nav {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.subpage main {
+  padding-top: 6rem;
 }
 
 p{
@@ -16,6 +33,7 @@ p{
 img{
     width: 100%;
 }
+
 body{
     margin: 0;
     background-color: $color-bg-soft;

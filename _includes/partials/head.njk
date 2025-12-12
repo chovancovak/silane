@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Síla ne</title>
+        
+        <title>{% if title %}{{ title }} | Síla ne{% else %}Síla ne{% endif %}</title>
+        
+        
         <!-- Open Graph -->
         <meta property="og:title" content="Síla ne – prostor žít jednodušeji, klidněji a víc podle sebe">
         <meta property="og:description" content="Nepomáhám dělat toho víc — ale míň. Pomáhám lidem zpomalit, nadechnout se a najít prostor pro sebe.">
-        <meta property="og:image" content="/img/og-sila-ne.jpg">
+        <meta property="og:image" content="https://silane.cz/img/og-sila-ne.jpg">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://silane.cz">
 
@@ -27,6 +30,8 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
         <link rel="icon" type="image/png" sizes="512x512" href="/img/favicon-512.png">
     
+        <link rel="canonical" href="https://silane.cz">
+
     </head>
     
-    <body>
+    <body class="subpage">
