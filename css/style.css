@@ -627,49 +627,65 @@ header {
   overflow: hidden;
 }
 
-.hero::after {
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ztmavení spodku pro čitelnost */
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.6) 100%);
-  z-index: 3;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.65) 100%);
+  z-index: 2;
+}
+
+/* jemný lokální "spotlight" jen pod textem */
+.hero__text::before {
+  content: "";
+  position: absolute;
+  inset: -1.25rem -1.5rem -1rem -1.5rem;
+  background: radial-gradient(circle at 30% 70%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  border-radius: 1.25rem;
 }
 
 /* BLOK S TEXTEM */
 .hero__text {
   position: absolute;
-  left: 8%;
-  bottom: 12%;
-  max-width: 30rem;
-  z-index: 5;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+  inset: auto auto clamp(1.25rem, 5vw, 3rem) clamp(1.25rem, 6vw, 4rem);
+  max-width: min(30rem, 88vw);
+  z-index: 3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
 }
 
-/* menší „úvodní“ věta */
+/* kicker */
 .hero__kicker {
   font-family: "Libre Baskerville", serif;
   font-style: italic;
-  font-size: clamp(1.1rem, 3.2vw, 2.1rem);
-  margin: 0 0 0.75rem;
+  font-size: clamp(1.15rem, 3.2vw, 2.1rem);
+  margin: 0 0 0.5rem;
   color: #E0B11F;
 }
 
-/* delší vysvětlující text */
+/* subtitle */
 .hero__subtitle {
   font-family: "Source Sans 3", sans-serif;
   color: #F3ECE2;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 450;
+  line-height: 1.5;
   margin: 0;
 }
 
-.hero img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Mobil: dej text víc nahoru, ať neleží úplně na spodním okraji */
+@media (max-width: 480px) {
+  .hero__text {
+    inset: auto auto 10% 6%;
+  }
 }
-
 .menu {
   position: fixed;
   top: 0;
@@ -1189,7 +1205,13 @@ header {
   }
 }
 .proc-silane__header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+}
+.proc-silane .proc-silane__header::after {
+  content: "";
+  display: block;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .proc-silane__kicker {
   font-family: "Libre Baskerville", serif;

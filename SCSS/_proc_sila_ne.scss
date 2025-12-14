@@ -31,7 +31,14 @@
   }
 
   &__header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .proc-silane__header::after {
+    content: "";
+    display: block;
+    margin-top: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
   }
 
   &__kicker {
