@@ -335,27 +335,31 @@ main.page > section {
     margin: 0;
   }
 
-  &__text {
-    position: relative;
-    margin: 0 0 1rem;
-    font-size: 0.98rem;
-    line-height: 1.7;
-
-    &::before {
-      content: "„";
-      position: absolute;
-      left: -0.25rem;
-      top: -1.2rem;
-      font-family: $patka;
-      font-size: 2.5rem;
-      color: $color-primary;
-      opacity: 0.25;
-    }
-
-    p {
+  &__text p {
+      position: relative;
       margin: 0;
+      padding-top: 2.2rem;
+
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
-  }
+
+    &__text p::before {
+      content: "“";
+      position: absolute;
+      top: 0.1rem;
+      left: 0;
+
+      font-family: $patka;
+      font-size: 3.2rem;
+      line-height: 1;
+
+      color: $color-primary;
+      opacity: 0.28;
+
+      pointer-events: none;
+    }
+
 
   &__author {
     font-family: $patka;

@@ -20,7 +20,14 @@
 }
 
 .subpage main {
-  padding-top: 6rem;
+
+  padding-top: 1rem;
+
+  @media screen and (min-width: $tablet-size) {
+        padding-top: 5rem;
+    }
+  
+
 }
 
 p{
@@ -33,6 +40,8 @@ p{
 img{
     width: 100%;
 }
+
+
 
 body{
     margin: 0;
@@ -55,6 +64,8 @@ body{
     margin: 0 $pad-mobile;
     padding: 0;
 
+   
+
 
     @media screen and (min-width: $tablet-size) {
         margin: 0 $pad-tablet;
@@ -64,6 +75,7 @@ body{
         margin: 0 $pad-PC;
     }
 }
+
 
 
 

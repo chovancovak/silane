@@ -1,0 +1,172 @@
+//Menu
+.menu{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba($color-accent-d, 0.8); /* průhledné pozadí */  
+    z-index: 3000;
+    backdrop-filter: blur(4px);
+    transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+
+}
+
+.menu__brand {
+  font-family: $patka;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: $color-accent;
+  letter-spacing: 0.5px;
+  margin-right: $pad-mobile;
+  white-space: nowrap;
+
+  @media screen and (min-width: $tablet-size) {
+        margin-right: $pad-tablet;
+        font-size: 2rem;
+    }
+
+    @media screen and (min-width: $PC-size) {
+        margin-right: $pad-PC;
+        font-size: 3rem;
+    }
+
+  
+
+}
+
+
+.menu.stuck{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
+.menu__checkbox {
+    position: absolute;
+    left: -9999px;
+    margin: 0;
+}
+
+
+.menu__toggler{
+    cursor: pointer;
+    font-family: $bezpatka;
+    font-weight: 500;
+    font-size: 19px;
+    margin-left: $pad-mobile;
+    color: $color-accent;
+
+    @media screen and (min-width: $tablet-size) {
+        font-size: 23px;
+
+        margin-left: $pad-tablet;
+    }
+
+}
+
+
+.menu__list {
+    margin: 0 $pad-mobile;
+
+
+    
+    padding: 0;
+    list-style: none;
+    display: none;
+
+    @media screen and (min-width: $tablet-size) {
+        margin: 0 $pad-tablet;
+    }
+
+    @media screen and (min-width: $PC-size) {
+        margin:  0 0 0 $pad-PC;
+    }
+}
+
+
+.menu__item {
+    border-bottom: 1px solid white;
+}
+
+.loga_site{
+    width: 23px;
+}
+
+#li-logo{
+    padding: 10px;
+
+    @media screen and (min-width: $PC-size) {
+        padding: 0;
+    } 
+}
+
+
+
+
+.menu__link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: $color-accent;
+    font-family: $bezpatka;
+    font-weight: 300;
+    font-size: 20px;
+
+    @media screen and (min-width: $tablet-size) {
+        font-weight: 500;
+        font-size: 23px;
+    }
+    
+    @media screen and (min-width: $PC-size) {
+        font-weight: 500;
+        font-size: 25px;
+        padding: 10px 30px;
+    }
+}
+
+.menu__link--active{
+    color: $quaternary-c;
+}
+
+
+.menu__link:hover {
+    text-decoration:underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 0.5px;
+    
+}
+
+
+.menu__checkbox:checked ~ .menu__list {
+    display: block;
+}
+
+
+
+
+@media screen and (min-width: $menu-desktop) {
+    .menu__toggler{
+        display: none;
+    }
+
+
+    .menu__list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+
+    .menu__item {
+        border-bottom: none;
+    }
+}
+
+

@@ -46,17 +46,27 @@
   &__text {
     position: relative;
     margin: 0 0 1.3rem;
+
+    // prostor pro uvozovku
+    padding-top: 3.3rem;
+
     font-size: 0.95rem;
+    line-height: 1.7;
 
     &::before {
       content: "„";
       position: absolute;
-      left: -0.25rem;
-      top: -1.1rem;
+      top: 0;
+      left: 0;
+
       font-family: $patka;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      line-height: 1;
+
       color: $color-primary;
-      opacity: 0.25;
+      opacity: 0.22;
+
+      pointer-events: none;
     }
 
     p {

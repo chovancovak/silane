@@ -1,12 +1,14 @@
-:root { --nav-h: 64px; } // JS přepíše skutečnou výškou
+/* =========================================================
+   HERO – Varianta A: text "plave" výš (není u spodní hrany)
+   Počítá s fixed menu a CSS proměnnou --nav-h
+   ========================================================= */
 
-// Tohle soužilo k posunutí page o výšku menu
-// .page {
-//   padding-top: var(--nav-h);
-// }
+:root {
+  --nav-h: 64px; // pokud JS přepíše, bude to přesné
+}
 
-header{
-    margin: 0;
+header {
+  margin: 0;
 }
 
 .hero {
@@ -14,35 +16,70 @@ header{
   width: 100%;
   overflow: hidden;
 
-  // když je obrázek responsivní bez pevné výšky, nech to takhle
-  // pokud chceš vždy "cinematic" výšku, přidej:
-  // min-height: clamp(22rem, 55vw, 34rem);
+  /* místo pod fixed menu */
+  padding-top: var(--nav-h);
+
+  /* stabilní výška, aby se to na velkých monitorech nerozjelo */
+  min-height: clamp(22rem, 55vw, 34rem);
+  max-height: calc(100svh - var(--nav-h));
 }
 
+/* Pozadí (foto) jako výřez */
 .hero img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 
-  // pokud nastavíš min-height výše, pak přepni na:
-  // height: 100%;
-  // object-fit: cover;
+  /* jemný default – protože text už není u spodku, není to tak kritické */
+  object-position: 55% 40%;
 }
 
-/* Ztmavení spodku pro čitelnost */
+/* Ztmavení pro čitelnost (jemnější, protože text není dole) */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0) 35%,
-    rgba(0, 0, 0, 0.65) 100%
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.0) 35%,
+    rgba(0, 0, 0, 0.55) 100%
   );
   z-index: 2;
+  pointer-events: none;
 }
 
-/* jemný lokální "spotlight" jen pod textem */
+// /* Plynulý přechod do pozadí stránky (ať nevzniká tvrdý zlom pod hero)
+//    Pokud máš jinou proměnnou pro barvu pozadí pod hero, dosaď ji sem. */
+// .hero::after {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   height: clamp(2.5rem, 6vw, 5rem);
+//   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, $color-bg 100%);
+//   z-index: 2;
+//   pointer-events: none;
+// }
+
+/* TEXT BLOK – plovoucí pozice */
+.hero__text {
+  position: absolute;
+  left: clamp(1.25rem, 6vw, 4rem);
+
+  /* “plave” přibližně v dolní polovině, ale nelepí se na spodek */
+  top: 80%;
+  transform: translateY(-50%);
+
+  max-width: min(32rem, 88vw);
+  z-index: 3;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* Jemný lokální "spotlight" jen pod textem */
 .hero__text::before {
   content: "";
   position: absolute;
@@ -55,17 +92,6 @@ header{
   );
   z-index: -1;
   border-radius: 1.25rem;
-}
-
-/* BLOK S TEXTEM */
-.hero__text {
-  position: absolute;
-  inset: auto auto clamp(1.25rem, 5vw, 3rem) clamp(1.25rem, 6vw, 4rem);
-  max-width: min(30rem, 88vw);
-  z-index: 3;
-
-  // text-shadow bych trochu stáhla, aby to nebylo "glow"
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
 }
 
 /* kicker */
@@ -82,185 +108,57 @@ header{
   font-family: $bezpatka;
   color: $color-bg-soft;
   font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 450; // jemně pevnější, ať to není "poznámka pod čarou"
+  font-weight: 450;
   line-height: 1.5;
   margin: 0;
 }
 
-/* Mobil: dej text víc nahoru, ať neleží úplně na spodním okraji */
 @media (max-width: 480px) {
+
+  /* Hero se chová jako normální sloupec */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--nav-h);
+    max-height: none;
+  }
+
+  /* Fotka nahoře */
+  .hero picture,
+  .hero img {
+    order: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Vypnout všechny overlaye a efekty přes fotku */
+  .hero::before,
+  .hero::after,
+  .hero__text::before {
+    content: none;
+  }
+
+  /* Text POD fotkou – klidný, čitelný */
   .hero__text {
-    inset: auto auto 10% 6%;
+    order: 2;
+    position: static;
+    transform: none;
+    max-width: none;
+
+    padding: 1.25rem $pad-mobile 1.4rem;
+    background: rgba($color-accent-d, 0.75);  // tvoje teplá béžová
+    text-shadow: none;
+  }
+
+ 
+
+  /* Typografie – jen lehké doladění rytmu */
+  .hero__kicker {
+    margin-top: 0;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 0;
   }
 }
-
-//Menu
-.menu{
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    background: rgba(0, 0, 0, 0.5); /* průhledné pozadí */  
-    z-index: 3000;
-    backdrop-filter: blur(4px);
-    transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
-
-}
-
-.menu__brand {
-  font-family: $patka;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.3rem;
-  color: $color-accent;
-  letter-spacing: 0.5px;
-  margin-right: $pad-mobile;
-
-  @media screen and (min-width: $tablet-size) {
-        margin-right: $pad-tablet;
-        font-size: 2rem;
-    }
-
-    @media screen and (min-width: $PC-size) {
-        margin-right: $pad-PC;
-        font-size: 3rem;
-    }
-
-  
-
-}
-
-
-.menu.stuck{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-
-
-.menu__checkbox {
-    position: absolute;
-    left: -9999px;
-    margin: 0;
-}
-
-
-.menu__toggler{
-    cursor: pointer;
-    font-family: $bezpatka;
-    font-weight: 500;
-    font-size: 19px;
-    margin-left: $pad-mobile;
-    color: $color-accent;
-
-    @media screen and (min-width: $tablet-size) {
-        font-size: 23px;
-
-        margin-left: $pad-tablet;
-    }
-
-}
-
-
-.menu__list {
-    margin: 0 $pad-mobile;
-
-
-    
-    padding: 0;
-    list-style: none;
-    display: none;
-
-    @media screen and (min-width: $tablet-size) {
-        margin: 0 $pad-tablet;
-    }
-
-    @media screen and (min-width: $PC-size) {
-        margin: 0 $pad-PC;
-    }
-}
-
-
-.menu__item {
-    border-bottom: 1px solid white;
-}
-
-.loga_site{
-    width: 23px;
-}
-
-#li-logo{
-    padding: 10px;
-
-    @media screen and (min-width: $PC-size) {
-        padding: 0;
-    } 
-}
-
-
-
-
-.menu__link {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: $color-accent;
-    font-family: $bezpatka;
-    font-weight: 300;
-    font-size: 20px;
-
-    @media screen and (min-width: $tablet-size) {
-        font-weight: 500;
-        font-size: 23px;
-    }
-    
-    @media screen and (min-width: $PC-size) {
-        font-weight: 500;
-        font-size: 25px;
-        padding: 10px 30px;
-    }
-}
-
-.menu__link--active{
-    color: $quaternary-c;
-}
-
-
-.menu__link:hover {
-    text-decoration:underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 0.5px;
-    
-}
-
-
-.menu__checkbox:checked ~ .menu__list {
-    display: block;
-}
-
-
-
-
-@media screen and (min-width: $PC-size) {
-    .menu__toggler{
-        display: none;
-    }
-
-
-    .menu__list {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-
-    .menu__item {
-        border-bottom: none;
-    }
-}
-
-

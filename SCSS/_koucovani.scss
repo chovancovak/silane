@@ -185,28 +185,44 @@
     justify-content: space-between;
   }
 
-  &__recenze-text {
+  /* Uvozovky u recenzí – koučování */
+  .coaching__recenze-text {
     position: relative;
-    margin: 0 0 1.5rem;
+    margin: 0 0 0.75rem;
+
+    // prostor pro uvozovku nahoře
+    padding-top: 2.2rem;
+
     font-family: $bezpatka;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
+  }
 
-    &::before {
-      content: "„";
-      position: absolute;
-      left: -0.25rem;
-      top: -1.1rem;
-      font-family: $patka;
-      font-size: 2.5rem;
-      color: $color-primary;
-      opacity: 0.3;
+  .coaching__recenze-text::before {
+    content: "“";
+    position: absolute;
+    top: 0.1rem;
+    left: 0;
+
+    font-family: $patka;
+    font-size: 3.2rem;
+    line-height: 1;
+
+    color: $color-primary;   // nebo $color-accent-d, pokud ladíš s menu
+    opacity: 0.28;
+
+    pointer-events: none;
+  }
+
+    /* ať je vnitřní <p> bez dalších odsazení */
+    .coaching__recenze-text p {
+      margin: 0;
     }
 
     p {
       margin: 0;
     }
-  }
+
 
   &__recenze-author {
     font-family: $patka;
