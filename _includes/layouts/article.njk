@@ -1,0 +1,34 @@
+{% include "partials/head.njk" %}
+
+    {% include "partials/menu.njk" %}
+
+    <main class="article-detail">
+        <header class="article-detail__header">
+            <div class="article-detail__container">
+                <time class="article-detail__date">{{ datum }}</time>
+                <h1 class="article-detail__title">{{ title }}</h1>
+                
+                {% if perex %}
+                    <p class="article-detail__perex">{{ perex }}</p>
+                {% endif %}
+
+                {% if picture %}
+                <figure class="article-detail__figure">
+                    <img src="{{ picture }}" alt="{{ picture_title }}" class="article-detail__img">
+                </figure>
+                {% endif %}
+            </div>
+        </header>
+
+        <section class="article-detail__content">
+            {{ content | safe }}
+        </section>
+
+        <footer class="article-detail__footer">
+            <a href="/blog" class="article-detail__back-link">← Zpět na blog</a>
+        </footer>
+    </main>
+
+    {% include "partials/footer.njk" %}
+
+</body> </html>

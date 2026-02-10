@@ -63,7 +63,55 @@ main.page > section {
 }
 
 
+// Nedělník
 
+.newsletter {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background-color: rgba($color-bg-soft, 0.5);
+  border-radius: $radius-lg;
+
+  &__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    font-family: $patka;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid $color-border-soft;
+    font-family: $bezpatka;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  &__note {
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.8;
+  }
+}
 
 /* ===========================
    Sekce: Témata (topics)

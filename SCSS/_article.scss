@@ -1,0 +1,171 @@
+// Hlavní kontejner celého článku
+.article-detail {
+    max-width: $max-width; 
+    margin: 0 auto;
+    
+    // 1. OPRAVA PROSTORU NA MOBILU:
+    // Přidáme padding ze stran i pro mobily ($pad-mobile)
+    // A zvětšíme horní padding, aby datum nezajíždělo pod menu
+    padding: 3rem $pad-mobile 5rem; 
+    padding-top: 6rem !important;
+
+    @media (min-width: $tablet-size) {
+        // 2. OPRAVA PROSTORU NA TABLETU/PC:
+        // Těch 5rem z base.scss přebijeme něčím velkorysejším (třeba 8rem)
+        padding-top: 8rem !important; 
+        padding-inline: $pad-tablet;
+    }
+
+    @media (min-width: $PC-size) {
+        padding-inline: 0; // Na PC centruje max-width
+        padding-top: 10rem !important; // Ještě víc ticha pro velké obrazovky
+    }
+
+    &__container {
+        max-width: 800px; // Samotný text je užší, aby se dobře četl
+        margin: 0 auto;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: clamp(4rem, 10vw, 6rem);
+    }
+
+    &__date {
+        font-family: $bezpatka;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: $color-primary;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    &__title {
+        font-family: $patka;
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+        color: $color-accent-d;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+    }
+
+    &__perex {
+        font-family: $bezpatka;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        line-height: 1.6;
+        color: $color-dark;
+        font-style: italic;
+        opacity: 0.8;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    &__figure {
+        margin: clamp(3rem, 8vw, 5rem) 0;
+        
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: $radius-lg; // Používáme tvůj větší radius
+            filter: grayscale(10%); // Jemný retro nádech pro klid
+        }
+    }
+
+    // Styl pro samotný vnitřek článku (to, co píšeš v HTML článku)
+    &__content {
+        max-width: 700px;
+        margin: 0 auto;
+        font-family: $bezpatka;
+        font-size: 1.15rem;
+        line-height: 1.85; // Hodně vzduchu mezi řádky
+        color: $color-dark;
+
+        p {
+            margin-bottom: 2.5rem;
+        }
+
+        // Třídy pro formátování uvnitř článku, které jsme definovali minule
+        .article-content__highlight {
+            font-family: $patka;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: $color-accent;
+            text-align: center;
+            margin: 5rem 0;
+            line-height: 1.3;
+            //font-style: italic;
+        }
+
+        .article-content__question {
+            display: block;
+            font-weight: 700;
+            color: $color-accent-d;
+            margin-top: 5rem;
+            margin-bottom: 8rem; // Extrémní ticho pod otázkou pro procítění
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .article-content__thought {
+            border-left: 1px solid $color-border-soft;
+            padding-left: 2rem;
+            margin: 4rem 0;
+            font-style: italic;
+            color: $color-primary;
+        }
+    }
+
+    &__footer {
+        margin-top: 6rem;
+        padding-top: 3rem;
+        border-top: 1px solid $color-border-soft;
+        text-align: center;
+    }
+
+    &__back-link {
+        font-family: $bezpatka;
+        text-decoration: none;
+        color: $color-dark;
+        font-weight: 600;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+
+
+   
+
+}
+
+ .article-cta {
+        margin-top: 5rem;
+        padding: 3rem;
+        background-color: $color-bg-soft; // Jemné béžové/šedé pozadí
+        border-radius: $radius-md;
+        text-align: center;
+        border: 1px solid $color-bg-soft;
+
+        &__text {
+            font-family: $patka;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: $color-accent-d;
+        }
+
+        &__button {
+            display: inline-block;
+            font-family: $bezpatka;
+            text-decoration: none;
+            background-color: $color-primary;
+            color: $color-bg;
+            padding: 1rem 2rem;
+            border-radius: $radius-md;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: $color-accent;
+            }
+        }
+}

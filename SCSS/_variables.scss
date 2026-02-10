@@ -9,7 +9,7 @@
 // $color-border-soft:#E3DED6;   /* jemná, decentní linka */
 
 $color-primary:   #7A6247; // výraznější hnědobéžová (může být header / důležité prvky)
-$color-accent:    #E0B11F; // světlejší, jasnější zlatá (CTA, odkazy)
+$color-accent:    #E0B11F; // světlejší, jasnější zlatá (CTA, odkazy) - #E0B11F
 $color-dark:      #22282B; // o chlup kontrastnější text
 $color-accent-d:  #4B3C29; // tmavší akcent na nadpisy, tlačítka
 $color-bg-soft:   #F3ECE2; // o trochu teplejší pozadí stránky
@@ -23,7 +23,7 @@ $color-topics-bg: lighten($color-bg-soft, 2%);
 
 
 
-  /* Radius & stíny */
+/* Radius & stíny */
 $radius-md: 0.75rem;
 $radius-lg: 1.25rem;
 $shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);

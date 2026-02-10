@@ -1,0 +1,32 @@
+---
+layout: layouts/main.njk
+---
+
+<main class="zapisnik">
+    <header class="zapisnik__header">
+        <h1 class="zapisnik__title">Blog</h1>
+        <p class="zapisnik__intro">Myšlenky o tichu, prostoru a síle říkat ne.</p>
+    </header>
+
+    <div class="zapisnik__list">
+        {% for clanek in collections.clanky | reverse %}
+        <article class="article-card">
+            <div class="article-card__content">
+                <time class="article-card__date">{{ clanek.data.datum }}</time>
+                <h2 class="article-card__title">
+                    <a href="{{ clanek.url }}">{{ clanek.data.title }}</a>
+                </h2>
+                <p class="article-card__perex">
+                    {{ clanek.data.perex }}
+                </p>
+                <a href="{{ clanek.url }}" class="article-card__link">Číst více —</a>
+            </div>
+            {% if clanek.data.picture %}
+            <div class="article-card__image-wrapper">
+                <img src="{{ clanek.data.picture }}" alt="{{ clanek.data.picture_title }}" class="article-card__img">
+            </div>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+</main>

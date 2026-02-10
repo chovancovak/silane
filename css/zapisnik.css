@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/* Radius & stíny */
+/*pozadí a H1*/
+/**/
+/**/
+/* hlavní text */
+/* tmavě zelená – spodní část boxu pro blog a odkazy na více z článku v blogu */
+/* žlutá - myšl. mapa a odkazy v blogu */
+/*mechově zelená – pro myšlenkovou mapu*/
+/*nadpis H3*/
+.zapisnik {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 5rem) 20px;
+}
+@media (min-width: 768px) {
+  .zapisnik {
+    padding-inline: 80px;
+  }
+}
+@media (min-width: 1250px) {
+  .zapisnik {
+    padding-inline: 0;
+  }
+}
+.zapisnik__header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 10vw, 6rem);
+}
+.zapisnik__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #4B3C29;
+  margin-bottom: 1rem;
+}
+.zapisnik__intro {
+  font-family: "Source Sans 3", sans-serif;
+  font-style: italic;
+  color: #7A6247;
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  margin-bottom: clamp(4rem, 12vw, 8rem);
+  border-bottom: 1px solid #D9CDBE;
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+}
+.article-card:last-child {
+  border-bottom: none;
+}
+@media (min-width: 768px) {
+  .article-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+.article-card__content {
+  flex: 1;
+}
+.article-card__date {
+  display: block;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7A6247;
+  margin-bottom: 1rem;
+}
+.article-card__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.75rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+.article-card__title a {
+  text-decoration: none;
+  color: #22282B;
+  transition: color 0.3s ease;
+}
+.article-card__title a:hover {
+  color: #E0B11F;
+}
+.article-card__perex {
+  font-family: "Source Sans 3", sans-serif;
+  line-height: 1.7;
+  color: #22282B;
+  margin-bottom: 1.5rem;
+}
+.article-card__link {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #4B3C29;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.article-card__link:hover {
+  transform: translateX(5px);
+  color: #E0B11F;
+}
+.article-card__image-wrapper {
+  flex: 0 0 250px;
+}
+@media (max-width: 768px) {
+  .article-card__image-wrapper {
+    width: 100%;
+  }
+}
+.article-card__img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  filter: grayscale(20%);
+  transition: filter 0.5s ease;
+}
+.article-card__img:hover {
+  filter: grayscale(0%);
+}/*# sourceMappingURL=zapisnik.css.map */

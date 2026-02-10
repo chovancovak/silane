@@ -1,0 +1,59 @@
+
+
+.thankyou {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: $pad-mobile; // Výchozí mobilní odsazení
+    text-align: center;
+    background-color: $background-c; // #F4EFE6
+
+    @media (min-width: $tablet-size) {
+        padding: $pad-tablet;
+    }
+
+    @media (min-width: $PC-size) {
+        padding: $pad-PC;
+    }
+
+    &__inner {
+        max-width: 700px;
+        width: 100%;
+        // Pokud chceš, aby to byl bílý box jako u blogu:
+        // background-color: $color-bg;
+        // padding: 40px;
+        // border-radius: $radius-md;
+        // box-shadow: $shadow-soft;
+    }
+
+    &__title {
+        font-family: $patka; // Libre Baskerville
+        font-weight: 700;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: $tertiary-c; // Tvůj hlavní text #2A2A2A
+        margin-bottom: 2rem;
+    }
+
+    &__text {
+        font-family: $bezpatka; // Source Sans 3
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: $tertiary-c;
+        margin-bottom: 1.5rem;
+
+        a {
+            color: $color-accent; // #E0B11F
+            text-decoration: underline;
+            
+            &:hover {
+                color: $color-accent-d;
+            }
+        }
+    }
+
+    &__button {
+        margin-top: 2rem;
+        // Styly tlačítka se berou z tvého globálního button--primary
+    }
+}

@@ -12,23 +12,27 @@
     white-space: nowrap;
 }
 
-//dvě následující třídy jsou tu pro to, aby se mi na podstránkách nedávalo menu nad obsah, jako je to tomu s hero picture
-.subpage header.nav {
-  position: relative;
-  background-color: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
+//následující třída je tu pro to, aby se mi na podstránkách nedávalo menu nad obsah, jako je to tomu s hero picture
 
-.subpage main {
-
-  padding-top: 1rem;
-
-  @media screen and (min-width: $tablet-size) {
-        padding-top: 5rem;
+body.subpage {
+    // Toto zajistí, že menu nebude fixní (přilepené), 
+    // ale bude se chovat jako součást stránky a odtlačí obsah dolů
+    header.nav {
+        position: relative !important;
+        background-color: $color-bg; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-  
 
+    // A tady přidáme to ticho pod menu
+    main {
+        padding-top: 2rem; // Mobilní prostor
+
+        @media screen and (min-width: $tablet-size) {
+            padding-top: 5rem; // Tablet a PC prostor
+        }
+    }
 }
+
 
 p{
     font-family: $bezpatka;
@@ -75,10 +79,6 @@ body{
         margin: 0 $pad-PC;
     }
 }
-
-
-
-
 
 
 
