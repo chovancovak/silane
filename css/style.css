@@ -1974,6 +1974,59 @@ header {
   margin-top: 2rem;
 }
 
+.thankyou {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  padding: 20px;
+  text-align: center;
+  background-color: #F4EFE6;
+}
+@media (min-width: 768px) {
+  .thankyou {
+    padding: 80px;
+  }
+}
+@media (min-width: 1250px) {
+  .thankyou {
+    padding: 180px;
+  }
+}
+.thankyou__inner {
+  max-width: 700px;
+  width: 100%;
+}
+.thankyou__title {
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  color: #22282B;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+.thankyou__text {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #22282B;
+  margin-bottom: 1.5rem;
+}
+.thankyou__text strong {
+  color: #4B3C29;
+  font-weight: 700;
+}
+.thankyou__text a {
+  color: #E0B11F;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.thankyou__text a:hover {
+  color: #4B3C29;
+}
+.thankyou__button {
+  margin-top: 2.5rem;
+}
+
 /* ===========================
    Footer (minimalistický)
    =========================== */
