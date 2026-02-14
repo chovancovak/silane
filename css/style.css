@@ -155,6 +155,7 @@ main.page > section {
 .newsletter {
   text-align: center;
   padding: 4rem 1.5rem;
+  margin-top: clamp(2rem, 6vw, 4rem);
   background-color: rgba(243, 236, 226, 0.5);
   border-radius: 1.25rem;
 }
@@ -180,6 +181,7 @@ main.page > section {
 .newsletter__input {
   flex: 1;
   padding: 0.8rem 1.2rem;
+  margin: 0.3rem 1rem;
   border-radius: 999px;
   border: 1px solid #D9CDBE;
   font-family: "Source Sans 3", sans-serif;
@@ -193,6 +195,7 @@ main.page > section {
   font-size: 0.85rem;
   font-style: italic;
   opacity: 0.8;
+  margin-top: 0.9rem;
 }
 
 /* ===========================
