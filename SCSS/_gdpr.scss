@@ -1,0 +1,59 @@
+.gdpr {
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $pad-mobile;
+
+    @media (min-width: $tablet-size) {
+      padding: $pad-tablet 0;
+    }
+  }
+
+  &__title {
+    font-family: $patka;
+    color: $color-accent-d;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__section {
+    margin-bottom: 2.5rem;
+  }
+
+  &__section-title {
+    font-family: $bezpatka;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-primary;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    font-family: $patka;
+    color: $color-dark;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    color: $color-accent;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-accent-d;
+    }
+  }
+
+  &__list {
+    padding-left: 1.25rem;
+    color: $color-dark;
+  }
+
+  &__list-item {
+    font-family: $patka;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+}

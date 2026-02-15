@@ -109,10 +109,22 @@ main.page > section {
   }
 
   &__note {
+    font-family: $patka; // dodá to ten literární, klidný nádech
     font-size: 0.85rem;
-    font-style: italic;
-    opacity: 0.8;
-    margin-top: 0.9rem;
+    color: rgba($color-dark, 0.7); // jemnější barva, aby to nebyl "smog"
+    margin-top: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  &__link {
+    color: inherit; // převezme barvu textu
+    text-decoration: underline;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-accent-d; // při najetí jemně ztmavne
+    }
   }
 }
 
