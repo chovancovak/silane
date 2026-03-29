@@ -1,127 +1,197 @@
 .o-mne {
-  padding: 4rem 1.5rem;
+  padding: 6rem $pad-mobile; // Víc ticha na mobilu
   background-color: $color-bg-soft;
 
   @media (min-width: $tablet-size) {
-    padding: 5rem 2rem;
+    padding: 8rem $pad-tablet;
   }
 
   @media (min-width: $PC-size) {
-    padding: 6rem 3rem;
+    padding: 10rem 0;
   }
 }
 
 .o-mne__inner {
-  max-width: 60rem;
+  max-width: 1100px; // Celý kontejner je širší pro grid
   margin: 0 auto;
 }
 
-.o-mne__content {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-
-  @media (min-width: 900px) {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-}
-
-.o-mne__text {
-  flex: 2;
-  font-family: $bezpatka;
-  font-size: 1rem;
-  line-height: 1.7;
-
-  p + p {
-    margin-top: 1rem;
-  }
-
-  a {
-    color: $color-primary;
-    text-decoration: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.2em;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration: none;
-    }
-  }
-}
-
 .o-mne__header {
-  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 700px; // Nadpis a claim zůstávají užší
+  margin: 0 auto clamp(5rem, 12vw, 8rem); // Extrémní ticho pod nadpisem
 }
 
 .o-mne__title {
   font-family: $patka;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  line-height: 1.2;
-  margin: 0 0 0.75rem 0;
+  font-size: clamp(2.5rem, 7vw, 4rem); // Větší nadpis
+  line-height: 1.1;
+  color: $color-accent-d;
+  margin-bottom: 1.5rem;
 }
 
 .o-mne__claim {
-  font-family: $patka;
-  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-family: $bezpatka;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-style: italic;
-  color: rgba(0, 0, 0, 0.75);
-  margin: 0;
+  color: $color-dark;
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
-/* Boxík */
-
-.o-mne__box {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
-  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.03);
+// Bloky s textem a fotkou vedle sebe
+.o-mne__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: clamp(6rem, 15vw, 10rem);
+  align-items: center;
 
   @media (min-width: 900px) {
-    margin: 2.5rem 0;
+    flex-direction: row;
+    gap: 6rem; // Hodně ticha mezi textem a fotkou
+    text-align: left;
+  }
+
+  &--personal {
+    @media (min-width: 900px) {
+      flex-direction: row-reverse; // Prohodíme fotku a text
+    }
   }
 }
 
-.o-mne__box-title {
-  font-family: $patka;
+.o-mne__text {
+  flex: 1.2; // Text má víc místa
+  font-family: $bezpatka;
   font-size: 1.1rem;
-  margin: 0 0 0.75rem 0;
+  line-height: 1.8;
+  color: $color-dark;
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  &--lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-primary;
+    margin-bottom: 3rem !important;
+  }
 }
 
-.o-mne__box-quote {
-  font-style: italic;
-  margin: 0 0 0.75rem 0;
+.o-mne__divider {
+  border: 0;
+  border-top: 1px solid $color-border-soft;
+  margin: clamp(5rem, 12vw, 8rem) 0;
+  opacity: 0.5;
 }
 
-.o-mne__box-quote-author {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Fotka */
-
+/* Fotky */
 .o-mne__photo {
-  flex: 1;
+  flex: 0.8; // Fotka je menší než text
   margin: 0;
+  position: relative;
+  width: 100%;
+  max-width: 450px; // Aby nebyla na mobilu obří
 
   img {
     display: block;
     width: 100%;
-    max-width: 18rem;
-    margin: 0 auto;
-    border-radius: 1.5rem;
-    object-fit: cover;
-    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+    height: auto;
+    border-radius: $radius-lg; // Tvůj velký radius
+    filter: grayscale(15%); // Jemný retro nádech pro klid
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+  }
+
+  // Jemný zlatý detail (#E0B11F) pro oživení
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 100px;
+    height: 100px;
+    background-color: $color-accent;
+    border-radius: $radius-sm;
+    z-index: -1;
+    opacity: 0.3;
   }
 
   @media (min-width: 900px) {
-    display: flex;
-    justify-content: flex-end;
+    max-width: none;
+    margin: 0;
+  }
+}
 
-    img {
-      margin: 0;
+/* Boxík s citátem (Medvídek Pú) */
+.o-mne__box--quote {
+  max-width: 700px;
+  margin: 0 auto clamp(6rem, 15vw, 10rem); // Hodně ticha pod citátem
+  padding: 3rem;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border-soft;
+  background-color: #ffffff;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.03);
+  text-align: center;
+
+  .o-mne__box-title {
+    font-family: $patka;
+    font-size: 1.6rem;
+    color: $color-accent-d;
+    margin-bottom: 2rem;
+  }
+
+  .o-mne__box-quote {
+    font-family: $patka;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: $color-dark;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .o-mne__box-quote-author {
+    display: block;
+    font-family: $bezpatka;
+    font-size: 0.95rem;
+    color: $color-primary;
+    margin-top: 1rem;
+    opacity: 0.8;
+  }
+}
+
+/* Nový, výrazný odkaz na Perma ráj */
+.o-mne__permaraj-cta {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem;
+  background-color: $color-accent; // Tvoje zlatá #E0B11F
+  color: $color-bg;
+  border-radius: $radius-lg;
+  box-shadow: 0 1.5rem 3rem rgba($color-accent, 0.2);
+
+  p {
+    font-family: $patka;
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+  }
+
+  .o-mne__permaraj-button {
+    display: inline-block;
+    font-family: $bezpatka;
+    text-decoration: none;
+    background-color: $color-bg; // Bílé tlačítko na zlatém pozadí
+    color: $color-accent-d;
+    padding: 1.2rem 2.5rem;
+    font-weight: 700;
+    border-radius: $radius-md;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
     }
   }
 }

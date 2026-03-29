@@ -377,6 +377,85 @@
       gap: 0.9rem;
     }
   }
+
+  
+  // docasne
+  // DOČASNÉ: STYL PRO CERTIFIKACI
+  .coaching__certification-info {
+    margin: 4rem 0 6rem;
+    
+    .certification-badge {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: $radius-lg;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba($color-primary, 0.1);
+
+      @media (min-width: 800px) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &__image {
+        flex: 1;
+        max-height: 350px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          // Jemný filtr, aby fotka ladila s klidem webu
+          filter: grayscale(5%) brightness(98%);
+        }
+      }
+
+      &__content {
+        flex: 1.2;
+        padding: 3rem;
+
+        @media (max-width: 600px) {
+          padding: 2rem;
+        }
+      }
+
+      &__tag {
+        display: inline-block;
+        font-family: $bezpatka;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $color-accent; // Tvoje zlatá #E0B11F
+        margin-bottom: 1rem;
+      }
+
+      &__title {
+        font-family: $patka;
+        font-size: 1.8rem !important; // Přebíjíme obecné h2 v bloku
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: $color-accent-d;
+      }
+
+      &__text {
+        font-family: $bezpatka;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: $color-dark;
+        margin: 0;
+
+        strong {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+
+
 }
 
 // Základní tlačítka – pokud už na webu máš vlastní .btn, klidně to slouč
@@ -411,4 +490,8 @@
     color: $color-primary;
     border-color: rgba(0, 0, 0, 0.12);
   }
+
+
+
+
 }

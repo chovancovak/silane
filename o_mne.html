@@ -2,81 +2,83 @@
 layout: layouts/main.njk
 ---
 
+
 <section class="o-mne" id="o-mne">
   <div class="o-mne__inner">
-    <div class="o-mne__content">
-      <div class="o-mne__text">
-        <header class="o-mne__header">
-          <h1 class="o-mne__title">O mně</h1>
-          <p class="o-mne__claim">
-            Někdy nejde o to přidat další cíl. Ale pustit ten, který nám už neslouží.
-          </p>
-        </header>
+    
+    <header class="o-mne__header">
+      <h1 class="o-mne__title">O mně</h1>
+      <p class="o-mne__claim">
+        Někdy nejde o to přidat další cíl. Ale pustit ten, který nám už neslouží.
+      </p>
+    </header>
 
-        <p>
+    <div class="o-mne__content o-mne__content--professional">
+      <div class="o-mne__text">
+        <p class="o-mne__text--lead">
           Posledních pár let škrtám ze svého života věci a povinnosti, které tam nechci.
           Díky tomu se postupně zaměřuju na to, co mi dává smysl — a mám svůj život stále raději.
         </p>
 
         <p>
           Vystudovala jsem Pedagogickou fakultu UK a prošla řadou pracovních i dobrovolnických rolí v neziskovém sektoru i ve státní správě.
-          Tématem mé práce bylo vždy vzdělávání, a sama jsem si vyzkoušela různé způsoby práce s lidmi — včetně těch, které dnes už nepovažuji za dobré.
+          Tématem mé práce bylo vždy vzdělávání, a sama jsem si vyzkoušela různé způsoby práce s lidmi.
           Právě tahle zkušenost mě přivedla k otázce, jak to dělat jinak.
         </p>
 
         <p>
           V koučování jsem našla to, co jsem hledala — přístup, který stojí
-          na důvěře, respektu a odvaze hledat vlastní řešení. Nepřemýšlím za lidi, neříkám jim, co mají dělat, nenesu jejich odpovědnost.
+          na důvěře, respektu a odvaze hledat vlastní řešení. Nepřemýšlím za lidi, neříkám jim, co mají dělat.
           Jsem tu pro ně, aby to dokázali sami. A v tom je jejich síla.
         </p>
+      </div>
 
-        <p>
-          Být dobrou koučkou je pro mě cesta, po které ráda kráčím. Ta cesta pro mě nikdy neskončí.
-        </p>
+      <figure class="o-mne__photo o-mne__photo--icf">
+        <img src="/img/o_mne/pracuju.jpg" alt="Já u počítače>
+      </figure>
+    </div>
 
+    <hr class="o-mne__divider">
 
+    <div class="o-mne__content o-mne__content--personal">
+      <div class="o-mne__text">
         <p>
           V osobním životě jsem máma dvou báječných dětí. Miluju zahradu, pěstuju byliny,
           zeleninu a taky dost plevele. A nevadí mi to. Důležité je, že tam spolu trávíme čas.
-          Hodně pro mě znamenají i naši sousedé a sousedky — rovnou je pozvu na návštěvu
-          a nečekám, až doma dokonale uklidím. Dobré vztahy unesou i trochu nepořádku.
+          Dobré vztahy unesou i trochu nepořádku.
         </p>
-
-        <aside class="o-mne__box">
-          <h2 class="o-mne__box-title">Chvíle nicnedělání</h2>
-          <p class="o-mne__box-quote">
-            „Doing nothing often leads to the very best of something.“<br>
-            <span class="o-mne__box-quote-author">— Medvídek Pú</span>
-          </p>
-          <p>
-            Sednout si, mlčet, nic neplánovat. Nenechat se honit. Jen být.
-            Právě v těch chvílích často vznikají nejhezčí uvědomění, nápady i rozhodnutí.
-          </p>
-        </aside>
 
         <p>
           A taky si ráda sednu v tichu. Chvíle nicnedělání mě vždy přivedly k uvědomění, vděčnosti a radosti —
           a často i k těm nejlepším nápadům.
         </p>
-
-        <p>
-          A jestli chcete nahlédnout trochu víc do mého běžného života, žiju v „Perma ráji“ —
-          více o mně najdete na
-          <a href="https://www.permaraj.cz" target="_blank" rel="noopener noreferrer">www.permaraj.cz</a>.
-        </p>
       </div>
 
-      <!-- Až budeš mít fotku, vyměň src za správnou cestu a případně dolad alt -->
-      <!-- <figure class="o-mne__photo">
-        
-        <img
-          src="/images/o-mne-foto-placeholder.jpg"
-          alt="Karolína Chovancová"
-          loading="lazy"
-        >
-      </figure> -->
-
-
+      <figure class="o-mne__photo o-mne__photo--garden">
+        <img src="/img/o_mne/karolina_zahrada.jpg" alt="Karolína v Perma ráji">
+      </figure>
     </div>
+
+    <aside class="o-mne__box o-mne__box--quote">
+      <h2 class="o-mne__box-title">Chvíle nicnedělání</h2>
+      <p class="o-mne__box-quote">
+        „Doing nothing often leads to the very best of something.“<br>
+        <span class="o-mne__box-quote-author">— Medvídek Pú</span>
+      </p>
+      <p>
+        Sednout si, mlčet, nic neplánovat. Nenechat se honit. Jen být.
+        Právě v těch chvílích často vznikají nejhezčí uvědomění, nápady i rozhodnutí.
+      </p>
+    </aside>
+
+    <div class="o-mne__permaraj-cta">
+      <p>
+        Chcete nahlédnout víc do mého běžného života?
+      </p>
+      <a href="https://www.permaraj.cz" target="_blank" rel="noopener noreferrer" class="o-mne__permaraj-button">
+        Navštivte můj Perma ráj 🌿
+      </a>
+    </div>
+
   </div>
 </section>
