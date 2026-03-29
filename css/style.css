@@ -1823,6 +1823,27 @@ header {
   font-style: italic;
   color: #7A6247;
 }
+.article-detail__content .article-content__manifest {
+  margin: 6rem 0;
+  text-align: center;
+}
+.article-detail__content .article-content__manifest p {
+  margin-bottom: 0.8rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #22282B;
+}
+.article-detail__content .article-content__manifest p strong {
+  color: #E0B11F;
+  font-weight: 600;
+}
+.article-detail__content .article-content__manifest p:nth-last-child(-n+2) {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  color: #4B3C29;
+}
 .article-detail__footer {
   margin-top: 6rem;
   padding-top: 3rem;
@@ -1854,6 +1875,19 @@ header {
   margin-bottom: 2rem;
   color: #4B3C29;
 }
+.article-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .article-cta__actions {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
 .article-cta__button {
   display: inline-block;
   font-family: "Source Sans 3", sans-serif;
@@ -1862,11 +1896,22 @@ header {
   color: #FFFFFF;
   padding: 1rem 2rem;
   border-radius: 0.75rem;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  min-width: 220px;
 }
 .article-cta__button:hover {
   transform: translateY(-2px);
   background-color: #E0B11F;
+  color: #FFFFFF;
+}
+.article-cta__button--outline {
+  background-color: transparent;
+  border: 2px solid #7A6247;
+  color: #7A6247;
+}
+.article-cta__button--outline:hover {
+  background-color: #7A6247;
+  color: #FFFFFF;
 }
 
 .recenze-page {

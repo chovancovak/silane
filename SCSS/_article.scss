@@ -112,6 +112,33 @@
             font-style: italic;
             color: $color-primary;
         }
+
+        .article-content__manifest {
+            margin: 6rem 0;
+            text-align: center;
+            
+            p {
+                margin-bottom: 0.8rem; // Věty blízko u sebe pro rytmus
+                font-family: $patka;
+                font-size: 1.25rem;
+                line-height: 1.4;
+                color: $color-dark;
+
+                // Zvýraznění klíčových slov tvou zlatou barvou
+                strong {
+                    color: $color-accent; // To je tvoje #E0B11F
+                    font-weight: 600;
+                }
+            }
+
+            // Poslední dvě věty jako pointa
+            p:nth-last-child(-n+2) {
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
+                font-weight: 700;
+                color: $color-accent-d; // Trochu tmavší akcent pro váhu
+            }
+        }
     }
 
     &__footer {
@@ -139,33 +166,60 @@
 }
 
  .article-cta {
-        margin-top: 5rem;
-        padding: 3rem;
-        background-color: $color-bg-soft; // Jemné béžové/šedé pozadí
-        border-radius: $radius-md;
-        text-align: center;
-        border: 1px solid $color-bg-soft;
+    margin-top: 5rem;
+    padding: 3rem;
+    background-color: $color-bg-soft; // Jemné béžové/šedé pozadí
+    border-radius: $radius-md;
+    text-align: center;
+    border: 1px solid $color-bg-soft;
 
-        &__text {
-            font-family: $patka;
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            color: $color-accent-d;
+    &__text {
+        font-family: $patka;
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        color: $color-accent-d;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column; // Na mobilu pod sebou
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: $tablet-size) {
+            flex-direction: row; // Na tabletu/PC vedle sebe
+            gap: 2rem;
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        font-family: $bezpatka;
+        text-decoration: none;
+        background-color: $color-primary;
+        color: $color-bg;
+        padding: 1rem 2rem;
+        border-radius: $radius-md;
+        transition: all 0.3s ease;
+        min-width: 220px; // Stejná šířka pro oba čudlíky
+
+        &:hover {
+            transform: translateY(-2px);
+            background-color: $color-accent;
+            color: $color-bg;
         }
 
-        &__button {
-            display: inline-block;
-            font-family: $bezpatka;
-            text-decoration: none;
-            background-color: $color-primary;
-            color: $color-bg;
-            padding: 1rem 2rem;
-            border-radius: $radius-md;
-            transition: transform 0.3s ease;
+        // Varianta s rámečkem pro druhou možnost (Koučování)
+        &--outline {
+            background-color: transparent;
+            border: 2px solid $color-primary;
+            color: $color-primary;
 
             &:hover {
-                transform: translateY(-2px);
-                background-color: $color-accent;
+                background-color: $color-primary;
+                color: $color-bg;
             }
         }
+    }
 }
