@@ -44,73 +44,105 @@
     margin-bottom: 0;
   }
 
-  &__grid {
+  
+  &__main-content {
+    margin-bottom: 8rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__text--large {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: $color-primary; // Tvoje tmavší barva
+    margin-bottom: 4rem;
+  }
+
+  // Dvou-sloupcové odrážky pro klidnější vzhled
+  &__features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2.5rem;
-    margin-bottom: 3.5rem;
 
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
     }
-  }
-
-  &__block {
-    background: #fff;
-    border-radius: 1rem;
-    padding: 1.75rem 1.75rem 1.5rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-
-    h2 {
-      font-family: $patka;
-      font-size: 1.3rem;
-      margin-bottom: 1.1rem;
-    }
-
-    p {
-      margin-bottom: 0.9rem;
-    }
-
-    &--what {
-      border-top: 3px solid $color-primary;
-    }
-
-    &--not {
-      border-top: 3px solid rgba(0, 0, 0, 0.08);
-    }
-
-    &--with-me {
-      border-top: 3px solid rgba(0, 0, 0, 0.08);
-    }
-
-    &--process {
-      border-top: 3px solid rgba(0, 0, 0, 0.08);
-    }
-  }
-
-  &__list {
-    margin: 0 0 1rem 0;
-    padding-left: 1.2rem;
-    font-size: 0.98rem;
 
     li {
-      margin-bottom: 0.45rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.5rem;
+
+      &::before {
+        content: "•";
+        color: $color-accent; // Tvoje zlatá
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+    }
+  }
+
+// Etická sekce s panáčkem
+  &__ethics-area {
+    margin: 6rem auto;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  &__ethics-note {
+    font-style: italic;
+    opacity: 0.8;
+    padding: 2rem;
+    border-top: 1px solid $color-border-soft;
+    margin-bottom: 3rem;
+  }
+
+  &__permaraj-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: $color-accent-d; // Tmavší zlatá/hnědá
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      opacity: 0.7;
+        span {
+          text-decoration: underline; // Podtržení textu při najetí
+        }
+      
+      
+      img {
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover img {
+        transform: scale(1.05); // Panáček se neznatelně zvětší
+    }
+      
     }
 
-    // &--bullets {
-    //   li::marker {
-    //     // volitelně můžeš nastavit barvu přes list-style-image, tady nechávám výchozí
-    //   }
-    // }
-  }
+      img {
+        height: 60px; // Uprav si podle potřeby
+        width: auto;
+      }
 
-  &__note {
-    font-size: 0.9rem;
-    font-style: italic;
-    opacity: 0.9;
+      span {
+        font-family: $patka; // Pokud máš patkové písmo pro tichý tón
+        font-size: 1.1rem;
+        max-width: 400px;
+      }
+    
   }
-
+  
   &__steps {
     list-style: none;
     counter-reset: step-counter;
@@ -313,10 +345,6 @@
       margin: 0;
     }
 
-    p {
-      margin: 0;
-    }
-
 
   &__recenze-author {
     font-family: $patka;
@@ -494,4 +522,18 @@
 
 
 
+}
+
+
+
+.coaching__ethics-note {
+  max-width: 800px;
+  margin: 4rem auto; // Hodně ticha kolem
+  padding: 2rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+  border-top: 1px solid $color-border-soft;
+  border-bottom: 1px solid $color-border-soft;
+  line-height: 1.6;
 }

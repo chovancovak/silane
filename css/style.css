@@ -1074,56 +1074,86 @@ header {
   font-size: 1.05rem;
   margin-bottom: 0;
 }
-.coaching__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 3.5rem;
+.coaching__main-content {
+  margin-bottom: 8rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 900px) {
-  .coaching__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+.coaching__text--large {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #7A6247;
+  margin-bottom: 4rem;
+}
+.coaching__features-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 4rem;
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .coaching__features-list {
+    grid-template-columns: 1fr 1fr;
   }
 }
-.coaching__block {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1.75rem 1.75rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+.coaching__features-list li {
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.5rem;
 }
-.coaching__block h2 {
-  font-family: "Libre Baskerville", serif;
-  font-size: 1.3rem;
-  margin-bottom: 1.1rem;
+.coaching__features-list li::before {
+  content: "•";
+  color: #E0B11F;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
-.coaching__block p {
-  margin-bottom: 0.9rem;
+.coaching__ethics-area {
+  margin: 6rem auto;
+  text-align: center;
+  max-width: 700px;
 }
-.coaching__block--what {
-  border-top: 3px solid #7A6247;
-}
-.coaching__block--not {
-  border-top: 3px solid rgba(0, 0, 0, 0.08);
-}
-.coaching__block--with-me {
-  border-top: 3px solid rgba(0, 0, 0, 0.08);
-}
-.coaching__block--process {
-  border-top: 3px solid rgba(0, 0, 0, 0.08);
-}
-.coaching__list {
-  margin: 0 0 1rem 0;
-  padding-left: 1.2rem;
-  font-size: 0.98rem;
-}
-.coaching__list li {
-  margin-bottom: 0.45rem;
-}
-.coaching__note {
-  font-size: 0.9rem;
+.coaching__ethics-note {
   font-style: italic;
-  opacity: 0.9;
+  opacity: 0.8;
+  padding: 2rem;
+  border-top: 1px solid #D9CDBE;
+  margin-bottom: 3rem;
+}
+.coaching__permaraj-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: #4B3C29;
+  transition: transform 0.3s ease;
+}
+.coaching__permaraj-link:hover {
+  transform: translateY(-3px);
+  opacity: 0.7;
+}
+.coaching__permaraj-link:hover span {
+  text-decoration: underline;
+}
+.coaching__permaraj-link:hover img {
+  transition: transform 0.3s ease;
+}
+.coaching__permaraj-link:hover:hover img {
+  transform: scale(1.05);
+}
+.coaching__permaraj-link img {
+  height: 60px;
+  width: auto;
+}
+.coaching__permaraj-link span {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.1rem;
+  max-width: 400px;
 }
 .coaching__steps {
   list-style: none;
@@ -1299,9 +1329,6 @@ header {
 .coaching .coaching__recenze-text p {
   margin: 0;
 }
-.coaching p {
-  margin: 0;
-}
 .coaching__recenze-author {
   font-family: "Libre Baskerville", serif;
   font-size: 0.95rem;
@@ -1445,6 +1472,18 @@ header {
   background-color: #fff;
   color: #7A6247;
   border-color: rgba(0, 0, 0, 0.12);
+}
+
+.coaching__ethics-note {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+  border-top: 1px solid #D9CDBE;
+  border-bottom: 1px solid #D9CDBE;
+  line-height: 1.6;
 }
 
 .proc-silane__inline-image {
