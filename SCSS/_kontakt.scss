@@ -1,0 +1,98 @@
+.contact-page {
+  padding: 8rem 0; // Více ticha a prostoru
+  min-height: 60vh;
+  
+  &__inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  &__header {
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: $color-primary;
+  }
+
+  &__lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  &__card {
+    background-color: $color-bg-soft;
+    padding: 4rem 2rem;
+    border-radius: $radius-lg;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); // Velmi jemný stín pro hloubku
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: $color-primary;
+  }
+
+  &__details {
+    margin-bottom: 3rem;
+  }
+
+  &__line {
+    margin-bottom: 1.2rem;
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__link {
+    color: $color-accent; // Tvoje zlatá
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-bottom-color: $color-accent;
+      opacity: 0.8;
+    }
+  }
+
+  &__note {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    margin-top: 2rem;
+  }
+
+  &__social {
+    display: flex;
+    gap: 3rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 2.5rem;
+    justify-content: center;
+
+    &-link {
+      font-weight: 600;
+      text-decoration: none;
+      color: $color-primary;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+      
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+}
