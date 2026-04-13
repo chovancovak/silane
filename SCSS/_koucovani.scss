@@ -479,6 +479,38 @@
           color: $color-primary;
         }
       }
+
+      &__official-link {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          text-decoration: none;
+          color: $color-dark;
+          font-size: 0.85rem;
+          font-weight: 600;
+          transition: opacity 0.3s ease;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        .certification-badge__logo {
+          height: 60px; // Badge bude malý a decentní
+          width: auto;
+          filter: none; // Aby logo zůstalo barevné a čitelné
+        }
+
+        span {
+          border-bottom: 1px solid rgba($color-primary, 0.2);
+          padding-bottom: 2px;
+        }
+      }
     }
   }
 

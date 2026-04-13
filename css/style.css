@@ -1444,6 +1444,33 @@ header {
 .coaching .coaching__certification-info .certification-badge__text strong {
   color: #7A6247;
 }
+.coaching .coaching__certification-info .certification-badge__official-link {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+.coaching .coaching__certification-info .certification-badge__official-link a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #22282B;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+.coaching .coaching__certification-info .certification-badge__official-link a:hover {
+  opacity: 0.7;
+}
+.coaching .coaching__certification-info .certification-badge__official-link .certification-badge__logo {
+  height: 60px;
+  width: auto;
+  filter: none;
+}
+.coaching .coaching__certification-info .certification-badge__official-link span {
+  border-bottom: 1px solid rgba(122, 98, 71, 0.2);
+  padding-bottom: 2px;
+}
 
 .btn {
   display: inline-flex;
