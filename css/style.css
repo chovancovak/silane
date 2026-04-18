@@ -2018,6 +2018,18 @@ header {
   font-style: italic;
   color: #7A6247;
 }
+.article-detail__content .article-content__link {
+  color: #E0B11F;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(224, 177, 31, 0.3);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.article-detail__content .article-content__link:hover {
+  color: #4B3C29;
+  border-bottom-color: #4B3C29;
+  opacity: 0.8;
+}
 .article-detail__content .article-content__manifest {
   margin: 6rem 0;
   text-align: center;
