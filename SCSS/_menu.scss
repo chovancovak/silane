@@ -1,172 +1,345 @@
-//Menu
-.menu{
+// Hlavní kontejner navigace
+.menu {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba($color-accent-d, 0.8); /* průhledné pozadí */  
-    z-index: 3000;
-    backdrop-filter: blur(4px);
-    transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
-
-}
-
-.menu__brand {
-  font-family: $patka;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.3rem;
-  color: $color-accent;
-  letter-spacing: 0.5px;
-  margin-right: $pad-mobile;
-  white-space: nowrap;
-
-  @media screen and (min-width: $tablet-size) {
-        margin-right: $pad-tablet;
-        font-size: 2rem;
-    }
-
-    @media screen and (min-width: $PC-size) {
-        margin-right: $pad-PC;
-        font-size: 3rem;
-    }
-
-  
-
-}
-
-
-.menu.stuck{
-    position: fixed;
-    top: 0;
+    top: 0; 
     left: 0;
-    right: 0;
+    width: 100%;
+    background: rgba($color-accent-d, 0.9); /* Použita tvoje tmavá hnědá pro dobrou čitelnost */
+    z-index: 3000;
+    backdrop-filter: blur(6px);
+    transition: all 200ms ease;
+    padding: 0.8rem 0;
+
+    @media screen and (min-width: $tablet-size) {
+        padding: 1.2rem 0;
+    }
 }
 
+// Horní část hlavičky (Logo + Hamburger na mobilu)
+.menu__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
+// Hlavní kontejner navigace
+.menu {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    background: rgba($color-accent-d, 0.9);
+    z-index: 3000;
+    backdrop-filter: blur(6px);
+    transition: all 200ms ease;
+    padding: 0.8rem 0;
 
+    @media screen and (min-width: $tablet-size) {
+        padding: 1.1rem 0;
+    }
+
+    // Od 900px se menu chová jako jednořádkový flexbox
+    @media screen and (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 0;
+    }
+}
+
+// Horní část hlavičky (Logo + Hamburger na mobilu)
+.menu__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    // Od 900px už tato obalová část nezabírá 100 %, aby se vedle ní vešlo menu
+    @media screen and (min-width: 900px) {
+        width: auto;
+    }
+}
+
+// Logo "Síla ne"
+.menu__brand {
+    font-family: $patka;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.6rem;
+    //color: $color-bg-soft;
+    color: $color-accent;
+    letter-spacing: 0.5px;
+    margin-left: $pad-mobile;
+    white-space: nowrap;
+
+    // OD TABLETU (768px)
+    @media screen and (min-width: $tablet-size) {
+        margin-left: $pad-tablet;
+        font-size: 2.2rem;
+    }
+
+    // ZMĚNA: Mezi 768px a 899px zarovnat na střed
+    @media screen and (min-width: $tablet-size) and (max-width: 899px) {
+        margin: 0 auto; /* Zruší levý okraj a vycentruje nápis */
+        text-align: center;
+        width: 100%; /* Roztáhne se na celou šířku, aby fungovalo centrování */
+    }
+
+    // OD PC (1250px)
+    @media screen and (min-width: $PC-size) {
+        margin-left: $pad-PC;
+        font-size: 2.5rem;
+    }
+}
+
+// Skrytý checkbox
 .menu__checkbox {
     position: absolute;
     left: -9999px;
     margin: 0;
 }
 
-
-.menu__toggler{
+// Hamburger menu
+.menu__toggler {
     cursor: pointer;
     font-family: $bezpatka;
     font-weight: 500;
-    font-size: 19px;
-    margin-left: $pad-mobile;
+    font-size: 20px;
+    margin-right: $pad-mobile;
     color: $color-accent;
 
     @media screen and (min-width: $tablet-size) {
-        font-size: 23px;
-
-        margin-left: $pad-tablet;
+        display: none; /* Od tabletu (768px) hamburger mizí */
     }
-
 }
 
-
+// Seznam položek
 .menu__list {
-    margin: 0 $pad-mobile;
-
-
-    
     padding: 0;
     list-style: none;
     display: none;
+    width: 100%;
+    margin: 1rem 0 0 0;
 
+    // Mobilní zobrazení při rozkliknutí hamburgeru
+    .menu__checkbox:checked ~ & {
+        display: block;
+        margin: 1rem $pad-mobile 0 $pad-mobile;
+    }
+
+    // DVOUŘÁDKOVÝ LAYOUT od tabletu (768px do 899px)
     @media screen and (min-width: $tablet-size) {
-        margin: 0 $pad-tablet;
-    }
-
-    @media screen and (min-width: $PC-size) {
-        margin:  0 0 0 $pad-PC;
-    }
-}
-
-
-.menu__item {
-    border-bottom: 1px solid white;
-}
-
-.loga_site{
-    width: 23px;
-}
-
-#li-logo{
-    padding: 10px;
-
-    @media screen and (min-width: $PC-size) {
-        padding: 0;
-    } 
-}
-
-
-
-
-.menu__link {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: $color-accent;
-    font-family: $bezpatka;
-    font-weight: 300;
-    font-size: 20px;
-
-    @media screen and (min-width: $tablet-size) {
-        font-weight: 500;
-        font-size: 23px;
-    }
-    
-    @media screen and (min-width: $PC-size) {
-        font-weight: 500;
-        font-size: 25px;
-        padding: 10px 30px;
-    }
-}
-
-.menu__link--active{
-    color: $quaternary-c;
-}
-
-
-.menu__link:hover {
-    text-decoration:underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 0.5px;
-    
-}
-
-
-.menu__checkbox:checked ~ .menu__list {
-    display: block;
-}
-
-
-
-
-@media screen and (min-width: $menu-desktop) {
-    .menu__toggler{
-        display: none;
-    }
-
-
-    .menu__list {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        justify-content: center ;
+        width: 100%;
+        margin: 1.2rem 0 0 0;
+        padding-right: $pad-tablet;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 0.8rem;
     }
 
+    // NÁVRAT DO JEDNOHO ŘÁDKU od 900px
+    @media screen and (min-width: 900px) {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        border-top: none;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: $pad-tablet;
+    }
 
-    .menu__item {
+    @media screen and (min-width: $PC-size) {
+        margin-right: $pad-PC;
+    }
+}
+
+// Položka v menu
+.menu__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media screen and (min-width: $tablet-size) {
         border-bottom: none;
     }
 }
 
+// Odkaz v menu
+.menu__link {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: $color-bg-soft;
+    font-family: $bezpatka;
+    font-weight: 400;
+    font-size: 19px;
+    transition: color 200ms ease;
 
+    @media screen and (min-width: $tablet-size) {
+        font-size: 20px;
+        padding: 8px 16px;
+    }
+    
+    @media screen and (min-width: 900px) {
+        font-size: 19px; /* Na notebooku mírně zmenšíme, ať se hezky vejde */
+        padding: 10px 18px;
+    }
+
+    @media screen and (min-width: $PC-size) {
+        font-size: 22px;
+        padding: 10px 22px;
+    }
+}
+
+// Aktivní stránka
+.menu__link--active {
+    color: $color-accent;
+    font-weight: 600;
+}
+
+// Hover efekt
+.menu__link:hover {
+    color: $color-accent;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+}
+
+
+// // Hlavní kontejner navigace
+// .menu {
+//     position: fixed;
+//     top: 0; 
+//     left: 0;
+//     width: 100%;
+//     padding: 0.8rem 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     flex-wrap: wrap; /* Klíčová změna: povolí zalomení prvků do řádků */
+//     background: rgba($color-accent-d, 0.85); 
+//     z-index: 3000;
+//     backdrop-filter: blur(4px);
+//     transition: all 200ms ease;
+
+//     @media screen and (min-width: $tablet-size) {
+//         padding: 1rem 0;
+//     }
+// }
+
+// // Logo "Síla ne" (vždy vlevo)
+// .menu__brand {
+//     font-family: $patka;
+//     font-style: italic;
+//     font-weight: 300;
+//     font-size: 1.4rem;
+//     color: $color-accent;
+//     letter-spacing: 0.5px;
+//     margin-left: $pad-mobile;
+//     white-space: nowrap;
+
+//     @media screen and (min-width: $tablet-size) {
+//         margin-left: $pad-tablet;
+//         font-size: 1.8rem;
+//     }
+
+//     @media screen and (min-width: $PC-size) {
+//         margin-left: $pad-PC;
+//         font-size: 2.2rem;
+//     }
+// }
+
+// // Skrytý checkbox pro mobilní menu
+// .menu__checkbox {
+//     position: absolute;
+//     left: -9999px;
+//     margin: 0;
+// }
+
+// // Tlačítko Menu na mobilu (vždy vpravo)
+// .menu__toggler {
+//     cursor: pointer;
+//     font-family: $bezpatka;
+//     font-weight: 500;
+//     font-size: 18px;
+//     margin-right: $pad-mobile;
+//     color: $color-accent;
+//     display: block;
+
+//     // Od velikosti tabletu hamburger menu úplně schováme
+//     @media screen and (min-width: $tablet-size) {
+//         display: none;
+//     }
+// }
+
+// // Seznam odkazů v menu
+// .menu__list {
+//     padding: 0;
+//     list-style: none;
+//     display: none; /* Na mobilu schované, dokud se neklikne */
+//     width: 100%; /* Na mobilu zabere celou šířku pod logem */
+//     margin: 1rem $pad-mobile 0 $pad-mobile;
+
+//     // Když se na mobilu klikne na hamburger
+//     .menu__checkbox:checked ~ & {
+//         display: block;
+//     }
+
+//     // Od tabletu se menu zobrazí jako řádek pod logem (dvouřádkový layout)
+//     @media screen and (min-width: $tablet-size) {
+//         display: flex;
+//         justify-content: flex-end;
+//         width: auto; /* Už nezabírá 100 %, ale přizpůsobí se */
+//         flex-grow: 1; /* Pomůže správnému zarovnání */
+//         margin: 1rem $pad-tablet 0 0; /* Odsazení vpravo */
+//     }
+
+//     // Na PC se vrátíme do jednořádkového layoutu (menu je vedle loga)
+//     @media screen and (min-width: $PC-size) {
+//         margin: 0 $pad-PC 0 0;
+//         flex-grow: 0;
+//     }
+// }
+
+// // Položky menu
+// .menu__item {
+//     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+//     @media screen and (min-width: $tablet-size) {
+//         border-bottom: none;
+//     }
+// }
+
+// // Odkazy v menu
+// .menu__link {
+//     display: block;
+//     padding: 12px 10px;
+//     text-decoration: none;
+//     color: $color-accent;
+//     font-family: $bezpatka;
+//     font-weight: 300;
+//     font-size: 18px;
+//     transition: color 200ms ease;
+
+//     @media screen and (min-width: $tablet-size) {
+//         font-weight: 400;
+//         font-size: 16px;
+//         padding: 8px 15px;
+//     }
+    
+//     @media screen and (min-width: $PC-size) {
+//         font-weight: 500;
+//         font-size: 18px;
+//         padding: 10px 20px;
+//     }
+// }
+
+// .menu__link--active {
+//     color: $quaternary-c;
+// }
+
+// .menu__link:hover {
+//     text-decoration: underline;
+//     text-underline-offset: 6px;
+//     text-decoration-thickness: 0.5px;
+// }

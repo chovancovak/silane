@@ -122,7 +122,7 @@ main.page > section {
 }
 
 .intro-about__text {
-  max-width: 42rem;
+  max-width: 45rem;
 }
 
 /* Nadpis */
@@ -678,44 +678,90 @@ main.page > section {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(75, 60, 41, 0.8); /* průhledné pozadí */
+  background: rgba(75, 60, 41, 0.9); /* Použita tvoje tmavá hnědá pro dobrou čitelnost */
   z-index: 3000;
-  backdrop-filter: blur(4px);
-  transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  backdrop-filter: blur(6px);
+  transition: all 200ms ease;
+  padding: 0.8rem 0;
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    padding: 1.2rem 0;
+  }
+}
+
+.menu__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(75, 60, 41, 0.9);
+  z-index: 3000;
+  backdrop-filter: blur(6px);
+  transition: all 200ms ease;
+  padding: 0.8rem 0;
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    padding: 1.1rem 0;
+  }
+}
+@media screen and (min-width: 900px) {
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+  }
+}
+
+.menu__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+@media screen and (min-width: 900px) {
+  .menu__top {
+    width: auto;
+  }
 }
 
 .menu__brand {
   font-family: "Libre Baskerville", serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: #E0B11F;
   letter-spacing: 0.5px;
-  margin-right: 20px;
+  margin-left: 20px;
   white-space: nowrap;
 }
 @media screen and (min-width: 768px) {
   .menu__brand {
-    margin-right: 80px;
-    font-size: 2rem;
+    margin-left: 80px;
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 899px) {
+  .menu__brand {
+    margin: 0 auto; /* Zruší levý okraj a vycentruje nápis */
+    text-align: center;
+    width: 100%; /* Roztáhne se na celou šířku, aby fungovalo centrování */
   }
 }
 @media screen and (min-width: 1250px) {
   .menu__brand {
-    margin-right: 180px;
-    font-size: 3rem;
+    margin-left: 180px;
+    font-size: 2.5rem;
   }
-}
-
-.menu.stuck {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 
 .menu__checkbox {
@@ -728,101 +774,105 @@ main.page > section {
   cursor: pointer;
   font-family: "Source Sans 3", sans-serif;
   font-weight: 500;
-  font-size: 19px;
-  margin-left: 20px;
+  font-size: 20px;
+  margin-right: 20px;
   color: #E0B11F;
 }
 @media screen and (min-width: 768px) {
   .menu__toggler {
-    font-size: 23px;
-    margin-left: 80px;
+    display: none; /* Od tabletu (768px) hamburger mizí */
   }
 }
 
 .menu__list {
-  margin: 0 20px;
   padding: 0;
   list-style: none;
   display: none;
+  width: 100%;
+  margin: 1rem 0 0 0;
+}
+.menu__checkbox:checked ~ .menu__list {
+  display: block;
+  margin: 1rem 20px 0 20px;
 }
 @media screen and (min-width: 768px) {
   .menu__list {
-    margin: 0 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1.2rem 0 0 0;
+    padding-right: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 0.8rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .menu__list {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 80px;
   }
 }
 @media screen and (min-width: 1250px) {
   .menu__list {
-    margin: 0 0 0 180px;
+    margin-right: 180px;
   }
 }
 
 .menu__item {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.loga_site {
-  width: 23px;
-}
-
-#li-logo {
-  padding: 10px;
-}
-@media screen and (min-width: 1250px) {
-  #li-logo {
-    padding: 0;
+@media screen and (min-width: 768px) {
+  .menu__item {
+    border-bottom: none;
   }
 }
 
 .menu__link {
   display: block;
-  padding: 10px;
+  padding: 12px 15px;
   text-decoration: none;
-  color: #E0B11F;
+  color: #F3ECE2;
   font-family: "Source Sans 3", sans-serif;
-  font-weight: 300;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 19px;
+  transition: color 200ms ease;
 }
 @media screen and (min-width: 768px) {
   .menu__link {
-    font-weight: 500;
-    font-size: 23px;
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .menu__link {
+    font-size: 19px; /* Na notebooku mírně zmenšíme, ať se hezky vejde */
+    padding: 10px 18px;
   }
 }
 @media screen and (min-width: 1250px) {
   .menu__link {
-    font-weight: 500;
-    font-size: 25px;
-    padding: 10px 30px;
+    font-size: 22px;
+    padding: 10px 22px;
   }
 }
 
 .menu__link--active {
-  color: #B85C38;
+  color: #E0B11F;
+  font-weight: 600;
 }
 
 .menu__link:hover {
+  color: #E0B11F;
   text-decoration: underline;
   text-underline-offset: 6px;
-  text-decoration-thickness: 0.5px;
+  text-decoration-thickness: 1px;
 }
 
-.menu__checkbox:checked ~ .menu__list {
-  display: block;
-}
-
-@media screen and (min-width: 1306px) {
-  .menu__toggler {
-    display: none;
-  }
-  .menu__list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .menu__item {
-    border-bottom: none;
-  }
-}
 /* =========================================================
    HERO – Varianta A: text "plave" výš (není u spodní hrany)
    Počítá s fixed menu a CSS proměnnou --nav-h
