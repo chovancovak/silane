@@ -1,7 +1,10 @@
   <nav class="menu" id="nav-menu">
+
+    
     <input type="checkbox" class="menu__checkbox" id="menu-checkbox">
     <label for="menu-checkbox" class="menu__toggler">☰ Menu</label>
 
+  
     <ul class="menu__list">
       <li class="menu__item"><a class="menu__link {% if code==='onas' %}menu__link--active{% endif %}" href="/">Úvod</a></li>
         <li class="menu__item"><a class="menu__link {% if code==='onas' %}menu__link--active{% endif %}" href="/o_mne"><span class="nowrap">O mně</span></a></li>
@@ -11,5 +14,7 @@
         <li class="menu__item"><a class="menu__link {% if code==='uvod' %}menu__link--active{% endif %}" href="/kontakt">Kontakt</a></li>
     </ul>
 
-    <div class="menu__brand">Síla ne</div>
+    <div class="menu__brand">
+        <a href="/" style="color: inherit; text-decoration: none;">Síla ne</a>
+    </div>
 </nav>
