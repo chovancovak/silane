@@ -126,6 +126,7 @@
     .menu__checkbox:checked ~ & {
         display: block;
         margin: 1rem $pad-mobile 0 $pad-mobile;
+        justify-content: center;
     }
 
     // DVOUŘÁDKOVÝ LAYOUT od tabletu (768px do 899px)
