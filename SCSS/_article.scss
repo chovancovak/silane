@@ -153,6 +153,29 @@
                 color: $color-accent-d; // Trochu tmavší akcent pro váhu
             }
         }
+
+        // NOVÝ PRVEK: CTA uprostřed textu
+        .article-content__cta-inline {
+            margin: 5rem 0; // Hodně ticha kolem, aby to nepůsobilo jako reklama
+            padding: 3rem;
+            background-color: rgba($color-bg-soft, 0.5); // Jemnější verze tvého pozadí
+            border-radius: $radius-md;
+            text-align: center;
+
+            p {
+                font-family: $patka;
+                font-style: italic;
+                font-size: 1.3rem;
+                margin-bottom: 1.8rem;
+                color: $color-accent-d;
+            }
+
+            // Tady využijeme tvou existující třídu pro tlačítko z konce článku
+            // aby to vypadalo konzistentně
+            .article-cta__button {
+                margin-bottom: 0; // Zrušíme případné spodní okraje p
+            }
+        }
     }
 
     &__footer {
@@ -236,4 +259,6 @@
             }
         }
     }
+
+   
 }

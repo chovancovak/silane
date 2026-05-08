@@ -2136,6 +2136,23 @@ header {
   font-weight: 700;
   color: #4B3C29;
 }
+.article-detail__content .article-content__cta-inline {
+  margin: 5rem 0;
+  padding: 3rem;
+  background-color: rgba(243, 236, 226, 0.5);
+  border-radius: 0.75rem;
+  text-align: center;
+}
+.article-detail__content .article-content__cta-inline p {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-bottom: 1.8rem;
+  color: #4B3C29;
+}
+.article-detail__content .article-content__cta-inline .article-cta__button {
+  margin-bottom: 0;
+}
 .article-detail__footer {
   margin-top: 6rem;
   padding-top: 3rem;
