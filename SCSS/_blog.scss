@@ -1,15 +1,15 @@
 .zapisnik {
     max-width: 900px; // Užší kontejner pro lepší čitelnost
     margin: 0 auto;
-    padding: clamp(2rem, 8vw, 5rem) $pad-mobile;
+    //padding: 0 $pad-mobile;
 
-    @media (min-width: $tablet-size) {
-        padding-inline: $pad-tablet;
-    }
+    // @media (min-width: $tablet-size) {
+    //     padding-inline: $pad-tablet;
+    // }
 
-    @media (min-width: $PC-size) {
-        padding-inline: 0;
-    }
+    // @media (min-width: $PC-size) {
+    //     padding-inline: 0;
+    // }
 
     &__header {
         text-align: center;

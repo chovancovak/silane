@@ -1,14 +1,14 @@
 .o-mne {
-  padding: 6rem $pad-mobile; // Víc ticha na mobilu
+  //padding: 0 $pad-mobile; // Víc ticha na mobilu
   background-color: $color-bg-soft;
 
-  @media (min-width: $tablet-size) {
-    padding: 8rem $pad-tablet;
-  }
+  // @media (min-width: $tablet-size) {
+  //   padding: 8rem $pad-tablet;
+  // }
 
-  @media (min-width: $PC-size) {
-    padding: 10rem 0;
-  }
+  // @media (min-width: $PC-size) {
+  //   padding: 10rem 0;
+  // }
 }
 
 .o-mne__inner {

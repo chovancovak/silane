@@ -5,17 +5,17 @@
     align-items: center;
     justify-content: center;
     min-height: 70vh;
-    padding: $pad-mobile; // Výchozí mobilní odsazení
+    //padding: $pad-mobile; // Výchozí mobilní odsazení
     text-align: center;
     background-color: $background-c; // #F4EFE6
 
-    @media (min-width: $tablet-size) {
-        padding: $pad-tablet;
-    }
+    // @media (min-width: $tablet-size) {
+    //     padding: $pad-tablet;
+    // }
 
-    @media (min-width: $PC-size) {
-        padding: $pad-PC;
-    }
+    // @media (min-width: $PC-size) {
+    //     padding: $pad-PC;
+    // }
 
     &__inner {
         max-width: 700px;

@@ -12,6 +12,17 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F3ECE2;
+  color: #22282B;
+  font-family: "Source Sans 3", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
 .hidden {
   display: none !important;
 }
@@ -20,38 +31,25 @@
   white-space: nowrap;
 }
 
-body.subpage header.nav {
-  position: relative !important;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-body.subpage main {
+.page {
+  margin-left: 20px;
+  margin-right: 20px;
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 @media screen and (min-width: 768px) {
-  body.subpage main {
-    padding-top: 5rem;
+  .page {
+    margin-left: 80px;
+    margin-right: 80px;
   }
 }
-
-p {
-  font-family: "Source Sans 3", sans-serif;
-  margin: 0 0 0.9rem;
-  color: #22282B;
-  font-size: clamp(1rem, 1.9vw, 1.05rem);
-}
-
-img {
-  width: 100%;
-}
-
-body {
-  margin: 0;
-  background-color: #F3ECE2;
-  color: #22282B;
-  font-family: "Source Sans 3", sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
+@media screen and (min-width: 1250px) {
+  .page {
+    margin-left: 180px;
+    margin-right: 180px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 .base__margin {
@@ -60,26 +58,11 @@ body {
   padding-inline: 1.5rem;
 }
 
-.page {
-  margin: 0 20px;
-  padding: 0;
-}
-@media screen and (min-width: 768px) {
-  .page {
-    margin: 0 80px;
-  }
-}
-@media screen and (min-width: 1250px) {
-  .page {
-    margin: 0 180px;
-  }
-}
-
 h1, h2, h3 {
   font-family: "Libre Baskerville", serif;
   font-weight: 700;
   color: #22282B;
-  margin: 0 0 0.75rem;
+  margin: 0 0 1.2rem;
 }
 
 h2 {
@@ -88,6 +71,19 @@ h2 {
 
 h3 {
   font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+}
+
+p {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0 0 1.2rem;
+  color: #22282B;
+  font-size: clamp(1rem, 1.9vw, 1.1rem);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 main.page > section {
@@ -117,7 +113,6 @@ main.page > section {
   border-radius: 1.25rem;
   padding: clamp(2rem, 3vw, 2.5rem);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-  margin-top: clamp(2rem, 8vw, 5rem);
   margin-bottom: clamp(2rem, 6vw, 4rem);
 }
 
@@ -674,31 +669,7 @@ main.page > section {
 }
 
 .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(75, 60, 41, 0.9); /* Použita tvoje tmavá hnědá pro dobrou čitelnost */
-  z-index: 3000;
-  backdrop-filter: blur(6px);
-  transition: all 200ms ease;
-  padding: 0.8rem 0;
-}
-@media screen and (min-width: 768px) {
-  .menu {
-    padding: 1.2rem 0;
-  }
-}
-
-.menu__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.menu {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -735,33 +706,77 @@ main.page > section {
 }
 
 .menu__brand {
-  font-family: "Libre Baskerville", serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.6rem;
-  color: #E0B11F;
-  letter-spacing: 0.5px;
   margin-left: 20px;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
   .menu__brand {
     margin-left: 80px;
-    font-size: 2.2rem;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 899px) {
-  .menu__brand {
-    margin: 0 auto; /* Zruší levý okraj a vycentruje nápis */
-    text-align: center;
-    width: 100%; /* Roztáhne se na celou šířku, aby fungovalo centrování */
   }
 }
 @media screen and (min-width: 1250px) {
   .menu__brand {
     margin-left: 180px;
-    font-size: 2.5rem;
   }
+}
+
+.menu__logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.menu__logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+  transition: all 300ms ease;
+}
+@media screen and (min-width: 768px) {
+  .menu__logo-img {
+    height: 65px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .menu__logo-img {
+    height: 75px;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .menu__logo-img {
+    height: 80px;
+  }
+}
+.menu__logo-img .logo-circle {
+  fill: none;
+  stroke: #E0B11F;
+  stroke-width: 40px;
+  transition: stroke 300ms ease;
+}
+.menu__logo-img .logo-text {
+  fill: #F3ECE2;
+  transition: fill 300ms ease;
+}
+.menu__logo-img:hover {
+  transform: scale(1.05);
+}
+.menu__logo-img:hover .logo-circle {
+  stroke: rgb(230.2, 192.6, 75.8);
+}
+.menu__logo-img:hover .logo-text {
+  fill: #ffffff;
+}
+
+.menu__brand-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .menu__checkbox {
@@ -873,14 +888,6 @@ main.page > section {
   text-decoration-thickness: 1px;
 }
 
-/* =========================================================
-   HERO – Varianta A: text "plave" výš (není u spodní hrany)
-   Počítá s fixed menu a CSS proměnnou --nav-h
-   ========================================================= */
-:root {
-  --nav-h: 64px;
-}
-
 header {
   margin: 0;
 }
@@ -889,11 +896,6 @@ header {
   position: relative;
   width: 100%;
   overflow: hidden;
-  /* místo pod fixed menu */
-  padding-top: var(--nav-h);
-  /* stabilní výška, aby se to na velkých monitorech nerozjelo */
-  min-height: clamp(22rem, 55vw, 34rem);
-  max-height: calc(100svh - var(--nav-h));
 }
 
 /* Pozadí (foto) jako výřez */
@@ -908,12 +910,11 @@ header {
      object-position: 55% 40%;
 }
 
-/* Ztmavení pro čitelnost (jemnější, protože text není dole) */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.55) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.55) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -923,8 +924,9 @@ header {
   position: absolute;
   left: clamp(1.25rem, 6vw, 4rem);
   /* “plave” přibližně v dolní polovině, ale nelepí se na spodek */
-  top: 80%;
-  transform: translateY(-50%);
+  bottom: clamp(1.5rem, 8vw, 4rem);
+  top: auto;
+  transform: none;
   max-width: min(32rem, 88vw);
   z-index: 3;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
@@ -964,8 +966,8 @@ header {
   .hero {
     display: flex;
     flex-direction: column;
-    padding-top: var(--nav-h);
     max-height: none;
+    background: transparent;
   }
   /* Fotka nahoře */
   .hero picture,
@@ -973,7 +975,11 @@ header {
     order: 1;
     display: block;
     width: 100%;
-    height: auto;
+    height: clamp(18rem, 60vw, 22rem);
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 55% 40%;
+       object-position: 55% 40%;
   }
   /* Vypnout všechny overlaye a efekty přes fotku */
   .hero::before,
@@ -1083,7 +1089,6 @@ header {
 }
 
 .coaching {
-  padding: 4rem 0;
   font-family: "Source Sans 3", sans-serif;
   line-height: 1.6;
 }
@@ -1106,7 +1111,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.8rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2rem;
   font-weight: 600;
   color: #7A6247;
 }
@@ -1704,18 +1709,7 @@ header {
 }
 
 .o-mne {
-  padding: 6rem 20px;
   background-color: #F3ECE2;
-}
-@media (min-width: 768px) {
-  .o-mne {
-    padding: 8rem 80px;
-  }
-}
-@media (min-width: 1250px) {
-  .o-mne {
-    padding: 10rem 0;
-  }
 }
 
 .o-mne__inner {
@@ -1895,17 +1889,6 @@ header {
 .zapisnik {
   max-width: 900px;
   margin: 0 auto;
-  padding: clamp(2rem, 8vw, 5rem) 20px;
-}
-@media (min-width: 768px) {
-  .zapisnik {
-    padding-inline: 80px;
-  }
-}
-@media (min-width: 1250px) {
-  .zapisnik {
-    padding-inline: 0;
-  }
 }
 .zapisnik__header {
   text-align: center;
@@ -2224,7 +2207,6 @@ header {
 }
 
 .recenze-page {
-  padding: 4rem 0;
   font-family: "Source Sans 3", sans-serif;
   line-height: 1.6;
 }
@@ -2297,7 +2279,6 @@ header {
 }
 
 .contact-page {
-  padding: 8rem 0;
   min-height: 60vh;
 }
 .contact-page__inner {
@@ -2385,19 +2366,8 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 70vh;
-  padding: 20px;
   text-align: center;
   background-color: #F4EFE6;
-}
-@media (min-width: 768px) {
-  .thankyou {
-    padding: 80px;
-  }
-}
-@media (min-width: 1250px) {
-  .thankyou {
-    padding: 180px;
-  }
 }
 .thankyou__inner {
   max-width: 700px;
@@ -2431,12 +2401,6 @@ header {
 .gdpr__container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .gdpr__container {
-    padding: 80px 0;
-  }
 }
 .gdpr__title {
   font-family: "Libre Baskerville", serif;

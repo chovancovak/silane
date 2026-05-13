@@ -2,11 +2,11 @@
   &__container {
     max-width: 800px;
     margin: 0 auto;
-    padding: $pad-mobile;
+    //padding: $pad-mobile;
 
-    @media (min-width: $tablet-size) {
-      padding: $pad-tablet 0;
-    }
+    // @media (min-width: $tablet-size) {
+    //   padding: $pad-tablet 0;
+    // }
   }
 
   &__title {

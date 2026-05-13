@@ -1,12 +1,3 @@
-//barvy
-
-// $color-primary:   #8D7A61; // přírodní hnědobéžová
-// $color-accent:    #D4A017; // zlatá / hořčicová (CTA)
-// $color-dark:      #242D30; // text
-// $color-accent-d:  #5C563E; // tmavší akcent
-// $color-bg-soft:   #F5F2ED; // jemná béžová
-// $color-bg:        #FFFFFF;   /* základní bílá */
-// $color-border-soft:#E3DED6;   /* jemná, decentní linka */
 
 $color-primary:   #7A6247; // výraznější hnědobéžová (může být header / důležité prvky)
 $color-accent:    #E0B11F; // světlejší, jasnější zlatá (CTA, odkazy) - #E0B11F
@@ -22,6 +13,9 @@ $color-topics-bg: lighten($color-bg-soft, 2%);
 //$color-topics-bg: darken($color-bg-soft, 2%);
 
 
+//mezera pro ticho
+$space-site: 2rem; 
+$space-site-pc: 5rem;
 
 /* Radius & stíny */
 $radius-md: 0.75rem;
@@ -46,7 +40,7 @@ $septenary-c: #4A4146; /*nadpis H3*/
 //pro responzivní web - velikosti pro tablet a PC
 $tablet-size: 768px;
 $PC-size: 1250px;
-$menu-desktop: 1306px; //přepne haburger pozdeji nez na PC-size, aby se menu vešlo
+//$menu-desktop: 1306px; 
 
 
 //minimální a maximální šířka stránky

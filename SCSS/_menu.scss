@@ -1,31 +1,8 @@
-// Hlavní kontejner navigace
-.menu {
-    position: fixed;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    background: rgba($color-accent-d, 0.9); /* Použita tvoje tmavá hnědá pro dobrou čitelnost */
-    z-index: 3000;
-    backdrop-filter: blur(6px);
-    transition: all 200ms ease;
-    padding: 0.8rem 0;
 
-    @media screen and (min-width: $tablet-size) {
-        padding: 1.2rem 0;
-    }
-}
-
-// Horní část hlavičky (Logo + Hamburger na mobilu)
-.menu__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
 
 // Hlavní kontejner navigace
 .menu {
-    position: fixed;
+    position: sticky;
     top: 0; 
     left: 0;
     width: 100%;
@@ -62,36 +39,87 @@
 }
 
 // Logo "Síla ne"
+// Kontejner značky
 .menu__brand {
-    font-family: $patka;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 1.6rem;
-    //color: $color-bg-soft;
-    color: $color-accent;
-    letter-spacing: 0.5px;
     margin-left: $pad-mobile;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
 
-    // OD TABLETU (768px)
     @media screen and (min-width: $tablet-size) {
         margin-left: $pad-tablet;
-        font-size: 2.2rem;
     }
 
-    // ZMĚNA: Mezi 768px a 899px zarovnat na střed
-    @media screen and (min-width: $tablet-size) and (max-width: 899px) {
-        margin: 0 auto; /* Zruší levý okraj a vycentruje nápis */
-        text-align: center;
-        width: 100%; /* Roztáhne se na celou šířku, aby fungovalo centrování */
-    }
-
-    // OD PC (1250px)
     @media screen and (min-width: $PC-size) {
         margin-left: $pad-PC;
-        font-size: 2.5rem;
     }
 }
+
+// Odkaz obalující logo
+.menu__logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+// Samotné SVG
+.menu__logo-img {
+    height: 50px; // Mobil
+    width: auto;
+    display: block;
+    transition: all 300ms ease;
+
+    // Responzivní růst loga
+    @media screen and (min-width: $tablet-size) {
+        height: 65px;
+    }
+
+    @media screen and (min-width: 900px) {
+        height: 75px;
+    }
+
+    @media screen and (min-width: $PC-size) {
+        height: 80px; // Pro velké monitory
+    }
+
+    // VNITŘNÍ STYLING SVG
+    .logo-circle {
+        fill: none;
+        stroke: $color-accent; // Tvá zlatá
+        stroke-width: 40px;
+        transition: stroke 300ms ease;
+    }
+
+    .logo-text {
+        fill: $color-bg-soft; // Tvá jemná béžová
+        transition: fill 300ms ease;
+    }
+
+    // Efekt při najetí (hover)
+    &:hover {
+        transform: scale(1.05);
+
+        .logo-circle {
+            stroke: lighten($color-accent, 10%);
+        }
+
+        .logo-text {
+            fill: #ffffff; // Text zbělá pro lepší kontrast při hoveru
+        }
+    }
+}
+
+// Skrytí textu pro přístupnost
+.menu__brand-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 
 // Skrytý checkbox
 .menu__checkbox {
@@ -205,141 +233,3 @@
     text-decoration-thickness: 1px;
 }
 
-
-// // Hlavní kontejner navigace
-// .menu {
-//     position: fixed;
-//     top: 0; 
-//     left: 0;
-//     width: 100%;
-//     padding: 0.8rem 0;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     flex-wrap: wrap; /* Klíčová změna: povolí zalomení prvků do řádků */
-//     background: rgba($color-accent-d, 0.85); 
-//     z-index: 3000;
-//     backdrop-filter: blur(4px);
-//     transition: all 200ms ease;
-
-//     @media screen and (min-width: $tablet-size) {
-//         padding: 1rem 0;
-//     }
-// }
-
-// // Logo "Síla ne" (vždy vlevo)
-// .menu__brand {
-//     font-family: $patka;
-//     font-style: italic;
-//     font-weight: 300;
-//     font-size: 1.4rem;
-//     color: $color-accent;
-//     letter-spacing: 0.5px;
-//     margin-left: $pad-mobile;
-//     white-space: nowrap;
-
-//     @media screen and (min-width: $tablet-size) {
-//         margin-left: $pad-tablet;
-//         font-size: 1.8rem;
-//     }
-
-//     @media screen and (min-width: $PC-size) {
-//         margin-left: $pad-PC;
-//         font-size: 2.2rem;
-//     }
-// }
-
-// // Skrytý checkbox pro mobilní menu
-// .menu__checkbox {
-//     position: absolute;
-//     left: -9999px;
-//     margin: 0;
-// }
-
-// // Tlačítko Menu na mobilu (vždy vpravo)
-// .menu__toggler {
-//     cursor: pointer;
-//     font-family: $bezpatka;
-//     font-weight: 500;
-//     font-size: 18px;
-//     margin-right: $pad-mobile;
-//     color: $color-accent;
-//     display: block;
-
-//     // Od velikosti tabletu hamburger menu úplně schováme
-//     @media screen and (min-width: $tablet-size) {
-//         display: none;
-//     }
-// }
-
-// // Seznam odkazů v menu
-// .menu__list {
-//     padding: 0;
-//     list-style: none;
-//     display: none; /* Na mobilu schované, dokud se neklikne */
-//     width: 100%; /* Na mobilu zabere celou šířku pod logem */
-//     margin: 1rem $pad-mobile 0 $pad-mobile;
-
-//     // Když se na mobilu klikne na hamburger
-//     .menu__checkbox:checked ~ & {
-//         display: block;
-//     }
-
-//     // Od tabletu se menu zobrazí jako řádek pod logem (dvouřádkový layout)
-//     @media screen and (min-width: $tablet-size) {
-//         display: flex;
-//         justify-content: flex-end;
-//         width: auto; /* Už nezabírá 100 %, ale přizpůsobí se */
-//         flex-grow: 1; /* Pomůže správnému zarovnání */
-//         margin: 1rem $pad-tablet 0 0; /* Odsazení vpravo */
-//     }
-
-//     // Na PC se vrátíme do jednořádkového layoutu (menu je vedle loga)
-//     @media screen and (min-width: $PC-size) {
-//         margin: 0 $pad-PC 0 0;
-//         flex-grow: 0;
-//     }
-// }
-
-// // Položky menu
-// .menu__item {
-//     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-//     @media screen and (min-width: $tablet-size) {
-//         border-bottom: none;
-//     }
-// }
-
-// // Odkazy v menu
-// .menu__link {
-//     display: block;
-//     padding: 12px 10px;
-//     text-decoration: none;
-//     color: $color-accent;
-//     font-family: $bezpatka;
-//     font-weight: 300;
-//     font-size: 18px;
-//     transition: color 200ms ease;
-
-//     @media screen and (min-width: $tablet-size) {
-//         font-weight: 400;
-//         font-size: 16px;
-//         padding: 8px 15px;
-//     }
-    
-//     @media screen and (min-width: $PC-size) {
-//         font-weight: 500;
-//         font-size: 18px;
-//         padding: 10px 20px;
-//     }
-// }
-
-// .menu__link--active {
-//     color: $quaternary-c;
-// }
-
-// .menu__link:hover {
-//     text-decoration: underline;
-//     text-underline-offset: 6px;
-//     text-decoration-thickness: 0.5px;
-// }
