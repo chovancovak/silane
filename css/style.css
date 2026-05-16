@@ -2046,7 +2046,9 @@ header {
   margin: clamp(3rem, 8vw, 5rem) 0;
 }
 .article-detail__figure img {
-  width: 100%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   height: auto;
   border-radius: 1.25rem;
   filter: grayscale(10%);
@@ -2164,7 +2166,8 @@ header {
 .article-cta__text {
   font-family: "Libre Baskerville", serif;
   font-size: 1.4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
   color: #4B3C29;
 }
 .article-cta__actions {
@@ -2206,6 +2209,47 @@ header {
   color: #FFFFFF;
 }
 
+.article-interact {
+  margin: 6rem 0;
+  padding: 4rem 2rem;
+  background-color: rgba(243, 236, 226, 0.4);
+  border-radius: 1.25rem;
+  text-align: center;
+}
+.article-interact__question {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.5rem;
+  color: #4B3C29;
+  margin-bottom: 2rem;
+}
+.article-interact__details {
+  display: block;
+}
+.article-interact__details summary::-webkit-details-marker {
+  display: none;
+}
+.article-interact__details summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+}
+.article-interact__details[open] > summary {
+  display: none;
+}
+.article-interact__content {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .recenze-page {
   font-family: "Source Sans 3", sans-serif;
   line-height: 1.6;

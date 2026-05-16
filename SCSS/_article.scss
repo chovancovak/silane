@@ -64,7 +64,9 @@
         margin: clamp(3rem, 8vw, 5rem) 0;
         
         img {
-            width: 100%;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
             height: auto;
             border-radius: $radius-lg; // Používáme tvůj větší radius
             filter: grayscale(10%); // Jemný retro nádech pro klid
@@ -213,7 +215,8 @@
     &__text {
         font-family: $patka;
         font-size: 1.4rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
         color: $color-accent-d;
     }
 
@@ -261,4 +264,46 @@
     }
 
    
+}
+
+.article-interact {
+    margin: 6rem 0;
+    padding: 4rem 2rem;
+    background-color: rgba($color-bg-soft, 0.4);
+    border-radius: $radius-lg;
+    text-align: center;
+
+    &__question {
+        font-family: $patka;
+        font-size: 1.5rem;
+        color: $color-accent-d;
+        margin-bottom: 2rem;
+    }
+
+    &__details {
+        display: block;
+        
+        // Skryjeme ten hnusný defaultní trojúhelníček
+        summary::-webkit-details-marker { display: none; }
+        summary { 
+            list-style: none; 
+            cursor: pointer;
+            outline: none;
+        }
+
+        // Když je rozbaleno, skryjeme tlačítko, které to rozbalilo
+        &[open] > summary {
+            display: none;
+        }
+    }
+
+    &__content {
+        // Jemná animace objevení
+        animation: fadeIn 0.5s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
