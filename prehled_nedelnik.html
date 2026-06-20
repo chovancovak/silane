@@ -1,0 +1,26 @@
+---
+layout: layouts/main.njk
+---
+
+<main class="zapisnik">
+    <header class="zapisnik__header">
+        <h1 class="zapisnik__title">Nedělník</h1>
+        <p class="zapisnik__intro">Pravidelné zastavení, ticho a myšlenky, které přinášejí lehkost do každodennosti.</p>
+    
+    </header>
+
+    <div class="zapisnik__list">
+        {% for dopis in collections.nedelniky | reverse %}
+        <article class="newsletter-card">
+            <time class="newsletter-card__date">{{ dopis.data.datum }}</time>
+            <h2 class="newsletter-card__title">
+                <a href="{{ dopis.url }}">{{ dopis.data.title }}</a>
+            </h2>
+            <p class="newsletter-card__perex">
+                {{ dopis.data.perex }}
+            </p>
+            <a href="{{ dopis.url }}" class="newsletter-card__link">Číst nedělník —</a>
+        </article>
+        {% endfor %}
+    </div>
+</main>
