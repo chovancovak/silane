@@ -1,13 +1,7 @@
 @charset "UTF-8";
 /* Radius & stíny */
 /*pozadí a H1*/
-/**/
-/**/
 /* hlavní text */
-/* tmavě zelená – spodní část boxu pro blog a odkazy na více z článku v blogu */
-/* žlutá - myšl. mapa a odkazy v blogu */
-/*mechově zelená – pro myšlenkovou mapu*/
-/*nadpis H3*/
 *, :after, :before {
   box-sizing: border-box;
 }
@@ -1086,6 +1080,365 @@ header {
   margin-top: 0.5rem;
   opacity: 0.8;
   line-height: 1.5;
+}
+
+/* ===========================
+   Rozhovory – úvod
+   =========================== */
+.interviews-intro {
+  max-width: 52rem;
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.interviews-intro__label,
+.interviews-featured__number,
+.interviews-list__label,
+.interview-card__number,
+.interviews-coaching__label {
+  margin: 0 0 0.7rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7A6247;
+}
+
+.interviews-intro__title {
+  margin: 0 0 1.4rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  line-height: 1.05;
+  color: #4B3C29;
+}
+
+.interviews-intro__lead {
+  max-width: 46rem;
+  margin-bottom: 1.2rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1.15rem, 2.3vw, 1.4rem);
+  line-height: 1.55;
+  font-weight: 600;
+  color: #22282B;
+}
+
+.interviews-intro__text {
+  max-width: 43rem;
+  margin-bottom: 0.75rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.08rem);
+  line-height: 1.7;
+  color: #22282B;
+}
+
+/* ===========================
+   Zvýrazněný rozhovor
+   =========================== */
+.interviews-featured {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: #FFFFFF;
+  border: 1px solid #D9CDBE;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.interviews-featured__heading {
+  max-width: 48rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.interviews-featured__title {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  color: #4B3C29;
+}
+
+.interviews-featured__layout {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.interviews-featured__video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #22282B;
+  border-radius: 0.75rem;
+}
+
+.interviews-featured__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.interviews-featured__content {
+  max-width: 39rem;
+}
+
+.interviews-featured__guest {
+  margin: 0 0 0.2rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  font-weight: 600;
+  color: #7A6247;
+}
+
+.interviews-featured__role {
+  margin: 0 0 1.3rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(34, 40, 43, 0.75);
+}
+
+.interviews-featured__quote {
+  margin: 0 0 1.3rem;
+  padding-left: 1.2rem;
+  border-left: 3px solid #E0B11F;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1rem, 1.9vw, 1.1rem);
+  line-height: 1.7;
+  color: #22282B;
+}
+.interviews-featured__quote p {
+  margin: 0;
+}
+
+.interviews-featured__text {
+  margin: 0 0 1rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.05rem);
+  line-height: 1.7;
+  color: #22282B;
+}
+
+.interviews-featured__content .button, .interviews-featured__content .button--primary, .interviews-featured__content .button--secondary, .interviews-featured__content .button--ghost {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 1250px) {
+  .interviews-featured__layout {
+    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.75fr);
+  }
+}
+/* ===========================
+   Myšlenka série
+   =========================== */
+.interviews-idea {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+  padding: clamp(2.2rem, 5vw, 3.5rem);
+  background: #2C3537;
+  border-radius: 1.25rem;
+  color: #F3ECE2;
+}
+
+.interviews-idea__inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.interviews-idea__title {
+  margin: 0 0 1.4rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+  line-height: 1.3;
+  color: #F3ECE2;
+}
+
+.interviews-idea__text {
+  margin: 0 0 0.9rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1rem, 1.9vw, 1.08rem);
+  line-height: 1.7;
+  color: #F3ECE2;
+}
+
+.interviews-idea__claim {
+  margin: 1.8rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 2px solid #E0B11F;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-style: italic;
+  color: rgb(230.2, 192.6, 75.8);
+}
+
+/* ===========================
+   Seznam rozhovorů
+   =========================== */
+.interviews-list {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.interviews-list__heading {
+  margin-bottom: 1.6rem;
+}
+
+.interviews-list__title {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  color: #4B3C29;
+}
+
+.interviews-list__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.interview-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #D9CDBE;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.interview-card__image-link {
+  display: block;
+  overflow: hidden;
+  background: #F3ECE2;
+}
+
+.interview-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.interview-card__image-link:hover .interview-card__image {
+  transform: scale(1.02);
+}
+
+.interview-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+
+.interview-card__title {
+  margin: 0 0 0.55rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.3rem, 2.3vw, 1.6rem);
+  line-height: 1.3;
+  color: #4B3C29;
+}
+
+.interview-card__guest {
+  margin: 0 0 0.9rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  color: #7A6247;
+}
+
+.interview-card__text {
+  margin: 0 0 1.3rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #22282B;
+}
+
+.interview-card__link {
+  margin-top: auto;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  color: #4B3C29;
+  text-decoration: underline;
+  text-decoration-color: #E0B11F;
+  text-underline-offset: 0.25rem;
+}
+
+.interview-card__link:hover {
+  color: #7A6247;
+}
+
+@media (min-width: 768px) {
+  .interviews-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1250px) {
+  .interviews-list__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* ===========================
+   Propojení s koučováním
+   =========================== */
+.interviews-coaching {
+  padding: clamp(2.2rem, 5vw, 3.5rem);
+  background: rgb(245.9853658537, 240.7268292683, 233.2146341463);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.interviews-coaching__inner {
+  max-width: 43rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.interviews-coaching__title {
+  margin: 0 0 1rem;
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1.35;
+  color: #4B3C29;
+}
+
+.interviews-coaching__text {
+  margin: 0 auto 1.6rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.06rem);
+  line-height: 1.7;
+  color: #22282B;
+}
+
+.interviews-coaching__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/*
+  Na této stránce nechceme levý margin,
+  který má obecná .button--secondary od 480 px.
+*/
+.interviews-coaching__actions .button--secondary {
+  margin-left: 0;
+}
+
+.interviews-coaching__newsletter {
+  margin: 1.4rem 0 0;
+  font-size: 0.95rem;
+  color: #7A6247;
+}
+.interviews-coaching__newsletter a {
+  font-weight: 600;
+  color: #4B3C29;
+  text-decoration-color: #E0B11F;
+  text-underline-offset: 0.2rem;
+}
+.interviews-coaching__newsletter a:hover {
+  color: #E0B11F;
 }
 
 .coaching {
