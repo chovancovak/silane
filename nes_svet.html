@@ -1,8 +1,15 @@
 ---
 layout: layouts/main.njk
 title: "Rozhovory – Nes svět, neztrať sebe"
+seoTitle: "Rozhovory o hranicích, odpovědnosti a neztrácení sebe | Síla ne"
+description: "Rozhovory s lidmi, kteří se snaží měnit svět kolem sebe a nezapomenout u toho na sebe."
+ogImage: "/img/og-nes-svet.jpg"
 code: rozhovory
 ---
+
+{% set rozhovory = collections.rozhovory | reverse %}
+{% set featured = rozhovory[0] %}
+
 
 <section class="interviews-intro base__margin">
   <p class="interviews-intro__label">Rozhovory Síly ne</p>
@@ -17,76 +24,77 @@ code: rozhovory
     O tom, jak dělat důležité věci — a nezapomenout u toho na sebe.
   </p>
 
-  {# <p class="interviews-intro__text">
-    Aktivismus, práce, péče o druhé i smysluplné projekty mohou člověka
-    naplňovat. Mohou ho ale také postupně pohltit.
-  </p> #}
-
   <p class="interviews-intro__text">
-    V těchto rozhovorech hledáme a sdílíme to, co nám pomáhá neztratit sebe, i když je to těžké.
+    V těchto rozhovorech hledáme a sdílíme to, co nám pomáhá
+    neztratit sebe, i když je to těžké.
   </p>
 </section>
 
 
+{% if featured %}
 <section class="interviews-featured base__margin">
+
   <div class="interviews-featured__heading">
-    <p class="interviews-featured__number">Rozhovor 01</p>
+    <p class="interviews-featured__number">
+      Rozhovor {{ featured.data.number }}
+    </p>
+
     <h2 class="interviews-featured__title">
-      Polovičaté NE je nejhorší
+      {{ featured.data.title }}
     </h2>
   </div>
+
 
   <div class="interviews-featured__layout">
 
     <div class="interviews-featured__video">
       <iframe
-        src="https://www.youtube.com/embed/qmrYutCR2_4"
-        title="Polovičaté NE je nejhorší – rozhovor s Jaroslavem Bicanem"
+        src="https://www.youtube.com/embed/{{ featured.data.youtube_id }}"
+        title="{{ featured.data.title }} – rozhovor s {{ featured.data.guest }}"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
+
     <div class="interviews-featured__content">
+
       <p class="interviews-featured__guest">
-        Jaroslav Bican
+        {{ featured.data.guest }}
       </p>
 
       <p class="interviews-featured__role">
-        Aktivista a energetický expert Greenpeace ČR
+        {{ featured.data.role }}
       </p>
 
       <blockquote class="interviews-featured__quote">
         <p>
-          „To není sobectví, že myslím na sebe, že já se chci dobře vyspat,
-          já chci mít čas na sebe, já chci mít prostě čas na to se v klidu najíst.
-          To je o tom, že já chci tu svoji smysluplnou práci dělat
-          <strong>dobře, kvalitně</strong> a chci ji dělat
-          <strong>dlouhodobě</strong>.“
+          „{{ featured.data.quote }}“
         </p>
       </blockquote>
 
       <p class="interviews-featured__text">
-        S Jaroslavem Bicanem mluvíme o zahlcení,
-        odpovědnosti a o tom, proč někdy nestačí říct ne jen napůl.
+        {{ featured.data.featured_text }}
       </p>
 
       <a
-        href="https://youtu.be/qmrYutCR2_4"
-        class="button button--secondary"
-        target="_blank"
-        rel="noopener">
-        Otevřít rozhovor na YouTube
+        href="{{ featured.url }}"
+        class="interview-card__link">
+        Otevřít rozhovor
       </a>
+
     </div>
 
   </div>
 </section>
+{% endif %}
 
 
 <section class="interviews-idea base__margin">
+
   <div class="interviews-idea__inner">
+
     <h2 class="interviews-idea__title">
       Jak zůstat člověkem i uprostřed důležitých věcí.
     </h2>
@@ -104,74 +112,96 @@ code: rozhovory
     <p class="interviews-idea__claim">
       Ne je slovo, kterým se bereme vážně.
     </p>
+
   </div>
+
 </section>
 
 
-{# <section class="interviews-list base__margin">
+<section class="interviews-list base__margin">
+
   <div class="interviews-list__heading">
-    <p class="interviews-list__label">Všechny rozhovory</p>
-    <h2 class="interviews-list__title">Nes svět, neztrať sebe</h2>
+    <p class="interviews-list__label">
+      Všechny rozhovory
+    </p>
+
+    <h2 class="interviews-list__title">
+      Nes svět, neztrať sebe
+    </h2>
   </div>
+
 
   <div class="interviews-list__grid">
 
+    {% for rozhovor in rozhovory %}
+
     <article class="interview-card">
+
       <a
-        href="https://www.youtube.com/watch?v=VIDEO_ID"
-        class="interview-card__image-link"
-        target="_blank"
-        rel="noopener">
+        href="{{ rozhovor.url }}"
+        class="interview-card__image-link">
 
         <img
-          src="/img/tumbnail.jpg"
-          alt="Karolína Chovancová v rozhovoru s Jaroslavem Bicanem"
+          src="{{ rozhovor.data.thumbnail }}"
+          alt="Karolína Chovancová v rozhovoru s {{ rozhovor.data.guest }}"
           class="interview-card__image">
       </a>
 
       <div class="interview-card__content">
-        <p class="interview-card__number">Rozhovor 01</p>
+
+        <p class="interview-card__number">
+          Rozhovor {{ rozhovor.data.number }}
+        </p>
 
         <h3 class="interview-card__title">
-          Polovičaté NE je nejhorší
+          {{ rozhovor.data.title }}
         </h3>
 
         <p class="interview-card__guest">
-          Jaroslav Bican
+          {{ rozhovor.data.guest }}
         </p>
 
         <p class="interview-card__text">
-          O zahlcení, urgentních úkolech a chvíli,
-          kdy už člověk nemůže říkat ne jen napůl.
+          {{ rozhovor.data.perex }}
         </p>
 
         <a
-          href="https://youtu.be/qmrYutCR2_4"
-          class="interview-card__link"
-          target="_blank"
-          rel="noopener">
-          Pustit rozhovor
+          href="{{ rozhovor.url }}"
+          class="interview-card__link">
+          Otevřít rozhovor
         </a>
+
       </div>
+
     </article>
 
+    {% endfor %}
+
   </div>
-</section> #}
+
+</section>
 
 
 <section class="interviews-coaching base__margin">
+
   <div class="interviews-coaching__inner">
-    <p class="interviews-coaching__label">A co nesete vy?</p>
+
+    <p class="interviews-coaching__label">
+      A co nesete vy?
+    </p>
 
     <h2 class="interviews-coaching__title">
       Nemusíte čekat, až už nebude z čeho brát.
     </h2>
 
     <p class="interviews-coaching__text">
-      V koučování vzniká prostor pojmenovat si a nastavit nové návyky, které nám pomůžou dělat důležité věci dlouhodobě bez ztráty sebe sama.
+      V koučování vzniká prostor pojmenovat si a nastavit nové návyky,
+      které nám pomůžou dělat důležité věci dlouhodobě bez ztráty sebe sama.
     </p>
 
+
     <div class="interviews-coaching__actions">
+
       <a
         href="/koucovani/"
         class="button button--secondary">
@@ -183,13 +213,15 @@ code: rozhovory
         class="button button--primary">
         Domluvit úvodní hodinu
       </a>
+
     </div>
+
 
     <p class="interviews-coaching__newsletter">
       Nebo si nechte občas poslat
       <a href="/nedelnik/">Nepravidelný Nedělník</a>.
     </p>
 
-    
   </div>
+
 </section>

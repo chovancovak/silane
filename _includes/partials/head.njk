@@ -1,40 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="{{ lang or 'cs' }}">
+<head>
 
-        <meta name="google-site-verification" content="W562gfNRusOXz-qBltc82H1w3vHaFHfB5sJ8Mj0uuJE" />
-        
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- <title>{% if title %}{{ title }} | Síla ne{% else %}Síla ne{% endif %}</title> -->
-        
-        
-        <!-- Open Graph -->
-        <meta property="og:title" content="Síla ne – prostor, kde si můžete dovolit ubrat">
-        <meta property="og:description" content="Nepomáhám dělat toho víc — ale míň. To je náročnější než jet dál.">
-        <meta property="og:image" content="https://silane.cz/img/og-sila-ne.jpg">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://silane.cz">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Twitter Cards -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Síla ne – prostor, kde si můžete dovolit ubrat">
-        <meta name="twitter:description" content="Nepomáhám dělat toho víc — ale míň. To je náročnější než jet dál.">
-        <meta name="twitter:image" content="/img/og-sila-ne.jpg">
+    {% if site.googleSiteVerification %}
+    <meta
+        name="google-site-verification"
+        content="{{ site.googleSiteVerification }}">
+    {% endif %}
 
 
+    {# =========================
+       TITLE A DESCRIPTION
+       ========================= #}
 
-        <link rel="stylesheet" href="/CSS/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    {% if page.url == "/" %}
+        {% set pageTitle = seoTitle or site.defaultTitle %}
+    {% elif seoTitle %}
+        {% set pageTitle = seoTitle %}
+    {% elif title %}
+        {% set pageTitle = title ~ " | " ~ site.name %}
+    {% else %}
+        {% set pageTitle = site.defaultTitle %}
+    {% endif %}
+
+    {% set pageDescription = description or site.defaultDescription %}
+
+    <title>{{ pageTitle }}</title>
+
+    <meta
+        name="description"
+        content="{{ pageDescription }}">
+
+
+    {# =========================
+       INDEXACE
+       ========================= #}
+
+    {% if noindex %}
+    <meta name="robots" content="noindex, nofollow">
+    {% else %}
+    <meta name="robots" content="index, follow">
+    {% endif %}
+
+
+    {# =========================
+       CANONICAL
+       ========================= #}
+
+    {% set canonicalUrl = canonical or (site.url ~ page.url) %}
+
+    <link
+        rel="canonical"
+        href="{{ canonicalUrl }}">
+
+
+    {# =========================
+       OPEN GRAPH
+       ========================= #}
+
+    {% set ogImagePath = ogImage or site.defaultOgImage %}
+    {% set ogImageUrl = site.url ~ ogImagePath %}
+
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:image" content="{{ ogImageUrl }}">
+
+    {% if ogImageAlt %}
+    <meta property="og:image:alt" content="{{ ogImageAlt }}">
+    {% endif %}
+
+    <meta property="og:type" content="{{ ogType or 'website' }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+
+    {% if (lang or 'cs') == 'en' %}
+    <meta property="og:locale" content="en_US">
+    {% else %}
+    <meta property="og:locale" content="cs_CZ">
+    {% endif %}
+
+
+    {# =========================
+       TWITTER / X
+       ========================= #}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ pageTitle }}">
+    <meta name="twitter:description" content="{{ pageDescription }}">
+    <meta name="twitter:image" content="{{ ogImageUrl }}">
+
     
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-        <link rel="icon" type="image/png" sizes="512x512" href="/img/favicon-512.png">
-    
-        <link rel="canonical" href="https://silane.cz">
+    {# =========================
+       apple-touch-icon / X
+       ========================= #}
 
-    </head>
-    
-    
+    {# <link
+    rel="apple-touch-icon"
+    href="/img/apple-touch-icon.png"> #}
+
+
+    {# =========================
+       JAZYKOVÉ VARIANTY
+       ========================= #}
+
+    {% if translations %}
+
+        {% if translations.cs %}
+        <link
+            rel="alternate"
+            hreflang="cs"
+            href="{{ site.url }}{{ translations.cs }}">
+        {% endif %}
+
+        {% if translations.en %}
+        <link
+            rel="alternate"
+            hreflang="en"
+            href="{{ site.url }}{{ translations.en }}">
+        {% endif %}
+
+        {% if translations.cs %}
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href="{{ site.url }}{{ translations.cs }}">
+        {% endif %}
+
+    {% endif %}
+
+
+    {# =========================
+       STYLY A FONTY
+       ========================= #}
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+
+    {# =========================
+       IKONY
+       ========================= #}
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/img/favicon-32.png">
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="512x512"
+        href="/img/favicon-512.png">
+
+</head>

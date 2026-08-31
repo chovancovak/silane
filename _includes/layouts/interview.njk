@@ -1,0 +1,82 @@
+{% include "partials/head.njk" %}
+
+{% include "partials/menu.njk" %}
+
+<main class="page">
+  <article class="interview-detail base__margin">
+
+    <header class="interview-detail__header">
+
+      <p class="interview-detail__number">
+        Rozhovor {{ number }}
+      </p>
+
+      <h1 class="interview-detail__title">
+        {{ title }}
+      </h1>
+
+      <p class="interview-detail__guest">
+        {{ guest }}
+      </p>
+
+      <p class="interview-detail__role">
+        {{ role }}
+      </p>
+
+    </header>
+
+
+    <div class="interview-detail__video">
+      <iframe
+        src="https://www.youtube.com/embed/{{ youtube_id }}"
+        title="{{ title }} – rozhovor s {{ guest }}"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <div class="interview-detail__content">
+
+      <p class="interview-detail__lead">
+        {{ featured_text }}
+      </p>
+
+      <blockquote class="interview-detail__quote">
+        <p>
+          „{{ quote }}“
+        </p>
+      </blockquote>
+
+      <p class="interview-detail__text">
+        {{ perex }}
+      </p>
+
+
+      <div class="interview-detail__actions">
+
+        <a
+          href="{{ youtube }}"
+          class="button button--primary"
+          target="_blank"
+          rel="noopener">
+          Pustit rozhovor na YouTube
+        </a>
+
+        <a
+          href="/nes_svet/"
+          class="button button--secondary">
+          Všechny rozhovory
+        </a>
+
+      </div>
+
+    </div>
+
+  </article>
+</main>
+
+{% include "partials/footer.njk" %}
+
+</html>
