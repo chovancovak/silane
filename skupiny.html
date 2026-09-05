@@ -1,0 +1,157 @@
+---
+layout: layouts/main.njk
+title: "Skupinové koučování"
+seoTitle: "Skupinové koučování | Síla ne"
+description: "Skupinové koučování Síly ne pro lidi, kteří chtějí získat odstup, ujasnit si, co potřebují, a hledat vlastní cestu ke změně."
+code: skupiny
+---
+
+{% set skupiny = collections.skupiny | reverse %}
+
+
+<section class="groups-intro base__margin">
+
+  <p class="groups-intro__label">
+    Síla ne
+  </p>
+
+  <h1 class="groups-intro__title">
+    Skupinové koučování
+  </h1>
+
+  <p class="groups-intro__lead">
+    Některá témata řešíme každý po svém.
+    Přesto může být užitečné nebýt na ně chvíli sami.
+  </p>
+
+  <p class="groups-intro__text">
+    Ve skupinovém koučování pracujeme se společným tématem,
+    ale každý účastník hledá vlastní odpovědi.
+    Nečeká vás přednáška ani univerzální návod.
+    Dostanete prostor zastavit se, podívat se na svou situaci
+    s odstupem a rozhodnout se, co potřebujete vy.
+  </p>
+  <p class="groups-intro__text">
+    Procesem vás provede ....
+  </p>
+
+</section>
+
+
+<section class="groups-list base__margin">
+
+  <div class="groups-list__heading">
+
+    <p class="groups-list__label">
+      Aktuálně
+    </p>
+
+    <h2 class="groups-list__title">
+      Skupinová setkání
+    </h2>
+
+  </div>
+
+
+  <div class="groups-list__grid">
+
+    {% for skupina in skupiny %}
+
+      {% if skupina.data.status != "closed" %}
+
+        <article class="group-card">
+
+          {% if skupina.data.thumbnail %}
+
+            <a
+              href="{{ skupina.url }}"
+              class="group-card__image-link">
+
+              <img
+                src="{{ skupina.data.thumbnail }}"
+                alt="{{ skupina.data.title }}"
+                class="group-card__image">
+
+            </a>
+
+          {% endif %}
+
+
+          <div class="group-card__content">
+
+            <p class="group-card__type">
+              Skupinové koučování
+            </p>
+
+            <h3 class="group-card__title">
+              {{ skupina.data.title }}
+            </h3>
+
+            {% if skupina.data.perex %}
+              <p class="group-card__text">
+                {{ skupina.data.perex }}
+              </p>
+            {% endif %}
+
+
+            {% if skupina.data.status == "interest" %}
+
+              <p class="group-card__status">
+                Připravuji nový termín.
+              </p>
+
+            {% elif skupina.data.status == "open" %}
+
+              <p class="group-card__status">
+                Přihlašování je otevřené.
+              </p>
+
+            {% endif %}
+
+
+            <a
+              href="{{ skupina.url }}"
+              class="group-card__link">
+              Více o setkání
+            </a>
+
+          </div>
+
+        </article>
+
+      {% endif %}
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+
+<section class="groups-about base__margin">
+
+  <div class="groups-about__inner">
+
+    <h2 class="groups-about__title">
+      Společné je téma. Odpovědi jsou vaše.
+    </h2>
+
+    <p class="groups-about__text">
+      Část času pracujete sami, část ve dvojicích nebo malé skupině
+      a část společně.
+    </p>
+
+    <p class="groups-about__text">
+      Sdílet můžete, ale nemusíte.
+      I bez mluvení o svých věcech před celou skupinou
+      můžete ze setkání vytěžit hodně.
+    </p>
+
+    <p class="groups-about__claim">
+      Budu držet strukturu a bezpečný prostor.
+      Odpovědi ale nebudu přinášet já.
+    </p>
+
+  </div>
+
+</section>

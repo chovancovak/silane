@@ -1,0 +1,117 @@
+@import 'variables';
+
+
+.groups-intro {
+    max-width: 48rem;
+    margin-bottom: 4rem;
+}
+
+.groups-intro__label,
+.groups-list__label {
+    margin-bottom: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-primary;
+}
+
+.groups-intro__title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+}
+
+.groups-intro__lead {
+    font-family: $patka;
+    font-size: clamp(1.2rem, 2.3vw, 1.45rem);
+    line-height: 1.6;
+}
+
+.groups-list {
+    margin-bottom: 5rem;
+}
+
+.groups-list__heading {
+    margin-bottom: 2rem;
+}
+
+.groups-list__grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.group-card {
+    overflow: hidden;
+    background-color: $color-bg;
+    border: 1px solid $color-border-soft;
+}
+
+.group-card__image-link {
+    display: block;
+}
+
+.group-card__image {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.group-card__content {
+    padding: 2rem;
+}
+
+.group-card__type {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-primary;
+}
+
+.group-card__title {
+    margin-bottom: 1rem;
+}
+
+.group-card__text {
+    margin-bottom: 1.2rem;
+}
+
+.group-card__status {
+    font-weight: 600;
+    color: $color-accent-d;
+}
+
+.group-card__link {
+    font-weight: 600;
+    color: $color-accent-d;
+    text-decoration: underline;
+
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+.groups-about {
+    max-width: 48rem;
+}
+
+.groups-about__claim {
+    margin-top: 2rem;
+    padding-left: 1.2rem;
+    border-left: 3px solid $color-accent;
+    font-family: $patka;
+    font-size: 1.15rem;
+}
+
+
+// =========================
+// Větší displeje
+// =========================
+
+@media screen and (min-width: $tablet-size) {
+
+    .groups-list__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

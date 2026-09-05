@@ -73,4 +73,18 @@ img {
     display: block;
 }
 
+a {
+    color: $color-accent-d;
+    text-decoration-color: $color-accent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
 
+    &:hover {
+        color: $color-accent;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 3px;
+    }
+}

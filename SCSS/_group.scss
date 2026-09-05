@@ -1,0 +1,262 @@
+.group-detail {
+    max-width: 70rem;
+    margin-inline: auto;
+}
+
+
+// =========================
+// Hero
+// =========================
+
+.group-detail__hero {
+    max-width: 52rem;
+    margin-bottom: 4rem;
+}
+
+.group-detail__label {
+    margin-bottom: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-primary;
+}
+
+.group-detail__title {
+    margin-bottom: 1.8rem;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.1;
+}
+
+.group-detail__intro {
+    margin-bottom: 2rem;
+
+    p {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        line-height: 1.7;
+    }
+}
+
+.group-detail__intro-highlight {
+    font-family: $patka;
+    font-weight: 700;
+}
+
+.group-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    margin: 2rem 0;
+
+    span {
+        font-size: 0.95rem;
+        color: $color-primary;
+    }
+}
+
+
+// =========================
+// CTA / interest
+// =========================
+
+.group-detail__cta {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: $color-bg;
+    border: 1px solid $color-border-soft;
+}
+
+.group-detail__cta-text {
+    margin-bottom: 1.5rem;
+}
+
+.group-detail__price {
+    font-family: $patka;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+// =========================
+// Formulář předběžného zájmu
+// =========================
+
+.group-interest__form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 36rem;
+}
+
+.group-interest__field {
+    display: grid;
+    gap: 0.4rem;
+
+    label {
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        font-family: $bezpatka;
+        font-size: 1rem;
+        color: $color-dark;
+        background-color: $color-bg;
+        border: 1px solid $color-border-soft;
+
+        &:focus {
+            outline: 2px solid $color-accent;
+            outline-offset: 2px;
+        }
+    }
+}
+
+.group-interest__consent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    input {
+        margin-top: 0.25rem;
+    }
+
+    a {
+        color: $color-accent-d;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
+
+
+// =========================
+// Obsah programu
+// =========================
+
+.group-detail__content {
+    max-width: 48rem;
+    margin-inline: auto;
+}
+
+.group-detail__content section {
+    margin-bottom: 4rem;
+}
+
+.group-offer__label {
+    margin-bottom: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-primary;
+}
+
+.group-offer__highlight,
+.group-offer__claim {
+    margin: 2rem 0;
+    padding-left: 1.2rem;
+    border-left: 3px solid $color-accent;
+    font-family: $patka;
+    font-size: 1.15rem;
+}
+
+.group-offer__list {
+    margin: 1.5rem 0 2rem;
+
+    p {
+        margin-bottom: 0.45rem;
+    }
+}
+
+.group-detail__content ul {
+    padding-left: 1.3rem;
+    margin-bottom: 2rem;
+
+    li {
+        margin-bottom: 0.7rem;
+    }
+}
+
+
+// =========================
+// Praktické informace
+// =========================
+
+.group-detail__practical {
+    max-width: 48rem;
+    margin: 4rem auto;
+    padding-top: 3rem;
+    border-top: 1px solid $color-border-soft;
+}
+
+.group-detail__practical-list {
+    margin: 2rem 0;
+
+    div {
+        display: grid;
+        grid-template-columns: 8rem 1fr;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid $color-border-soft;
+    }
+
+    dt {
+        font-weight: 600;
+    }
+
+    dd {
+        margin: 0;
+    }
+}
+
+.group-detail__minimum {
+    font-size: 0.95rem;
+}
+
+
+// =========================
+// Závěr
+// =========================
+
+.group-detail__closing {
+    max-width: 48rem;
+    margin: 5rem auto 0;
+    text-align: center;
+}
+
+.group-detail__closing-question {
+    margin: 2rem 0;
+    font-family: $patka;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    line-height: 1.5;
+}
+
+
+// =========================
+// Mobil
+// =========================
+
+@media screen and (max-width: $tablet-size) {
+
+    .group-detail__hero {
+        margin-bottom: 3rem;
+    }
+
+    .group-detail__cta {
+        padding: 1.4rem;
+    }
+
+    .group-detail__content section {
+        margin-bottom: 3rem;
+    }
+
+    .group-detail__practical-list div {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}

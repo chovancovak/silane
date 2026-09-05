@@ -1,0 +1,324 @@
+{% include "partials/head.njk" %}
+
+{% include "partials/menu.njk" %}
+
+<main class="page">
+
+  <article class="group-detail base__margin">
+
+    <header class="group-detail__hero">
+
+      <p class="group-detail__label">
+        Skupinové koučování
+      </p>
+
+      <h1 class="group-detail__title">
+        {{ title }}
+      </h1>
+
+      <div class="group-detail__intro">
+
+        <p>
+          Práce. Rodina. Domácnost. Lidé, na kterých vám záleží.
+          Věci, které je potřeba zařídit.
+        </p>
+
+        <p>
+          A někde mezi tím vším jste vy.
+        </p>
+
+        <p class="group-detail__intro-highlight">
+          Jenže až bude všechno hotovo, pravděpodobně nepřijde nikdy.
+        </p>
+
+      </div>
+
+
+      <div class="group-detail__meta">
+
+        {% if city %}
+          <span>{{ city }}</span>
+        {% endif %}
+
+        {% if date %}
+          <span>{{ date }}</span>
+        {% endif %}
+
+        {% if time %}
+          <span>{{ time }}</span>
+        {% endif %}
+
+        {% if place %}
+          <span>{{ place }}</span>
+        {% endif %}
+
+        {% if capacity %}
+          <span>Kapacita: {{ capacity }}</span>
+        {% endif %}
+
+      </div>
+
+
+     {% if status == "interest" %}
+
+        <div class="group-detail__cta group-interest">
+
+            <p class="group-detail__cta-text">
+            {{ interest_text }}
+            </p>
+
+            <form
+            name="zajem-skupinove-koucovani"
+            method="POST"
+            data-netlify="true"
+            action="/dekuji-za-zajem/"
+            class="group-interest__form">
+
+            <input
+                type="hidden"
+                name="form-name"
+                value="zajem-skupinove-koucovani">
+
+            <input
+                type="hidden"
+                name="program"
+                value="{{ title }}">
+
+            <div class="group-interest__field">
+
+                <label for="interest-email">
+                E-mail
+                </label>
+
+                <input
+                type="email"
+                id="interest-email"
+                name="email"
+                autocomplete="email"
+                required>
+
+            </div>
+
+            <label class="group-interest__consent">
+
+                <input
+                type="checkbox"
+                name="gdpr-souhlas"
+                value="ano"
+                required>
+
+                <span>
+                Souhlasím se zpracováním své e-mailové adresy
+                za účelem zaslání informace o otevření registrace
+                na toto skupinové koučování.
+                <a href="/gdpr/" target="_blank" rel="noopener">
+                    Více o zpracování osobních údajů
+                </a>.
+                </span>
+
+            </label>
+
+            <button
+                type="submit"
+                class="button button--primary">
+                Dejte mi vědět, až bude termín
+            </button>
+
+            </form>
+
+        </div>
+
+        {% endif %}
+
+    </header>
+
+
+    <div class="group-detail__content">
+      {{ content | safe }}
+    </div>
+
+
+    <section class="group-detail__practical">
+
+      <p class="group-offer__label">
+        Praktické informace
+      </p>
+
+      <h2>
+        Kdy a kde
+      </h2>
+
+      <dl class="group-detail__practical-list">
+
+        {% if date %}
+          <div>
+            <dt>Datum</dt>
+            <dd>{{ date }}</dd>
+          </div>
+        {% endif %}
+
+        {% if time %}
+          <div>
+            <dt>Čas</dt>
+            <dd>{{ time }}</dd>
+          </div>
+        {% endif %}
+
+        {% if place %}
+          <div>
+            <dt>Místo</dt>
+            <dd>{{ place }}</dd>
+          </div>
+        {% elseif city %}
+          <div>
+            <dt>Místo</dt>
+            <dd>{{ city }}</dd>
+          </div>
+        {% endif %}
+
+        {% if capacity %}
+          <div>
+            <dt>Kapacita</dt>
+            <dd>{{ capacity }}</dd>
+          </div>
+        {% endif %}
+
+        {% if price %}
+          <div>
+            <dt>Cena</dt>
+            <dd>{{ price }}</dd>
+          </div>
+        {% endif %}
+
+      </dl>
+
+      <p class="group-detail__minimum">
+        Setkání proběhne při minimálním počtu 4 účastníků.
+      </p>
+
+
+      {% if status == "interest" and interest_url %}
+
+        <a
+          href="{{ interest_url }}"
+          class="button button--primary">
+          Mám zájem
+        </a>
+
+      {% elif status == "open" and registration_url %}
+
+        <a
+          href="{{ registration_url }}"
+          class="button button--primary">
+          Rezervovat místo
+        </a>
+
+      {% endif %}
+
+    </section>
+
+
+    <section class="group-detail__closing">
+
+      <p>
+        Práce možná hotová nebude.
+      </p>
+
+      <p>
+        Domácnost pravděpodobně také ne.
+      </p>
+
+      <p>
+        A další věci budou přibývat.
+      </p>
+
+      <p class="group-detail__closing-question">
+        <strong>
+          Otázka tedy není, kdy bude konečně všechno hotovo.
+          Otázka je: Kdy budete vy?
+        </strong>
+      </p>
+
+
+      {% if status == "interest" %}
+
+        <div class="group-detail__cta group-interest">
+
+            <p class="group-detail__cta-text">
+            {{ interest_text }}
+            </p>
+
+            <form
+            name="zajem-skupinove-koucovani"
+            method="POST"
+            data-netlify="true"
+            action="/dekuji-za-zajem/"
+            class="group-interest__form">
+
+            <input
+                type="hidden"
+                name="form-name"
+                value="zajem-skupinove-koucovani">
+
+            <input
+                type="hidden"
+                name="program"
+                value="{{ title }}">
+
+            <div class="group-interest__field">
+
+                <label for="interest-email">
+                E-mail
+                </label>
+
+                <input
+                type="email"
+                id="interest-email"
+                name="email"
+                autocomplete="email"
+                required>
+
+            </div>
+
+
+            <label class="group-interest__consent">
+
+                <input
+                type="checkbox"
+                name="gdpr-souhlas"
+                value="ano"
+                required>
+
+                <span>
+                Souhlasím se zpracováním své e-mailové adresy
+                za účelem zaslání informace o otevření registrace
+                na toto skupinové koučování.
+                <a href="/gdpr/" target="_blank">
+                    Více o zpracování osobních údajů
+                </a>.
+                </span>
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="button button--primary">
+                Dejte mi vědět, až bude termín
+            </button>
+
+            </form>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+  </article>
+
+</main>
+
+{% include "partials/footer.njk" %}
+
+</html>
