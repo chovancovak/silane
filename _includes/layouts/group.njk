@@ -40,8 +40,8 @@
           <span>{{ city }}</span>
         {% endif %}
 
-        {% if date %}
-          <span>{{ date }}</span>
+        {% if event_date %}
+          <span>{{ event_date }}</span>
         {% endif %}
 
         {% if time %}
@@ -59,15 +59,15 @@
       </div>
 
 
-     {% if status == "interest" %}
+      {% if status == "interest" %}
 
         <div class="group-detail__cta group-interest">
 
-            <p class="group-detail__cta-text">
+          <p class="group-detail__cta-text">
             {{ interest_text }}
-            </p>
+          </p>
 
-            <form
+          <form
             name="zajem-skupinove-koucovani"
             method="POST"
             data-netlify="true"
@@ -75,22 +75,22 @@
             class="group-interest__form">
 
             <input
-                type="hidden"
-                name="form-name"
-                value="zajem-skupinove-koucovani">
+              type="hidden"
+              name="form-name"
+              value="zajem-skupinove-koucovani">
 
             <input
-                type="hidden"
-                name="program"
-                value="{{ title }}">
+              type="hidden"
+              name="program"
+              value="{{ title }}">
 
             <div class="group-interest__field">
 
-                <label for="interest-email">
+              <label for="interest-email">
                 E-mail
-                </label>
+              </label>
 
-                <input
+              <input
                 type="email"
                 id="interest-email"
                 name="email"
@@ -101,34 +101,68 @@
 
             <label class="group-interest__consent">
 
-                <input
+              <input
                 type="checkbox"
                 name="gdpr-souhlas"
                 value="ano"
                 required>
 
-                <span>
+              <span>
                 Souhlasím se zpracováním své e-mailové adresy
                 za účelem zaslání informace o otevření registrace
                 na toto skupinové koučování.
                 <a href="/gdpr/" target="_blank" rel="noopener">
-                    Více o zpracování osobních údajů
+                  Více o zpracování osobních údajů
                 </a>.
-                </span>
+              </span>
 
             </label>
 
             <button
-                type="submit"
-                class="button button--primary">
-                Dejte mi vědět, až bude termín
+              type="submit"
+              class="button button--primary">
+              Dejte mi vědět, až bude termín
             </button>
 
-            </form>
+          </form>
 
         </div>
 
-        {% endif %}
+
+      {% elif status == "open" %}
+
+        <div class="group-detail__cta">
+
+          <p class="group-detail__cta-text">
+            Registrace je otevřená.
+          </p>
+
+          {% if price %}
+            <p class="group-detail__price">
+              {{ price }}
+            </p>
+          {% endif %}
+
+          <a
+            href="#registrace"
+            class="button button--primary">
+            Chci se přihlásit
+          </a>
+
+        </div>
+
+
+      {% elif status == "closed" %}
+
+        <div class="group-detail__cta">
+
+          <p class="group-detail__cta-text">
+            Tento termín je právě uzavřený.
+          </p>
+
+        </div>
+
+      {% endif %}
 
     </header>
 
@@ -150,10 +184,10 @@
 
       <dl class="group-detail__practical-list">
 
-        {% if date %}
+        {% if event_date %}
           <div>
             <dt>Datum</dt>
-            <dd>{{ date }}</dd>
+            <dd>{{ event_date }}</dd>
           </div>
         {% endif %}
 
@@ -167,8 +201,16 @@
         {% if place %}
           <div>
             <dt>Místo</dt>
-            <dd>{{ place }}</dd>
+            <dd>
+              {{ place }}
+
+              {% if address %}
+                <br>
+                {{ address }}
+              {% endif %}
+            </dd>
           </div>
+
         {% elseif city %}
           <div>
             <dt>Místo</dt>
@@ -196,26 +238,254 @@
         Setkání proběhne při minimálním počtu 4 účastníků.
       </p>
 
-
-      {% if status == "interest" and interest_url %}
-
-        <a
-          href="{{ interest_url }}"
-          class="button button--primary">
-          Mám zájem
-        </a>
-
-      {% elif status == "open" and registration_url %}
-
-        <a
-          href="{{ registration_url }}"
-          class="button button--primary">
-          Rezervovat místo
-        </a>
-
-      {% endif %}
-
     </section>
+
+
+    {% if status == "open" %}
+
+      <section class="group-registration" id="registrace">
+
+        <p class="group-offer__label">
+          Registrace
+        </p>
+
+        <h2>
+          Chci se přihlásit
+        </h2>
+
+        <p>
+          Odesláním formuláře se závazně registrujete na skupinové koučování
+          <strong>{{ title }}</strong>.
+        </p>
+
+        <p>
+          Místo je potvrzené po uhrazení ceny
+          <strong>{{ price }}</strong> do 5 pracovních dnů od registrace.
+          Pokud platba nepřijde, po připomenutí může registrace zaniknout.
+        </p>
+
+
+        <div class="group-registration__conditions">
+
+          <h3>
+            Storno podmínky
+          </h3>
+
+          <ul>
+
+            <li>
+              Při zrušení více než 7 dní před setkáním
+              vám vrátím celou uhrazenou částku.
+            </li>
+
+            <li>
+              Při zrušení méně než 7 dní před setkáním
+              je částka nevratná,
+              ale své místo můžete převést na jiného člověka.
+            </li>
+
+            <li>
+              Pokud setkání zruším já
+              nebo se nenaplní minimální počet 4 účastníků,
+              vrátím vám celou uhrazenou částku.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <form
+          name="registrace-skupinove-koucovani"
+          method="POST"
+          data-netlify="true"
+          action="/dekuji-za-registraci/"
+          class="group-registration__form">
+
+          <input
+            type="hidden"
+            name="form-name"
+            value="registrace-skupinove-koucovani">
+
+          <input
+            type="hidden"
+            name="program"
+            value="{{ title }}">
+
+          <input
+            type="hidden"
+            name="termin"
+            value="{{ event_date }} {{ time }}">
+
+
+          <div class="group-registration__field">
+
+            <label for="registration-name">
+              Jméno a příjmení
+            </label>
+
+            <input
+              type="text"
+              id="registration-name"
+              name="jmeno"
+              autocomplete="name"
+              required>
+
+          </div>
+
+
+          <div class="group-registration__field">
+
+            <label for="registration-email">
+              E-mail
+            </label>
+
+            <input
+              type="email"
+              id="registration-email"
+              name="email"
+              autocomplete="email"
+              required>
+
+          </div>
+
+
+          <div class="group-registration__field">
+
+            <label for="registration-phone">
+              Telefon
+            </label>
+
+            <input
+              type="tel"
+              id="registration-phone"
+              name="telefon"
+              autocomplete="tel"
+              required>
+
+          </div>
+
+
+          <div class="group-registration__field">
+
+            <label for="registration-expectation">
+              Co byste si ze setkání chtěli odnést?
+            </label>
+
+            <p class="group-registration__hint">
+              Stačí pár slov.
+            </p>
+
+            <textarea
+              id="registration-expectation"
+              name="ocekavani"
+              rows="5"></textarea>
+
+          </div>
+
+
+          <details class="group-registration__invoice">
+
+            <summary>
+              Potřebuji vystavit fakturu
+            </summary>
+
+            <p class="group-registration__hint">
+              Následující údaje vyplňte pouze tehdy,
+              pokud fakturu potřebujete.
+            </p>
+
+            <div class="group-registration__field">
+
+              <label for="invoice-name">
+                Jméno / název odběratele
+              </label>
+
+              <input
+                type="text"
+                id="invoice-name"
+                name="fakturacni_jmeno">
+
+            </div>
+
+
+            <div class="group-registration__field">
+
+              <label for="invoice-address">
+                Fakturační adresa
+              </label>
+
+              <input
+                type="text"
+                id="invoice-address"
+                name="fakturacni_adresa"
+                autocomplete="street-address">
+
+            </div>
+
+
+            <div class="group-registration__field">
+
+              <label for="invoice-ico">
+                IČO, pokud se vás týká
+              </label>
+
+              <input
+                type="text"
+                id="invoice-ico"
+                name="ico">
+
+            </div>
+
+          </details>
+
+
+          <label class="group-registration__consent">
+
+            <input
+              type="checkbox"
+              name="souhlas-podminky"
+              value="ano"
+              required>
+
+            <span>
+              Souhlasím s uvedenými podmínkami registrace
+              a storno podmínkami.
+            </span>
+
+          </label>
+
+
+          <label class="group-registration__consent">
+
+            <input
+              type="checkbox"
+              name="gdpr-potvrzeni"
+              value="ano"
+              required>
+
+            <span>
+              Beru na vědomí zpracování osobních údajů
+              pro účely registrace, organizace setkání a související komunikace.
+              <a href="/gdpr/" target="_blank" rel="noopener">
+                Více o zpracování osobních údajů
+              </a>.
+            </span>
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="button button--primary">
+            Závazně se přihlásit
+          </button>
+
+        </form>
+
+      </section>
+
+    {% endif %}
 
 
     <section class="group-detail__closing">
@@ -240,78 +510,15 @@
       </p>
 
 
-      {% if status == "interest" %}
+      {% if status == "open" %}
 
-        <div class="group-detail__cta group-interest">
+        <a
+          href="#registrace"
+          class="button button--primary">
+          Chci se přihlásit
+        </a>
 
-            <p class="group-detail__cta-text">
-            {{ interest_text }}
-            </p>
-
-            <form
-            name="zajem-skupinove-koucovani"
-            method="POST"
-            data-netlify="true"
-            action="/dekuji-za-zajem/"
-            class="group-interest__form">
-
-            <input
-                type="hidden"
-                name="form-name"
-                value="zajem-skupinove-koucovani">
-
-            <input
-                type="hidden"
-                name="program"
-                value="{{ title }}">
-
-            <div class="group-interest__field">
-
-                <label for="interest-email">
-                E-mail
-                </label>
-
-                <input
-                type="email"
-                id="interest-email"
-                name="email"
-                autocomplete="email"
-                required>
-
-            </div>
-
-
-            <label class="group-interest__consent">
-
-                <input
-                type="checkbox"
-                name="gdpr-souhlas"
-                value="ano"
-                required>
-
-                <span>
-                Souhlasím se zpracováním své e-mailové adresy
-                za účelem zaslání informace o otevření registrace
-                na toto skupinové koučování.
-                <a href="/gdpr/" target="_blank">
-                    Více o zpracování osobních údajů
-                </a>.
-                </span>
-
-            </label>
-
-
-            <button
-                type="submit"
-                class="button button--primary">
-                Dejte mi vědět, až bude termín
-            </button>
-
-            </form>
-
-        </div>
-
-        {% endif %}
+      {% endif %}
 
     </section>
 

@@ -132,7 +132,125 @@
         }
     }
 }
+// =========================
+// Registrační formulář
+// =========================
 
+.group-registration {
+    max-width: 48rem;
+    margin: 4rem auto;
+    padding: 3rem;
+    background-color: $color-bg;
+    border: 1px solid $color-border-soft;
+}
+
+.group-registration__form {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.group-registration__field {
+    display: grid;
+    gap: 0.45rem;
+
+    label {
+        font-weight: 600;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        font-family: $bezpatka;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $color-dark;
+        background-color: $color-bg;
+        border: 1px solid $color-border-soft;
+
+        &:focus {
+            outline: 2px solid $color-accent;
+            outline-offset: 2px;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 8rem;
+    }
+}
+
+.group-registration__hint {
+    margin: -0.1rem 0 0.2rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.group-registration__conditions {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: $color-bg-soft;
+    border-left: 3px solid $color-accent;
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 1.3rem;
+    }
+
+    li {
+        margin-bottom: 0.7rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.group-registration__invoice {
+    padding: 1.2rem 1.4rem;
+    border: 1px solid $color-border-soft;
+
+    summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: $color-accent-d;
+    }
+
+    &[open] summary {
+        margin-bottom: 1.2rem;
+    }
+
+    .group-registration__field + .group-registration__field {
+        margin-top: 1rem;
+    }
+}
+
+.group-registration__consent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    input {
+        margin-top: 0.25rem;
+    }
+
+    a {
+        color: $color-accent-d;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
 
 // =========================
 // Obsah programu
@@ -258,5 +376,9 @@
     .group-detail__practical-list div {
         grid-template-columns: 1fr;
         gap: 0.2rem;
+    }
+
+    .group-registration {
+        padding: 1.4rem;
     }
 }

@@ -4,7 +4,7 @@
 
 Tento dokument slouží jako stručná dokumentace projektu pro práci s ChatGPT.
 
-Aktualizováno: 31. 8. 2026
+Aktualizováno: 5. 9. 2026
 
 ---
 
@@ -84,6 +84,7 @@ _includes/layouts/
 - nedelnik-detail.njk
 - interview.njk
 - main.njk
+- group.njk
 
 ## Partials
 
@@ -103,6 +104,8 @@ nedelniky/
 interview/
 
 img/
+
+skupiny/
 
 ---
 
@@ -143,6 +146,10 @@ Rozhovory – detail jednotlivého rozhovoru
 layout:
 
 layouts/interview.njk
+
+layout:
+
+layouts/group.njk
 
 ---
 
@@ -304,6 +311,76 @@ scss/style.scss
 Výstup:
 
 css/style.css
+
+## SCSS soubory
+
+scss/
+
+- _article.scss  
+  styly detailu blogového článku
+
+- _base.scss  
+  globální základ webu – body, nadpisy, odstavce, odkazy, obrázky, základní utility a obecné rozložení
+
+- _blog.scss  
+  hlavní stránka blogu a karty článků
+
+- _dekuji.scss  
+  společné styly děkovacích stránek
+
+- _footer.scss  
+  patička webu
+
+- _gdpr.scss  
+  stránka ochrany osobních údajů
+
+- _group.scss  
+  detail konkrétního skupinového koučování; hero, metadata, CTA, formuláře, obsah programu, praktické informace a závěr
+
+- _header.scss  
+  hlavička webu
+
+- _homepage.scss  
+  domovská stránka
+
+- _interview.scss  
+  detail jednotlivého rozhovoru
+
+- _kontakt.scss  
+  kontaktní stránka
+
+- _koucovani.scss  
+  stránka individuálního koučování
+
+- _menu.scss  
+  hlavní navigace
+
+- _nes_svet.scss  
+  hlavní stránka rozhovorové série „Nes svět, neztrať sebe“
+
+- _newsletter.scss  
+  hlavní stránka Nedělníku / newsletteru
+
+- _o_mne.scss  
+  stránka O mně
+
+- _potvrdte.scss  
+  stránka související s potvrzením odběru / formulářovým procesem
+
+- _recenze.scss  
+  stránka / sekce recenzí
+
+- _skupiny.scss  
+  hlavní stránka /skupiny/; intro, seznam programů, karty programů a vysvětlení skupinového koučování
+
+- _uvodni_hodina.scss  
+  styly sekcí a prvků souvisejících s úvodní hodinou koučování
+
+- _variables.scss  
+  globální SCSS proměnné – barvy, fonty, breakpointy, šířky, odsazení apod.
+
+- style.scss  
+  hlavní SCSS soubor; importuje jednotlivé partialy a kompiluje se do /css/style.css
 
 Nové proměnné přidávat do:
 
@@ -520,6 +597,277 @@ Nejnovější rozhovor je automaticky použit jako featured.
 Karty a featured blok odkazují na vlastní detail rozhovoru.
 
 
+# Skupinové koučování
+
+Hlavní stránka:
+
+/skupiny/
+
+Soubor:
+
+skupiny.html
+
+Hlavní stránka zobrazuje aktuální nabídku skupinového koučování.
+
+Jednotlivé programy jsou v:
+
+skupiny/
+
+Například:
+
+skupiny/001-kdy-budu-ja.html
+
+Každý program:
+
+- má vlastní URL
+- používá layouts/group.njk
+- patří do kolekce skupiny
+- má vlastní SEO title a description
+- může být ve stavu interest / open / closed
+- zobrazuje se na /skupiny/ pouze pokud není closed
+
+
+## Stavy programu
+
+Pole:
+
+status
+
+má tři možné hodnoty:
+
+interest
+
+- termín ještě není známý
+- sbírá se předběžný zájem
+- na detailu programu se zobrazuje jednoduchý formulář pro e-mail
+- člověk pouze žádá o informaci, až bude otevřená závazná registrace
+
+open
+
+- termín, čas, místo a cena jsou známé
+- běží závazná registrace
+- později bude doplněn samostatný registrační formulář
+- bude mít vlastní děkovací stránku
+
+closed
+
+- aktuálně se nelze přihlásit
+- program se nezobrazuje na hlavní stránce /skupiny/
+- detail programu může zůstat veřejně dostupný
+- program lze později znovu přepnout na interest nebo open
+
+
+## Hlavní stránka /skupiny/
+
+Soubor:
+
+skupiny.html
+
+Načítá programy z:
+
+collections.skupiny
+
+Používá:
+
+{% set skupiny = collections.skupiny | reverse %}
+
+Programy se na stránce zobrazují pouze pokud:
+
+status != "closed"
+
+
+## Detail programu
+
+Layout:
+
+_includes/layouts/group.njk
+
+Layout zajišťuje:
+
+- společné hero pro skupinové koučování
+- název programu
+- město, datum, čas, místo, kapacitu a cenu
+- správné CTA podle statusu
+- formulář předběžného zájmu ve stavu interest
+- budoucí registraci ve stavu open
+- stav closed bez registračního CTA
+- praktické informace
+- závěrečnou CTA sekci
+
+Vlastní obsah programu je v souboru programu a layout ho vykresluje přes:
+
+{{ content | safe }}
+
+
+## Doporučený front matter programu
+
+---
+layout: layouts/group.njk
+
+title: ""
+seoTitle: ""
+description: ""
+
+number: ""
+status: interest
+
+city: ""
+date: ""
+time: ""
+place: ""
+capacity: ""
+price: ""
+
+perex: ""
+
+interest_text: ""
+registration_url: ""
+
+thumbnail: ""
+
+tags: skupiny
+date_order: YYYY-MM-DD
+permalink: "/skupiny/slug/"
+code: skupiny
+---
+
+
+## Předběžný zájem
+
+Ve stavu:
+
+status: interest
+
+se na stránce programu zobrazuje jednoduchý Netlify formulář.
+
+Formulář sbírá:
+
+- e-mail
+- souhlas se zpracováním údajů
+- skryté pole s názvem programu
+
+Název formuláře:
+
+zajem-skupinove-koucovani
+
+Po odeslání vede na:
+
+/dekuji-za-zajem/
+
+E-mail z tohoto formuláře se nepřidává automaticky do Nepravidelného Nedělníku.
+
+Účel je pouze:
+
+zaslat informaci, že byla otevřena závazná registrace na konkrétní skupinové koučování.
+
+Zpracování osobních údajů je popsáno na:
+
+/gdpr/
+
+
+## Budoucí registrace – open
+
+Až se program přepne na:
+
+status: open
+
+bude potřeba doplnit:
+
+- datum
+- čas
+- konkrétní místo
+- cenu
+- registrační formulář
+- děkovací stránku pro závaznou registraci
+- případně další praktické podmínky
+
+Registrační formulář se bude řešit až ve chvíli, kdy bude znám konkrétní termín.
+
+Nepřidávat složitější registrační systém, pokud není potřeba.
+
+
+## SCSS pro skupinové koučování
+
+scss/_skupiny.scss
+
+Styly hlavní stránky:
+
+/skupiny/
+
+Obsahuje zejména:
+
+- intro hlavní stránky
+- seznam programů
+- grid karet
+- group-card
+- sekci vysvětlující princip skupinového koučování
+
+
+scss/_group.scss
+
+Styly detailu jednotlivého programu.
+
+Obsahuje zejména:
+
+- hero detailu programu
+- metadata programu
+- CTA blok
+- formulář předběžného zájmu
+- obsah jednotlivých sekcí programu
+- praktické informace
+- závěrečnou CTA sekci
+
+Formulář:
+
+.group-interest__form
+
+patří do:
+
+_group.scss
+
+protože je součástí detailu konkrétního programu.
+
+
+Oba soubory se importují v:
+
+scss/style.scss
+
+například:
+
+@import 'skupiny';
+@import 'group';
+
+
+## Aktuální první program
+
+Soubor:
+
+skupiny/001-kdy-budu-ja.html
+
+URL:
+
+/skupiny/kdy-budu-ja/
+
+Název:
+
+Hotovo nebude nikdy. Tak kdy budu já?
+
+Aktuální stav:
+
+interest
+
+Místo:
+
+Sedlčany
+
+Konkrétní termín a místo budou doplněny později.
+
+První komunikace probíhá přes Nepravidelný Nedělník.
+
+Po otevření registrace se program přepne na:
+
+status: open
+
 # Nedělník
 
 Nedělníky jsou archiv newsletterů z Ecomailu. Není veřejný, ale jen pro ty, co se zapíšou k odběru.
@@ -601,3 +949,11 @@ generovat hreflang
 používat x-default
 
 - doplnit descrtiption do nedelniku
+
+Skupinové koučování
+
+- doplnit registrační formulář pro status open
+- vytvořit děkovací stránku po závazné registraci
+- doplnit konkrétní datum, čas a místo programu
+- otestovat Netlify Forms po deployi
+- nastavit e-mailové upozornění na nové formulářové odpovědi v Netlify
