@@ -1,3 +1,27 @@
+// ==================================================
+// NEDĚLNÍK
+//
+// Tento soubor obsahuje styly pro:
+// 1) veřejnou stránku /nedelnik/
+//    - třídy .nedelnik...
+//
+// 2) přehled starších Nedělníků /prehled_nedelnik/
+//    - třídy .zapisnik...
+//    - třídy .newsletter-card...
+//
+// Veřejné ukázky Nedělníků mají vlastní:
+// _nedelnik-sample.scss
+//
+// Detail jednotlivého Nedělníku používá:
+// layouts/nedelnik-detail.njk
+// a třídy .article-detail...
+// ==================================================
+
+
+// ===========================
+// Přehled starších Nedělníků
+// ===========================
+
 .newsletter-card {
     margin-bottom: clamp(3rem, 10vw, 6rem); 
     border-bottom: 1px solid $color-border-soft;
@@ -7,7 +31,6 @@
         border-bottom: none;
     }
 
-    // Tady všude doplňujeme "&" před dvě podtržítka:
     &__date {
         display: block;
         font-family: $bezpatka;
@@ -56,5 +79,221 @@
             transform: translateX(5px);
             color: $color-accent;
         }
+    }
+}
+
+
+// ===========================
+// Hlavní stránka Nedělníku
+// ===========================
+
+.nedelnik {
+    max-width: 70rem;
+    margin-inline: auto;
+}
+
+.nedelnik__inner {
+    max-width: 58rem;
+}
+
+
+// ===========================
+// Intro
+// ===========================
+
+.nedelnik__intro {
+    max-width: 48rem;
+    margin-bottom: 4rem;
+}
+
+.nedelnik__label {
+    margin-bottom: 0.7rem;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: $color-primary;
+}
+
+.nedelnik__title {
+    margin-bottom: 1.5rem;
+
+    font-family: $patka;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+
+    color: $color-accent-d;
+}
+
+.nedelnik__lead {
+    margin-bottom: 1rem;
+
+    font-family: $patka;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.6;
+
+    color: $color-accent-d;
+}
+
+.nedelnik__text {
+    max-width: 46rem;
+
+    font-size: clamp(1rem, 1.8vw, 1.05rem);
+    line-height: 1.7;
+
+    color: $color-dark;
+}
+
+
+// ===========================
+// Ukázky
+// ===========================
+
+.nedelnik__samples {
+    margin-bottom: 4.5rem;
+}
+
+.nedelnik__samples-title {
+    margin-bottom: 0.7rem;
+
+    font-family: $patka;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+
+    color: $color-accent-d;
+}
+
+.nedelnik__samples-text {
+    margin-bottom: 1.5rem;
+
+    font-family: $bezpatka;
+    color: $color-dark;
+}
+
+.nedelnik-samples__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.nedelnik-samples__item {
+    display: block;
+
+    padding: 1.2rem 1.4rem;
+
+    background: $color-bg;
+    border: 1px solid $color-border-soft;
+    border-radius: $radius-md;
+
+    font-family: $patka;
+    font-size: clamp(1.05rem, 2vw, 1.15rem);
+    line-height: 1.45;
+
+    color: $color-accent-d;
+    text-decoration: none;
+
+    transition:
+        transform 0.15s ease-out,
+        box-shadow 0.15s ease-out;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-soft;
+    }
+}
+
+
+// ===========================
+// Přihlášení
+// ===========================
+
+.nedelnik-signup {
+    max-width: 48rem;
+
+    padding: clamp(2rem, 5vw, 3rem);
+
+    background: $color-bg-soft;
+    border-radius: $radius-lg;
+}
+
+.nedelnik-signup__title {
+    margin-bottom: 1rem;
+
+    font-family: $patka;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+
+    color: $color-accent-d;
+}
+
+.nedelnik-signup__form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    margin: 2rem 0 1rem;
+}
+
+.nedelnik-signup__input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0.8rem 1.2rem;
+
+    border: 1px solid $color-border-soft;
+    border-radius: 999px;
+
+    background: $color-bg;
+    color: $color-dark;
+
+    font-family: $bezpatka;
+    font-size: 1rem;
+
+    &:focus {
+        outline: 2px solid $color-accent;
+        outline-offset: 2px;
+    }
+}
+
+.nedelnik-signup__note {
+    margin: 0;
+
+    font-family: $patka;
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    color: rgba($color-dark, 0.7);
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-accent-d;
+        }
+    }
+}
+
+
+// ===========================
+// Mobil
+// ===========================
+
+@media screen and (max-width: 600px) {
+
+    .nedelnik__intro {
+        margin-bottom: 3rem;
+    }
+
+    .nedelnik__samples {
+        margin-bottom: 3rem;
+    }
+
+    .nedelnik-signup {
+        padding: 1.5rem;
+    }
+
+    .nedelnik-signup__form {
+        flex-direction: column;
+        align-items: stretch;
     }
 }

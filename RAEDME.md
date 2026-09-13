@@ -4,7 +4,7 @@
 
 Tento dokument slouží jako stručná dokumentace projektu pro práci s ChatGPT.
 
-Aktualizováno: 5. 9. 2026
+Aktualizováno: 13. 9. 2026
 
 ---
 
@@ -82,6 +82,7 @@ _includes/layouts/
 - page.njk
 - article.njk
 - nedelnik-detail.njk
+- nedelnik-samle.njk
 - interview.njk
 - main.njk
 - group.njk
@@ -98,6 +99,8 @@ _includes/partials/
 ## Obsah
 
 blog/
+
+nedelnik-ukazky/
 
 nedelniky/
 
@@ -140,6 +143,12 @@ Nedělník
 layout:
 
 layouts/nedelnik-detail.njk
+
+Nedělník - veřejné ukázky
+
+layout:
+
+layouts/nedelnik-sample.njk
 
 Rozhovory – detail jednotlivého rozhovoru
 
@@ -637,24 +646,22 @@ má tři možné hodnoty:
 
 interest
 
-- termín ještě není známý
-- sbírá se předběžný zájem
-- na detailu programu se zobrazuje jednoduchý formulář pro e-mail
-- člověk pouze žádá o informaci, až bude otevřená závazná registrace
+není známý nebo otevřený konkrétní termín
+sbírá se pouze předběžný zájem
+formulář sbírá e-mail
+účastník není automaticky přidán do Nedělníku
 
 open
 
-- termín, čas, místo a cena jsou známé
-- běží závazná registrace
-- později bude doplněn samostatný registrační formulář
-- bude mít vlastní děkovací stránku
+registrace je otevřená
+známý termín, čas, místo, kapacita a cena
+používá se závazný registrační formulář
 
 closed
 
-- aktuálně se nelze přihlásit
-- program se nezobrazuje na hlavní stránce /skupiny/
-- detail programu může zůstat veřejně dostupný
-- program lze později znovu přepnout na interest nebo open
+registrace je uzavřená
+program se nezobrazuje na hlavní stránce /skupiny/
+detail může zůstat dostupný
 
 
 ## Hlavní stránka /skupiny/
@@ -765,26 +772,6 @@ Zpracování osobních údajů je popsáno na:
 /gdpr/
 
 
-## Budoucí registrace – open
-
-Až se program přepne na:
-
-status: open
-
-bude potřeba doplnit:
-
-- datum
-- čas
-- konkrétní místo
-- cenu
-- registrační formulář
-- děkovací stránku pro závaznou registraci
-- případně další praktické podmínky
-
-Registrační formulář se bude řešit až ve chvíli, kdy bude znám konkrétní termín.
-
-Nepřidávat složitější registrační systém, pokud není potřeba.
-
 
 ## SCSS pro skupinové koučování
 
@@ -837,7 +824,6 @@ například:
 @import 'skupiny';
 @import 'group';
 
-
 ## Aktuální první program
 
 Soubor:
@@ -850,27 +836,51 @@ URL:
 
 Název:
 
-Hotovo nebude nikdy. Tak kdy budu já?
+**Hotovo nebude nikdy. Tak kdy budu já?**
 
 Aktuální stav:
 
-interest
-
-Místo:
-
-Sedlčany
-
-Konkrétní termín a místo budou doplněny později.
-
-První komunikace probíhá přes Nepravidelný Nedělník.
-
-Po otevření registrace se program přepne na:
-
+yaml
 status: open
+
 
 # Nedělník
 
-Nedělníky jsou archiv newsletterů z Ecomailu. Není veřejný, ale jen pro ty, co se zapíšou k odběru.
+Obsahuje:
+
+základní vysvětlení Nedělníku
+tři veřejné ukázky
+přihlašovací formulář do Ecomailu
+
+Nedělník je newsletter pro lidi, kteří toho hodně nesou a nechtějí v tom ztratit sami sebe.
+
+Chodí přibližně jednou za 3–4 týdny.
+
+Veřejné ukázky
+
+Veřejně jsou dostupné pouze vybrané Nedělníky:
+
+Co se stane, když něco neudělám?
+Odvíjí se naše hodnota od toho, kolik toho uneseme?
+Buď o krok pozadu
+
+Ukázky mají vlastní HTML soubory a používají:
+layouts/nedelnik-sample.njk
+Veřejné URL mají strukturu: /nedelnik/ukazky/...
+
+Veřejné ukázky:
+
+nemají navigaci do neveřejného archivu
+na konci obsahují výzvu k přihlášení do Nedělníku
+mohou být indexované vyhledávači
+nesmí vytvářet cestu k ostatním archivním Nedělníkům
+
+Styly veřejných ukázek jsou v:
+scss/_nedelnik-sample.scss
+
+Archiv Nedělníků
+
+Ostatní Nedělníky jsou archiv newsletterů z Ecomailu.
 
 Nejsou určeny jako klasické webové stránky.
 
@@ -952,8 +962,6 @@ používat x-default
 
 Skupinové koučování
 
-- doplnit registrační formulář pro status open
-- vytvořit děkovací stránku po závazné registraci
-- doplnit konkrétní datum, čas a místo programu
+
 - otestovat Netlify Forms po deployi
 - nastavit e-mailové upozornění na nové formulářové odpovědi v Netlify

@@ -1,0 +1,79 @@
+{% include "partials/head.njk" %}
+
+{% include "partials/menu.njk" %}
+
+<main class="page">
+
+  <article class="nedelnik-sample">
+
+    {{ content | safe }}
+
+    <section class="nedelnik-sample__cta base__margin">
+
+      <div class="nedelnik-sample__cta-inner">
+
+        <p class="nedelnik-sample__label">
+          Nedělník
+        </p>
+
+        <h2 class="nedelnik-sample__title">
+          Chcete dostávat další?
+        </h2>
+
+        <p class="nedelnik-sample__text">
+          Nedělník je newsletter pro lidi, kteří toho hodně nesou
+          a nechtějí v tom ztratit sami sebe.
+          Jednou za tři až čtyři týdny přináší jednu myšlenku
+          a několik otázek, které vám nepomohou zvládnout víc,
+          ale všimnout si, co už možná zvládat nemusíte.
+        </p>
+
+        <form
+          action="https://silane.ecomailapp.cz/public/subscribe/2/2bb287d15897fe2f9d89c882af9a3a8b"
+          method="post"
+          class="nedelnik-sample__form">
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Váš e-mail"
+            required
+            class="nedelnik-sample__input">
+
+          <input
+            type="hidden"
+            name="after_subscribe_url"
+            value="https://silane.cz/potvrdte/">
+
+          <input
+            type="hidden"
+            name="id"
+            value="2">
+
+          <button
+            type="submit"
+            class="button button--primary">
+            Chci odebírat Nedělník
+          </button>
+
+        </form>
+
+        <p class="nedelnik-sample__note">
+          Zápisem souhlasíte se
+          <a href="/gdpr/">
+            zpracováním osobních údajů
+          </a>.
+          Z odběru se můžete kdykoliv odhlásit.
+        </p>
+
+      </div>
+
+    </section>
+
+  </article>
+
+</main>
+
+{% include "partials/footer.njk" %}
+
+</html>

@@ -76,6 +76,21 @@
     margin-top: 2rem;
   }
 
+  &__cta {
+  margin: 0 0 3rem;
+  padding-top: 0.5rem;
+}
+
+&__cta-text {
+  max-width: 32rem;
+  margin: 0 auto 1.2rem;
+
+  font-family: $bezpatka;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: $color-dark;
+}
+
   &__social {
     display: flex;
     gap: 3rem;
