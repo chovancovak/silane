@@ -1,17 +1,102 @@
+
 /* ===========================
-   Footer (minimalistický)
+   Footer
    =========================== */
 
 .footer {
-  padding-top: clamp(1rem, 3vw, 1.5rem);
-  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2rem);
+
+  border-top: 1px solid $color-border-soft;
+}
+
+.footer__projects {
+  display: grid;
+  gap: 2rem;
+
+  max-width: 60rem;
+  margin: 0 auto 2.5rem;
+}
+
+.footer__group {
+  text-align: left;
+}
+
+.footer__heading {
+  margin-bottom: 0.8rem;
+
+  font-family: $bezpatka;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  color: $color-primary;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.footer__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer__item + .footer__item {
+  margin-top: 0.7rem;
+}
+
+.footer__link {
+  font-family: $patka;
+  font-size: 1rem;
+
+  color: $color-accent-d;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent;
+    text-decoration: underline;
+  }
+}
+
+.footer__description {
+  font-family: $bezpatka;
+  font-size: 0.85rem;
+
+  color: $color-dark;
+  opacity: 0.65;
+}
+
+.footer__bottom {
+  padding-top: 1.5rem;
+
   border-top: 1px solid $color-border-soft;
   text-align: center;
 }
 
 .footer__copy {
+  margin: 0;
+
   font-family: $bezpatka;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+
   color: $color-dark;
-  opacity: 0.8;
+  opacity: 0.7;
 }
+
+
+@media screen and (min-width: $tablet-size) {
+
+  .footer__projects {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+

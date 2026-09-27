@@ -1681,6 +1681,14 @@ header {
   letter-spacing: 0.04em;
   color: #22282B !important;
 }
+.package .package__badge--soft {
+  margin: -6px 0 14px !important;
+  padding: 4px 9px;
+  background: rgba(224, 177, 31, 0.18);
+  font-size: 0.68rem !important;
+  font-weight: 600;
+  color: #4B3C29 !important;
+}
 
 .packages-footer {
   display: flex;
@@ -3792,18 +3800,88 @@ header {
 }
 
 /* ===========================
-   Footer (minimalistický)
+   Footer
    =========================== */
 .footer {
-  padding-top: clamp(1rem, 3vw, 1.5rem);
-  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2rem);
+  border-top: 1px solid #D9CDBE;
+}
+
+.footer__projects {
+  display: grid;
+  gap: 2rem;
+  max-width: 60rem;
+  margin: 0 auto 2.5rem;
+}
+
+.footer__group {
+  text-align: left;
+}
+
+.footer__heading {
+  margin-bottom: 0.8rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7A6247;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.footer__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer__item + .footer__item {
+  margin-top: 0.7rem;
+}
+
+.footer__link {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1rem;
+  color: #4B3C29;
+  text-decoration: none;
+}
+.footer__link:hover {
+  color: #E0B11F;
+  text-decoration: underline;
+}
+
+.footer__description {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  color: #22282B;
+  opacity: 0.65;
+}
+
+.footer__bottom {
+  padding-top: 1.5rem;
   border-top: 1px solid #D9CDBE;
   text-align: center;
 }
 
 .footer__copy {
+  margin: 0;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #22282B;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__projects {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
 }/*# sourceMappingURL=style.css.map */

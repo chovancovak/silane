@@ -275,6 +275,18 @@
     letter-spacing: 0.04em;
     color: $color-dark !important;
   }
+
+  .package__badge--soft {
+    margin: -6px 0 14px !important;
+    padding: 4px 9px;
+
+    background: rgba($color-accent, 0.18);
+
+    font-size: 0.68rem !important;
+    font-weight: 600;
+
+    color: $color-accent-d !important;
+  }
 }
 
 .packages-footer {
